@@ -185,6 +185,8 @@ export function buoyG(kind, cx, cy) {
   const sp = [...Array(10)].map((_, i) => { const a = i * Math.PI / 5, x1 = cx + Math.cos(a) * 11, y1 = cy + Math.sin(a) * 11, x2 = cx + Math.cos(a) * 19, y2 = cy + Math.sin(a) * 19; return `<path d="M${x1.toFixed(1)} ${y1.toFixed(1)}L${x2.toFixed(1)} ${y2.toFixed(1)}" stroke="${INK}" stroke-width="3.2" stroke-linecap="round"/>`; }).join("");
   return `<g class="buoy buoy-mina" data-buoy="mina">${base}${sp}<circle cx="${cx}" cy="${cy}" r="12.5" fill="#7A5CC9" stroke="${INK}" stroke-width="2.6"/><circle cx="${cx - 4}" cy="${cy - 2}" r="2.2" fill="#fff"/><circle cx="${cx + 4}" cy="${cy - 2}" r="2.2" fill="#fff"/><path d="M${cx - 4} ${cy + 5}q4 3 8 0" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></g>`;
 }
+// malá ikona bójky do legendy (stejné kreslení jako v bazénu, bez houpání)
+export const buoyIcon = (kind, size = 24) => `<svg class="buoy-ico" viewBox="-21 -20 42 42" width="${size}" height="${size}" aria-hidden="true">${buoyG(kind, 0, 0)}</svg>`;
 // ozdoby plavce podle úrovně titulu 0–4: pruhy na čepici (Vodník), zlatá kachna (Kapitán), korunka (Admirál), zlatý lem (Vševěd)
 export function rankDecor(seat, level) {
   if (!level) return "";

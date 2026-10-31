@@ -1,9 +1,9 @@
 // Celá partie ve 2 nezávislých prohlížečích + přihlížející: Mark = Chromium desktop 1440×900, Radka = WebKit iPhone 13 na výšku.
-// node tests/duel.cjs [URL]   (výchozí http://127.0.0.1:8811/; server: node tools/serve.cjs). Screenshoty do tests/shots/.
+// node tests/duel.cjs [URL]   (výchozí http://127.0.0.1:8806/; server: node tools/serve.cjs). Screenshoty do tests/shots/.
 const path = require("path"), fs = require("fs");
 const { pw, QBY, TRUTH, L, sleep, T, phaseOf, fleetOf, cellStates, drive, fits } = require("./lib.cjs");
 const { chromium, webkit, devices } = pw;
-const URL = process.argv[2] || "http://127.0.0.1:8811/";
+const URL = process.argv[2] || "http://127.0.0.1:8806/";
 const SHOTS = process.env.SHOTS || path.join(__dirname, "shots");
 fs.mkdirSync(SHOTS, { recursive: true });
 
@@ -25,7 +25,7 @@ const errs = [];
   const ctxA = await bA.newContext({ viewport: { width: 1440, height: 900 } });
   const ctxB = await bB.newContext({ ...devices["iPhone 13"] });
   const A = await ctxA.newPage(), B = await ctxB.newPage();
-  for (const [n, p] of [["Mark", A], ["Radka", B]]) { p.on("pageerror", e => errs.push(n + ": " + e.message)); p.on("console", m => { if (m.type() === "error") errs.push(n + " konzole: " + m.text()); }); }
+  for (const [n, p] of [["Mark", A], ["Radka", B]]) { p.on("pageerror", e => errs.push(n + ": " + e.message)); p.on("console", m => { if (m.type() === "error" && !/404/.test(m.text())) errs.push(n + " konzole: " + m.text()); }); }   // 404 = čtení dokumentu mantledb, který ještě neexistuje
   const layout = [];
 
   // ---------- 1) založení výzvy (Mark)
@@ -95,7 +95,7 @@ const errs = [];
   check("Mark (začíná) po Hotovo čeká na Radku", await A.waitForSelector('#board[data-phase="wait-setup"]', { timeout: T }).then(() => true, () => false));
   await B.click("#randomBtn"); await B.click("#doneBtn");
   await B.waitForSelector('#board[data-phase="cat0"]', { timeout: T });
-  check("Radka (nezačíná) po Hotovo vybírá první kategorii Markovi", (await text(B, "#panel .pt")).includes("Vyber kategorii pro Mark") && await B.locator("#panel .chip").count() === 3, "v2: nabídka 3 kategorií");
+  check("Radka (nezačíná) po Hotovo vybírá první kategorii Markovi", (await text(B, "#panel .pt")).includes("Co dostane Mark?") && await B.locator("#panel .chip").count() === 3, "v2: nabídka 3 kategorií");
   await shot(B, "06-kategorie-mobil");
   layout.push(...await fits(B, "mobil první kategorie"));
   const catKey = await B.locator("#panel .chip").first().getAttribute("data-cat"), catLabel = (await B.locator("#panel .chip").first().innerText()).trim();
@@ -186,7 +186,7 @@ const errs = [];
     await sleep(900);
   }
   await A.waitForSelector("#panel .chip, #wheelBtn", { timeout: 8000 });
-  check("po salvě: výběr kategorie soupeři ze tří nabídnutých", await A.locator("#panel .chip").count() === 3 && (await text(A, "#panel .pt")).includes("Vyber Radka kategorii"));
+  check("po salvě: výběr kategorie soupeři ze tří nabídnutých", await A.locator("#panel .chip").count() === 3 && (await text(A, "#panel .pt")).includes("Co dostane Radka?"));
   await shot(A, "15-vyber-kategorie-desktop");
   const cat2Label = (await A.locator("#panel .chip").first().innerText()).trim();
   await A.locator("#panel .chip").first().click();

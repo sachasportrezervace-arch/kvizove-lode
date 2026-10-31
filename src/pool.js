@@ -14,7 +14,8 @@ export function tween(ms, fn, e = t => t) {
   return new Promise(res => {
     if (FX.reduced || ms * FX.scale <= 16) { fn(1); res(); return; }
     const d = ms * FX.scale, t0 = performance.now();
-    const step = now => { const t = Math.min(1, (now - t0) / d); fn(e(t), t); t < 1 ? requestAnimationFrame(step) : res(); };
+    // rAF čas může předběhnout t0 (WebKit): záporné t by dalo záporný poloměr kruhu
+    const step = now => { const t = Math.max(0, Math.min(1, (now - t0) / d)); fn(e(t), t); t < 1 ? requestAnimationFrame(step) : res(); };
     requestAnimationFrame(step);
   });
 }
@@ -68,7 +69,7 @@ export class Pool {
   }
   setCursor(i) {
     this.L.cursor.innerHTML = "";
-    if (i === null || i === undefined) return;
+    if (i === null || i === undefined || !this.interactive) return;
     const [cx, cy] = center(i);
     this.L.cursor.appendChild(el("rect", { x: cx - 19, y: cy - 19, width: 38, height: 38, rx: 8, fill: "none", stroke: COL.x, "stroke-width": 3.4, "stroke-dasharray": "7 5" }));
   }

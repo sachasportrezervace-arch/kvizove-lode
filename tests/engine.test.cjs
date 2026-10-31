@@ -326,6 +326,33 @@ test("v2: defend – poklad dá +1 ránu, radar zdarma jde jen po zásahu sonaru
   r = await L.defend(GOOD, [turn({ d: 2, n: 3, sh: [free[5], free[0], free[1]] }), t2], {}, getQ, ctx);
   assert.strictEqual([...r.R].filter(c => c !== ".").length, 6, "bez miny plná druhá salva");
 });
+test("v2: defend po částech – poklad, sonar i mina platí i když obránce odpovídá po každé ráně zvlášť (regrese: partie se zasekla)", async () => {
+  await prepFake();
+  const seed = "test-semeno", bu = L.buoys(seed, "o"), cell = k => +Object.keys(bu).find(i => bu[i] === k);
+  const free = [...Array(64).keys()].filter(i => !(i in bu) && ![0, 1, 2, 3, 16, 17, 18, 19, 32, 33, 34, 35, 48, 49, 50, 51].includes(i)).slice(0, 8);
+  const ctx = { seed, seat: "o" }, hitsOf = r => [...r.R].filter(c => c !== ".").length;
+  // poklad: n = 3, střílí se po jedné ráně a obránce po každé doplní svůj dokument → čtvrtá rána musí projít
+  const sh = [cell("poklad"), free[0], free[1], free[2]];
+  let r = {}; for (let k = 1; k <= sh.length; k++) r = await L.defend(GOOD, [turn({ d: 2, n: 3, sh: sh.slice(0, k) })], r, getQ, ctx);
+  assert.strictEqual(hitsOf(r), 4, "poklad při postupném odpovídání: 3 + 1");
+  const all = await L.defend(GOOD, [turn({ d: 2, n: 3, sh })], {}, getQ, ctx);
+  assert.strictEqual(r.R, all.R, "postupně = najednou (verify to musí vidět stejně)");
+  // pátá rána už ne
+  r = await L.defend(GOOD, [turn({ d: 2, n: 3, sh: [...sh, free[3]] })], r, getQ, ctx);
+  assert.strictEqual(hitsOf(r), 4, "víc než 3 + poklad se nevystřelí");
+  // sonar: zásah v dřívějším průchodu, radar zdarma zvolen až později
+  r = await L.defend(GOOD, [turn({ d: 2, n: 3, ms: 9000, sh: [cell("radar")] })], {}, getQ, ctx);
+  r = await L.defend(GOOD, [turn({ d: 2, n: 3, ms: 9000, sh: [cell("radar")], r2: 9 })], r, getQ, ctx);
+  assert.deepStrictEqual(r.D, { 9: 6 }, "radar zdarma po sonaru i při druhém průchodu");
+  // mina: zasažená v dřívějším průchodu ubere ránu v příštím tahu (nesmí se ztratit)
+  const t1 = turn({ d: 2, n: 3, sh: [cell("mina"), free[0], free[1]] });
+  r = await L.defend(GOOD, [t1], {}, getQ, ctx);
+  r = await L.defend(GOOD, [t1, turn({ d: 2, n: 3, sh: [free[2], free[3], free[4]] })], r, getQ, ctx);
+  assert.strictEqual(hitsOf(r), 3 + 2, "mina z dřívějšího průchodu: druhá salva o ránu kratší");
+  // opakovaná rána na tutéž bójku nedá bonus dvakrát
+  r = await L.defend(GOOD, [turn({ d: 2, n: 3, sh: [cell("poklad"), cell("poklad"), free[0], free[1], free[2], free[3]] })], {}, getQ, ctx);
+  assert.ok(hitsOf(r) <= 4, "poklad se nesčítá opakovanou ranou");
+});
 test("v2: flow – poklad zvýší počet ran v salvě, sonar zpřístupní druhý radar; verify s bójkami projde", async () => {
   await prepFake();
   const seed = "flow-seed", bu = L.buoys(seed, "o"), cp = +Object.keys(bu).find(i => bu[i] === "poklad"), cr = +Object.keys(bu).find(i => bu[i] === "radar");

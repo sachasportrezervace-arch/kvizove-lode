@@ -204,6 +204,7 @@
     const R = [...(m.R && m.R.length === CELLS ? m.R : ".".repeat(CELLS))];
     const S = (m.S || []).map(c => [...c]), K = [...(m.K || [])], D = { ...(m.D || {}) };
     let changed = false, pen = false;
+    const before = new Set();                                        // pole, na která se střílelo v dřívějších tazích
     for (let idx = 0; idx < (T || []).length; idx++) {
       const t = T[idx];
       if (!t || t.a === null || t.a === undefined) break;            // dokud není zodpovězená otázka, nic dalšího neplatí
@@ -213,18 +214,25 @@
       const phase = phaseOfTurn(idx, S.length);
       const ok = await isCorrect(q, t.o, t.a), al = allowance(t, ok, { phase, pen });
       let budget = al.shots, used = 0, sonar = false, mine = false;
+      const own = new Set();
       for (const i of t.sh || []) {
         if (used >= budget) break;
         used++;
-        if (!cellOk(i) || R[i] !== "." || S.length >= SIZES.length) continue;
-        const res = resolve(fleet, R.join(""), i);
-        if (res.r === "s") { res.cells.forEach(j => R[j] = "s"); S.push(res.cells); K.push(res.ship); } else R[i] = res.r;
-        changed = true;
+        if (!cellOk(i) || own.has(i) || before.has(i)) continue;
+        own.add(i);
+        // pole už vyřešené dřívějším průchodem (obránce odpovídá po každé ráně) musí bójku vyhodnotit stejně jako při prvním průchodu,
+        // jinak se ztratí bonus pokladu (rána navíc zůstane bez odpovědi navždy), sonar i mina
+        if (R[i] === ".") {
+          if (S.length >= SIZES.length) continue;
+          const res = resolve(fleet, R.join(""), i);
+          if (res.r === "s") { res.cells.forEach(j => R[j] = "s"); S.push(res.cells); K.push(res.ship); } else R[i] = res.r;
+          changed = true;
+        }
         if (bu[i] === "poklad") budget++;
         else if (bu[i] === "radar") sonar = true;
         else if (bu[i] === "mina") mine = true;
       }
-      pen = mine;
+      pen = mine; own.forEach(i => before.add(i));
       if (al.radar && cellOk(t.r) && D[t.r] === undefined) { D[t.r] = radarCount(fleet, t.r); changed = true; }
       if (sonar && cellOk(t.r2) && D[t.r2] === undefined) { D[t.r2] = radarCount(fleet, t.r2); changed = true; }
     }

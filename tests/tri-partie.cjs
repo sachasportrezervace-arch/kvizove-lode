@@ -4,7 +4,7 @@
 const path = require("path"), fs = require("fs");
 const { pw, L, sleep, T, drive, fits } = require("./lib.cjs");
 const { chromium, webkit, devices } = pw;
-const BASE = (process.argv[2] || "http://127.0.0.1:8811/").replace(/\/?(\?.*)?$/, "/");
+const BASE = (process.argv[2] || "http://127.0.0.1:8806/").replace(/\/?(\?.*)?$/, "/");
 const URL = BASE + "?rychle=1";
 const SHOTS = process.env.SHOTS || path.join(__dirname, "shots", "tri");
 fs.mkdirSync(SHOTS, { recursive: true });

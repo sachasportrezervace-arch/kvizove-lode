@@ -77,4 +77,4 @@ Každá partie má náhodné semínko `g.seed` (v dokumentu `hra`, nové při ka
 
 ## Testy
 `node tests/engine.test.cjs` · `node tests/balance.cjs` (simulace délky partie a vyvážení) · `node tests/duel.cjs <URL>` (Chromium desktop × WebKit iPhone 13 na výšku, celá partie, odveta, přihlížející) · design-eye verdikt „profi indie hra“ max 3 kola.
-Lokální port 8811 (`node tools/serve.cjs`).
+Lokální port 8806 (`node tools/serve.cjs`).

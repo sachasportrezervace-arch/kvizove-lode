@@ -1,7 +1,7 @@
 // Nafukovací flotila – aplikace: pohledy, synchronizace, tahy, obránce, odveta.
 // Protokol dokumentů viz docs/SPEC.md (hra = místnost, x / o = dokumenty hráčů, každý má jednoho zapisovatele).
 import { load, save, store, device, randId, commitRoom, seatWriter, roomUrl, seatUrl } from "./net.js";
-import { COL, CAT, catIcon, icon, swimmerSVG, balloonSVG, INK, toyG, missMark, hitMark } from "./art.js";
+import { COL, CAT, catIcon, icon, swimmerSVG, balloonSVG, INK, toyG, missMark, hitMark, buoyIcon } from "./art.js";
 import { Pool, FX, sleep, coord } from "./pool.js";
 
 const Lo = window.Lode;
@@ -309,7 +309,7 @@ function onPoolEvent(ev) {
   const owner = ev.owner, shooter = other(owner);
   if (ev.kind === "buoy") {
     const t = BUOY_TEXT[ev.type]; if (!t) return;
-    toast(me === shooter ? t[0] : me === owner ? `${nameOf(shooter)}: ${t[1].replace(/^Trefil /, "trefil(a) ").replace(", má", ", má")}` : `${nameOf(shooter)}: ${t[1]}`);
+    toast(me === shooter ? t[0] : `${nameOf(shooter)}: ${t[1].replace(/^Trefil /, female(shooter) ? "Trefila " : "Trefil ")}`);
     document.body.dataset.buoy = ev.type; setTimeout(() => { delete document.body.dataset.buoy; }, 900);
     return;
   }
@@ -401,6 +401,7 @@ async function donePlacing() {
 
 // ---------------------------------------------------------------- v2: pestrost (rozcvička, finále, záchranný kruh, mina, bójky)
 const female = seat => (seat === "x" ? g().gx : g().go) === "f";
+const wonVerb = seat => female(seat) ? "Vyhrála" : "Vyhrál";
 const sunkOf = seat => (docOf(seat).S || []).length;
 const turnPhase = (seat, idx) => Lo.phaseOfTurn(idx, sunkOf(other(seat)));
 // kdo prohrává o 3+ zasažená políčka, má záchranný kruh
@@ -535,7 +536,7 @@ function renderPeople() {
     const wins = sc2[seat === "x" ? 0 : 1], lvl = Lo.titleLevel(wins), mk = m + "|" + lvl;
     if (box.dataset.mood !== mk) { box.innerHTML = swimmerSVG(seat, m, lvl); box.dataset.mood = mk; }
     const who = document.querySelector(`#people .who-${seat}`);
-    let ttl = who.querySelector(".ttl"); if (!ttl) { ttl = document.createElement("span"); ttl.className = "ttl"; who.querySelector(".nm").after(ttl); }
+    let ttl = who.querySelector(".ttl"); if (!ttl) { ttl = document.createElement("span"); ttl.className = "ttl"; who.querySelector(".nmrow").after(ttl); }
     ttl.textContent = Lo.titleName(wins, female(seat)); ttl.dataset.lvl = lvl;
     let rc = who.querySelector(".rescue"); if (!rc) { rc = document.createElement("span"); rc.className = "rescue"; rc.innerHTML = icon("ring", 18); rc.title = "Záchranný kruh: +1 rána a lehčí otázka"; rc.setAttribute("role", "img"); rc.setAttribute("aria-label", "Záchranný kruh"); who.appendChild(rc); }
     rc.hidden = !(ph.F && ph.F.kind !== "setup" && ph.F.kind !== "end" && rescueFor(seat));
@@ -554,22 +555,22 @@ function statusText(ph) {
     case "spec-setup": return "Hráči rozmisťují hračky do bazénů.";
     case "spec": return F.kind === "pick" ? `${nameOf(F.who)} volí obtížnost.` : F.kind === "answer" ? `${nameOf(F.who)} odpovídá.` : `${nameOf(F.who)} střílí.`;
     case "place": return "Rozmísti hračky do svého bazénu.";
-    case "cat0": return `Vyber ${opp} kategorii první otázky.`;
+    case "cat0": return "Vyber soupeři kategorii první otázky.";
     case "wait-setup": return room.so && room.sx ? `Čekám, až ${opp} rozmístí hračky.` : `Čekám, až výzvu přijme ${opp}.`;
-    case "pick-me": return `Jsi na tahu. Kategorii ti vybral(a) ${opp}: ${CAT[F.cat] ? CAT[F.cat].name : ""}. Zvol obtížnost.`;
+    case "pick-me": return `Jsi na tahu. Kategorii ti vybral${female(other(me)) ? "a" : ""} ${opp}: ${CAT[F.cat] ? CAT[F.cat].name : ""}. Zvol obtížnost.`;
     case "pick-opp": return `${nameOf(F.who)} volí obtížnost (${CAT[F.cat] ? CAT[F.cat].name : ""}).`;
     case "answer-me": return "Odpověz na otázku.";
     case "answer-opp": return `${nameOf(F.who)} odpovídá (${CAT[F.cat] ? CAT[F.cat].name : ""}, ${DIFF[F.T.d]}).`;
     case "shoot-me": {
       if (F.pending.length || F.pendingRadar) return "Čekám na odpověď soupeře…";
-      if (F.left > 0) return radarArmed ? "Klepni do bazénu, kde má radar skenovat." : `Klepni do bazénu ${opp}. Zbývá ${F.left} z ${F.T.n + (F.treasure || 0)}.`;
+      if (F.left > 0) return radarArmed ? "Klepni do bazénu, kde má radar skenovat." : `Klepni do soupeřova bazénu. Zbývá ${F.left} z ${F.T.n + (F.treasure || 0)}.`;
       return Lo.isWheel(F.k + 1) ? "Salva je venku. Příště rozhodne kolo štěstí." : "Salva je venku. Vyber soupeři kategorii z nabídky.";
     }
     case "shoot-opp": {
-      const T = F.T, r = T.ok ? `${nameOf(F.who)} odpověděl(a) správně: ${T.n} ${T.n >= 5 ? "ran" : "rány"}${radarAvailable(T) || T.r !== null && T.r !== undefined ? " a radar" : ""}.` : `${nameOf(F.who)} odpověděl(a) špatně: jen 1 rána.`;
+      const T = F.T, r = T.ok ? `${nameOf(F.who)} ${female(F.who) ? "odpověděla" : "odpověděl"} správně: ${T.n} ${T.n >= 5 ? "ran" : "rány"}${radarAvailable(T) || T.r !== null && T.r !== undefined ? " a radar" : ""}.` : `${nameOf(F.who)} ${female(F.who) ? "odpověděla" : "odpověděl"} špatně: jen 1 rána.`;
       return F.left > 0 || F.pending.length ? r : `${nameOf(F.who)} vybírá, jakou kategorii dostaneš.`;
     }
-    case "end": return ph.win === null ? `Vyhrál(a) ${nameOf(ph.F.winner)}.` : ph.win ? "Vyhráváš! Všechny soupeřovy hračky jsou splasklé." : "Prohráváš, všechny tvoje hračky splaskly.";
+    case "end": return ph.win === null ? `${wonVerb(ph.F.winner)} ${nameOf(ph.F.winner)}.` : ph.win ? "Vyhráváš! Všechny soupeřovy hračky jsou splasklé." : "Prohráváš, všechny tvoje hračky splaskly.";
   }
   return "";
 }
@@ -579,6 +580,8 @@ function renderStatusLine() {
   $("status").textContent = (statusText(ph) || "") + (netMsg ? " " + netMsg : "");
 }
 const chipsHTML = (list) => `<div class="chips" role="group" aria-label="Kategorie">${(list || Lo.CATS).map(c => `<button type="button" class="chip" data-cat="${c}" style="--cc:${CAT[c].color}" aria-label="${CAT[c].name}">${catIcon(c, 22)}<span>${CAT[c].name}</span></button>`).join("")}</div>`;
+// legenda bójek pod bazénem soupeře: ikony stejné jako v bazénu
+const buoyLegendHTML = () => `<p class="buoy-legend">${[["poklad", "míč +1 rána"], ["radar", "sonar radar zdarma"], ["mina", "ježek −1 rána"]].map(([k, t]) => `<span>${buoyIcon(k, 22)}${t}</span>`).join("")}</p>`;
 function balloonsHTML(F) {
   const n = (F.T.n || 0) + (F.treasure || 0), used = (F.T.sh || []).length;
   return `<div class="balloons" id="balloons" role="img" aria-label="Zbývá ${Math.max(0, n - used)} z ${n} ran"><span class="bl">${[...Array(n)].map((_, i) => balloonSVG(me === "x" ? COL.x : COL.o, i < used, 30)).join("")}</span><b class="cnt">${Math.max(0, n - used)} / ${n}</b></div>`;
@@ -591,9 +594,9 @@ function panelHTML(ph) {
         <div class="btnrow"><button type="button" class="btn ghost" id="randomBtn" data-act="random">${icon("dice", 20)}Náhodně</button><button type="button" class="btn" id="doneBtn" data-act="done" ${pools[me] && pools[me].placing && Lo.valid(pools[me].fleet) ? "" : "disabled"}>${icon("check", 20)}Hotovo</button></div>
         <p class="pw-warn" id="placeWarn" role="status"></p>`;
     case "cat0":
-      return `<h2 class="pt">Vyber kategorii pro ${esc(opp)}</h2><p class="pd">${esc(opp)} dostane první otázku z jedné ze tří nabídnutých.</p>${chipsHTML(Lo.offeredCats(g().seed || "", 0, ""))}`;
+      return `<h2 class="pt">Co dostane ${esc(opp)}?</h2><p class="pd">Vyber kategorii první otázky ze tří nabídnutých.</p>${chipsHTML(Lo.offeredCats(g().seed || "", 0, ""))}`;
     case "wait-setup":
-      return `<h2 class="pt">Hotovo, čekáme</h2><p class="pd">${room.so ? `${esc(opp)} ještě rozmisťuje hračky.` : `Pošli ${esc(opp)} odkaz na hru, ať výzvu přijme.`}</p>${room.so ? "" : `<div class="btnrow"><button type="button" class="btn" data-act="copylink">${icon("link", 20)}Zkopírovat odkaz</button></div>`}`;
+      return `<h2 class="pt">Hotovo, čekáme</h2><p class="pd">${room.so ? `${esc(opp)} ještě rozmisťuje hračky.` : `Pošli soupeři odkaz na hru, ať výzvu přijme.`}</p>${room.so ? "" : `<div class="btnrow"><button type="button" class="btn" data-act="copylink">${icon("link", 20)}Zkopírovat odkaz</button></div>`}`;
     case "pick-me":
       return `<div class="catline" style="--cc:${CAT[F.cat].color}">${catIcon(F.cat, 22)}<b>${CAT[F.cat].name}</b><span>od: ${esc(opp)}</span></div>
         <h2 class="pt">Zvol obtížnost</h2>
@@ -604,7 +607,7 @@ function panelHTML(ph) {
     case "answer-opp":
       return `<div class="catline" style="--cc:${CAT[F.cat].color}">${catIcon(F.cat, 22)}<b>${CAT[F.cat].name}</b><span>${DIFF[F.T.d]} · ${Lo.SALVO[F.T.d]} rány</span></div>
         <h2 class="pt">${esc(nameOf(F.who))} odpovídá</h2>
-        <div class="otimer"><div class="bar"><i id="obar"></i></div><span id="osec">20 s</span></div><p class="pd small">Otázku vidí jen on(a). Za chvíli uvidíš výsledek.</p>`;
+        <div class="otimer"><div class="bar"><i id="obar"></i></div><span id="osec">20 s</span></div><p class="pd small">Otázku vidí jen ${female(F.who) ? "ona" : "on"}. Za chvíli uvidíš výsledek.</p>`;
     case "shoot-me": {
       const done = F.left <= 0 && !F.pending.length && !F.pendingRadar, T = F.T;
       let h = balloonsHTML(F);
@@ -614,10 +617,10 @@ function panelHTML(ph) {
       h = `<div class="shootrow">${h}</div>`;
       if (done) {
         const offer = categoryOffer(F);
-        h += offer ? `<h2 class="pt">Vyber ${esc(opp)} kategorii</h2>${chipsHTML(offer)}`
+        h += offer ? `<h2 class="pt">Co dostane ${esc(opp)}?</h2>${chipsHTML(offer)}`
           : `<h2 class="pt">Kolo štěstí</h2><p class="pd">${esc(opp)} dostane kategorii z kola.</p><div class="wheelbox" id="wheelBox"><span class="wc">${icon("wheel", 26)}<b>Zatoč kolem</b></span></div><div class="btnrow"><button type="button" class="btn" id="wheelBtn" data-act="wheel">${icon("wheel", 20)}Zatočit</button></div>`;
       }
-      else h += `<p class="pd">${F.pending.length || F.pendingRadar ? "Čekám na odpověď soupeře…" : radarArmed ? "Klepni do bazénu, střed radaru." : `Klepni do bazénu: bazén ${esc(opp)}.`}</p>`;
+      else h += `<p class="pd">${F.pending.length || F.pendingRadar ? "Čekám na odpověď soupeře…" : radarArmed ? "Klepni do bazénu, střed radaru." : `Klepni do soupeřova bazénu.`}</p>${buoyLegendHTML()}`;
       return h;
     }
     case "shoot-opp": {
@@ -647,7 +650,7 @@ function promoHTML(F) {
 }
 function endHTML(ph) {
   const F = ph.F, W = nameOf(F.winner), L = nameOf(F.loser), sc = seriesScore();
-  const title = ph.win === null ? `Vyhrál(a) ${esc(W)}` : ph.win ? "Vyhráváš!" : `Vyhrál(a) ${esc(W)}`;
+  const title = ph.win ? "Vyhráváš!" : `${wonVerb(F.winner)} ${esc(W)}`;
   const sub = ph.win === null ? `${esc(L)} má všechny hračky splasklé.` : ph.win ? `${esc(L)} má všechny hračky splasklé.` : "Všechny tvoje hračky jsou splasklé.";
   return `<div id="endBox" class="endbox"><h2 class="pt big" id="endTitle">${title}</h2><p class="pd" id="endSub">${sub}</p>
     <div class="endscore" id="endScore" aria-label="Skóre série"><span>${esc(nameOf("x"))}</span><b>${sc[0]} : ${sc[1]}</b><span>${esc(nameOf("o"))}</span></div>
