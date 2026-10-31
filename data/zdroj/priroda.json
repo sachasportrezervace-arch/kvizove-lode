@@ -1,0 +1,482 @@
+[
+  {
+    "id": "pri-1-01",
+    "kat": "priroda",
+    "obt": 1,
+    "q": "Listy kterého stromu tvoří hlavní potravu koaly?",
+    "spravne": "Eukalyptu",
+    "spatne": [
+      "Dubu",
+      "Jilmu",
+      "Olivovníku"
+    ],
+    "fakt": "Koala spase v průměru asi půl kila eukalyptových listů denně.",
+    "src": "https://cs.wikipedia.org/wiki/Koala",
+    "cit": "Koala spase průměrně 500 g eukalyptových listů denně",
+    "plati": null
+  },
+  {
+    "id": "pri-1-02",
+    "kat": "priroda",
+    "obt": 1,
+    "q": "Plodem kterého stromu je žalud?",
+    "spravne": "Dub",
+    "spatne": [
+      "Buk",
+      "Kaštanovník",
+      "Habr"
+    ],
+    "fakt": "Žaludy dozrávají v prvním nebo až ve druhém roce.",
+    "src": "https://cs.wikipedia.org/wiki/Dub",
+    "cit": "Plody jsou žaludy dozrávající v prvním nebo až ve druhém roce",
+    "plati": null
+  },
+  {
+    "id": "pri-1-03",
+    "kat": "priroda",
+    "obt": 1,
+    "q": "Kolik nohou má dospělý hmyz?",
+    "spravne": "Šest",
+    "spatne": [
+      "Čtyři",
+      "Osm",
+      "Deset"
+    ],
+    "fakt": "Hmyz má tři páry nohou a tělo rozdělené na hlavu, hruď a zadeček.",
+    "src": "https://cs.wikipedia.org/wiki/Hmyz",
+    "cit": "mají tři páry nohou",
+    "plati": null
+  },
+  {
+    "id": "pri-1-04",
+    "kat": "priroda",
+    "obt": 1,
+    "q": "Jak se nazývá larva žáby?",
+    "spravne": "Pulec",
+    "spatne": [
+      "Housenka",
+      "Nymfa",
+      "Kukla"
+    ],
+    "fakt": "Pulec je zprvu beznohý a živí se hlavně řasami a zbytky rostlin.",
+    "src": "https://cs.wikipedia.org/wiki/Pulec",
+    "cit": "Pulec je žabí larva.",
+    "plati": null
+  },
+  {
+    "id": "pri-1-05",
+    "kat": "priroda",
+    "obt": 1,
+    "q": "Který z těchto ptáků neumí létat?",
+    "spravne": "Tučňák",
+    "spatne": [
+      "Čáp",
+      "Vlaštovka",
+      "Sokol"
+    ],
+    "fakt": "Tučňáci jsou dokonale přizpůsobeni lovu a potápění ve vodě.",
+    "src": "https://cs.wikipedia.org/wiki/Tučňáci",
+    "cit": "Tučňáci (Sphenisciformes) jsou nelétaví ptáci",
+    "plati": null
+  },
+  {
+    "id": "pri-1-06",
+    "kat": "priroda",
+    "obt": 1,
+    "q": "Který listnatý strom je znám nápadně bílou kůrou?",
+    "spravne": "Bříza",
+    "spatne": [
+      "Buk",
+      "Javor",
+      "Jilm"
+    ],
+    "fakt": "Kůra břízy je v mládí hnědá, teprve později zbělá.",
+    "src": "https://cs.wikipedia.org/wiki/Bříza_bělokorá",
+    "cit": "její nápadně bílá kůra",
+    "plati": null
+  },
+  {
+    "id": "pri-1-11",
+    "kat": "priroda",
+    "obt": 1,
+    "q": "Čím se panda velká živí téměř výhradně?",
+    "spravne": "Bambusem",
+    "spatne": [
+      "Eukalyptem",
+      "Rybami",
+      "Žaludy"
+    ],
+    "fakt": "Dospělý medvěd panda měří 120 až 190 cm a patří mezi šelmy, přesto je býložravec.",
+    "src": "https://cs.wikipedia.org/wiki/Panda_velká",
+    "cit": "více než 99 % jeho jídelníčku tvoří bambusové listy, stonky nebo výhonky",
+    "plati": null
+  },
+  {
+    "id": "pri-1-08",
+    "kat": "priroda",
+    "obt": 1,
+    "q": "Podle čeho se dá určit stáří pokáceného stromu?",
+    "spravne": "Podle letokruhů",
+    "spatne": [
+      "Podle šířky koruny",
+      "Podle tloušťky kůry",
+      "Podle počtu větví"
+    ],
+    "fakt": "Počet letokruhů na řezu kmenem odpovídá stáří stromu.",
+    "src": "https://cs.wikipedia.org/wiki/Letokruh",
+    "cit": "Podle počtu letokruhů se dá určit přibližné stáří stromu.",
+    "plati": null
+  },
+  {
+    "id": "pri-1-09",
+    "kat": "priroda",
+    "obt": 1,
+    "q": "Který plyn rostliny při fotosyntéze přijímají ze vzduchu?",
+    "spravne": "Oxid uhličitý",
+    "spatne": [
+      "Kyslík",
+      "Dusík",
+      "Metan"
+    ],
+    "fakt": "Ve vzduchu je ho jen zhruba 0,03 až 0,04 %.",
+    "src": "https://cs.wikipedia.org/wiki/Fotosyntéza",
+    "cit": "Vzdušný oxid uhličitý je hlavním dodavatelem CO2 pro fotosyntézu",
+    "plati": null
+  },
+  {
+    "id": "pri-1-10",
+    "kat": "priroda",
+    "obt": 1,
+    "q": "Kam na zimu odlétají čápi bílí, kteří hnízdí v Česku?",
+    "spravne": "Do Afriky",
+    "spatne": [
+      "Do Indie",
+      "Do Jižní Ameriky",
+      "Do Austrálie"
+    ],
+    "fakt": "Středoasijský poddruh čápa bílého zimuje naopak v jižní Asii.",
+    "src": "https://cs.wikipedia.org/wiki/Čáp_bílý",
+    "cit": "hnízdí v Evropě včetně Česka, severozápadní Africe a Západní Asii, a zimuje v Africe",
+    "plati": null
+  },
+  {
+    "id": "pri-2-01",
+    "kat": "priroda",
+    "obt": 2,
+    "q": "Mula je kříženec klisny a kterého zvířete?",
+    "spravne": "Osla",
+    "spatne": [
+      "Zebry",
+      "Muflona",
+      "Tura"
+    ],
+    "fakt": "Potomci tohoto křížení bývají obvykle neplodní.",
+    "src": "https://cs.wikipedia.org/wiki/Mula",
+    "cit": "mezidruhový kříženec (hybrid) samce osla se samicí koně",
+    "plati": null
+  },
+  {
+    "id": "pri-2-02",
+    "kat": "priroda",
+    "obt": 2,
+    "q": "Který národní park je nejstarším českým národním parkem?",
+    "spravne": "Krkonošský",
+    "spatne": [
+      "Šumavský",
+      "Podyjí",
+      "České Švýcarsko"
+    ],
+    "fakt": "Krkonošský národní park byl vyhlášen v roce 1963.",
+    "src": "https://cs.wikipedia.org/wiki/Krkonošský_národní_park",
+    "cit": "je tak nejstarším českým národním parkem",
+    "plati": null
+  },
+  {
+    "id": "pri-2-03",
+    "kat": "priroda",
+    "obt": 2,
+    "q": "Housenka kterého motýla se chová pro výrobu hedvábí?",
+    "spravne": "Bource morušového",
+    "spatne": [
+      "Bekyně mnišky",
+      "Martináče hrušňového",
+      "Lišaje smrtihlava"
+    ],
+    "fakt": "Z jeho kokonů se zpracovávají hedvábné nitě, chovu se říká sericultura.",
+    "src": "https://cs.wikipedia.org/wiki/Bourec_morušový",
+    "cit": "chovatelé dodávají textilní výrobě vlákninu ve formě kokonů (zámotků), které se zpracovávají na hedvábné nitě",
+    "plati": null
+  },
+  {
+    "id": "pri-2-04",
+    "kat": "priroda",
+    "obt": 2,
+    "q": "Který náš pták klade vejce do cizích hnízd?",
+    "spravne": "Kukačka obecná",
+    "spatne": [
+      "Sýkora koňadra",
+      "Strakapoud velký",
+      "Vrabec domácí"
+    ],
+    "fakt": "Mládě kukačky po vylíhnutí vyhází z hnízda vejce i mláďata hostitele.",
+    "src": "https://cs.wikipedia.org/wiki/Kukačka_obecná",
+    "cit": "vyhledává vhodná hostitelská hnízda a naklade do nich vlastní vejce",
+    "plati": null
+  },
+  {
+    "id": "pri-2-05",
+    "kat": "priroda",
+    "obt": 2,
+    "q": "Který z těchto australských savců snáší vejce?",
+    "spravne": "Ptakopysk",
+    "spatne": [
+      "Klokan rudý",
+      "Vombat",
+      "Koala"
+    ],
+    "fakt": "Je to jeden z pěti žijících savců, kteří kladou vejce.",
+    "src": "https://cs.wikipedia.org/wiki/Ptakopysk_podivný",
+    "cit": "jediných savců, kteří kladou vejce, místo aby rodili živá mláďata",
+    "plati": null
+  },
+  {
+    "id": "pri-2-06",
+    "kat": "priroda",
+    "obt": 2,
+    "q": "Z čeho je tvořena kostra žraloků?",
+    "spravne": "Z chrupavky",
+    "spatne": [
+      "Z kostí",
+      "Z chitinu",
+      "Z keratinu"
+    ],
+    "fakt": "Chrupavka je lehčí a pružnější než kostní tkáň.",
+    "src": "https://cs.wikipedia.org/wiki/Žraloci",
+    "cit": "Kostra žraloků (a paryb obecně) je chrupavčitá",
+    "plati": null
+  },
+  {
+    "id": "pri-2-11",
+    "kat": "priroda",
+    "obt": 2,
+    "q": "Který z těchto hadů žije v Česku a je jedovatý?",
+    "spravne": "Zmije obecná",
+    "spatne": [
+      "Užovka obojková",
+      "Užovka hladká",
+      "Užovka stromová"
+    ],
+    "fakt": "Je to nejseverněji žijící had a mimořádně odolný vůči chladu.",
+    "src": "https://cs.wikipedia.org/wiki/Zmije_obecná",
+    "cit": "je jediným jedovatým hadem mnoha států severní části holarktické oblasti včetně Česka",
+    "plati": null
+  },
+  {
+    "id": "pri-2-08",
+    "kat": "priroda",
+    "obt": 2,
+    "q": "Na kterém ostrově žijí ve volné přírodě lemuři?",
+    "spravne": "Madagaskar",
+    "spatne": [
+      "Borneo",
+      "Sumatra",
+      "Nový Zéland"
+    ],
+    "fakt": "Madagaskarská fauna se vyvíjela samostatně více než 60 milionů let.",
+    "src": "https://cs.wikipedia.org/wiki/Lemuři",
+    "cit": "Lemuři obývají výhradně Madagaskar",
+    "plati": null
+  },
+  {
+    "id": "pri-2-09",
+    "kat": "priroda",
+    "obt": 2,
+    "q": "Který z našich jehličnanů na zimu shazuje jehlice?",
+    "spravne": "Modřín",
+    "spatne": [
+      "Smrk",
+      "Borovice",
+      "Jedle"
+    ],
+    "fakt": "Jeho světle zelené jehlice rostou ve svazečcích na zkrácených větvičkách.",
+    "src": "https://cs.wikipedia.org/wiki/Modřín_opadavý",
+    "cit": "na zimu opadávají",
+    "plati": null
+  },
+  {
+    "id": "pri-2-10",
+    "kat": "priroda",
+    "obt": 2,
+    "q": "Jak se netopýři orientují za tmy?",
+    "spravne": "Podle odrazů zvuku",
+    "spatne": [
+      "Podle pachových stop",
+      "Podle tepla kořisti",
+      "Podle hvězd"
+    ],
+    "fakt": "Této schopnosti se říká echolokace.",
+    "src": "https://cs.wikipedia.org/wiki/Netopýři",
+    "cit": "navigovat se vlastním sluchem podle odrazů zvuku",
+    "plati": null
+  },
+  {
+    "id": "pri-3-01",
+    "kat": "priroda",
+    "obt": 3,
+    "q": "Do které země pražská zoo vrací koně Převalského v projektu Návrat divokých koní?",
+    "spravne": "Do Mongolska",
+    "spatne": [
+      "Do Turecka",
+      "Do Indie",
+      "Do Íránu"
+    ],
+    "fakt": "Od roku 2011 pražská zoo vozí koně do západního Mongolska.",
+    "src": "https://cs.wikipedia.org/wiki/Kůň_Převalského",
+    "cit": "pražská zoo samostatně organizuje transporty do západního Mongolska pod názvem Návrat divokých koní",
+    "plati": "2026-10"
+  },
+  {
+    "id": "pri-3-02",
+    "kat": "priroda",
+    "obt": 3,
+    "q": "Do kterého řádu hmyzu patří mravenci?",
+    "spravne": "Blanokřídlí",
+    "spatne": [
+      "Brouci",
+      "Dvoukřídlí",
+      "Rovnokřídlí"
+    ],
+    "fakt": "Studiem mravenců se zabývá obor zvaný myrmekologie.",
+    "src": "https://cs.wikipedia.org/wiki/Mravencovití",
+    "cit": "Mravenci jsou drobný blanokřídlý hmyz",
+    "plati": null
+  },
+  {
+    "id": "pri-3-03",
+    "kat": "priroda",
+    "obt": 3,
+    "q": "Čím je ve skutečnosti slepýš křehký?",
+    "spravne": "Beznohým ještěrem",
+    "spatne": [
+      "Nejedovatým hadem",
+      "Malou zmijí",
+      "Beznohým obojživelníkem"
+    ],
+    "fakt": "Slepýš je v Česku chráněný, ale lidé ho často zaměňují s hadem.",
+    "src": "https://cs.wikipedia.org/wiki/Slepýš_křehký",
+    "cit": "Slepýš křehký (Anguis fragilis) je představitel beznohých ještěrů.",
+    "plati": null
+  },
+  {
+    "id": "pri-3-04",
+    "kat": "priroda",
+    "obt": 3,
+    "q": "Která masožravá rostlina loví kořist pomocí podtlakových měchýřků?",
+    "spravne": "Bublinatka",
+    "spatne": [
+      "Rosnatka",
+      "Tučnice",
+      "Mucholapka"
+    ],
+    "fakt": "Víčko pasti se otevře a zavře rychleji než uzávěrka fotoaparátu.",
+    "src": "https://cs.wikipedia.org/wiki/Bublinatka",
+    "cit": "víčko se prudce otevře a podtlakem se nasaje voda i s živočichem do měchýřku",
+    "plati": null
+  },
+  {
+    "id": "pri-3-05",
+    "kat": "priroda",
+    "obt": 3,
+    "q": "Která říčka protéká částečně podzemím Moravského krasu?",
+    "spravne": "Punkva",
+    "spatne": [
+      "Svitava",
+      "Svratka",
+      "Oslava"
+    ],
+    "fakt": "Vzniká v podzemí soutokem Sloupského potoka a Bílé vody.",
+    "src": "https://cs.wikipedia.org/wiki/Punkva",
+    "cit": "část toku protéká podzemím Moravského krasu",
+    "plati": null
+  },
+  {
+    "id": "pri-3-06",
+    "kat": "priroda",
+    "obt": 3,
+    "q": "Který mexický obojživelník si v přírodě ponechává larvální stadium i v dospělosti?",
+    "spravne": "Axolotl",
+    "spatne": [
+      "Čolek obecný",
+      "Mlok skvrnitý",
+      "Rosnička zelená"
+    ],
+    "fakt": "Tomuto jevu se říká neotenie, axolotl se v larválním stádiu i rozmnožuje.",
+    "src": "https://cs.wikipedia.org/wiki/Axolotl_mexický",
+    "cit": "Ve volné přírodě si totiž zachovává larvální stadium",
+    "plati": null
+  },
+  {
+    "id": "pri-3-07",
+    "kat": "priroda",
+    "obt": 3,
+    "q": "Ve kterých českých horách žije uměle vysazený kamzík horský?",
+    "spravne": "V Jeseníkách",
+    "spatne": [
+      "V Brdech",
+      "V Orlických horách",
+      "V Novohradských horách"
+    ],
+    "fakt": "Kamzíci tu žijí od počátku 20. století, kdy byli vysazeni.",
+    "src": "https://cs.wikipedia.org/wiki/Kamzík_horský",
+    "cit": "V Česku se vyskytuje v Jeseníkách a Lužických horách, kde byl uměle vysazen na počátku 20. století.",
+    "plati": "2026-10"
+  },
+  {
+    "id": "pri-3-08",
+    "kat": "priroda",
+    "obt": 3,
+    "q": "Který národní park leží v okrese Znojmo?",
+    "spravne": "Podyjí",
+    "spatne": [
+      "Šumava",
+      "Krkonoše",
+      "České Švýcarsko"
+    ],
+    "fakt": "Podyjí je s rozlohou 63 km² nejmenším českým národním parkem.",
+    "src": "https://cs.wikipedia.org/wiki/Národní_park_Podyjí",
+    "cit": "Nachází se na jižní Moravě v okrese Znojmo podél státní hranice s Rakouskem",
+    "plati": "2026-10"
+  },
+  {
+    "id": "pri-3-09",
+    "kat": "priroda",
+    "obt": 3,
+    "q": "Který hlodavec byl v Česku vyhuben a od 80. let 20. století se sem vrací?",
+    "spravne": "Bobr evropský",
+    "spatne": [
+      "Ondatra pižmová",
+      "Nutrie říční",
+      "Plch velký"
+    ],
+    "fakt": "Po jihoamerické kapybaře je druhým největším hlodavcem světa.",
+    "src": "https://cs.wikipedia.org/wiki/Bobr_evropský",
+    "cit": "po svém přechodném vyhubení na přelomu 18. a 19. století začal vracet migrací z Rakouska ve druhé polovině osmdesátých let 20. století",
+    "plati": null
+  },
+  {
+    "id": "pri-3-10",
+    "kat": "priroda",
+    "obt": 3,
+    "q": "Jak se nazývá soužití houby a řasy, které tvoří lišejník?",
+    "spravne": "Lichenismus",
+    "spatne": [
+      "Mykorhiza",
+      "Parazitismus",
+      "Komenzalismus"
+    ],
+    "fakt": "Symbiotickou povahu lišejníků objevil roku 1867 Švýcar Simon Schwendener.",
+    "src": "https://cs.wikipedia.org/wiki/Lišejník",
+    "cit": "Tato symbióza se nazývá lichenismus.",
+    "plati": null
+  }
+]

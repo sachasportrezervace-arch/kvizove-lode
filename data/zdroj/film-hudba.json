@@ -1,0 +1,482 @@
+[
+  {
+    "id": "fim-1-01",
+    "kat": "film-hudba",
+    "obt": 1,
+    "q": "Kdo natočil v roce 1997 film Titanic?",
+    "spravne": "James Cameron",
+    "spatne": [
+      "Steven Spielberg",
+      "Ridley Scott",
+      "Christopher Nolan"
+    ],
+    "fakt": "Titanic získal rekordních 11 Oscarů včetně ceny za nejlepší film.",
+    "src": "https://cs.wikipedia.org/wiki/Titanic_(film,_1997)",
+    "cit": "v roce 1997 natočil režisér James Cameron",
+    "plati": null
+  },
+  {
+    "id": "fim-1-02",
+    "kat": "film-hudba",
+    "obt": 1,
+    "q": "Kdo hrál ve filmu Kolja starého mládence Louku?",
+    "spravne": "Zdeněk Svěrák",
+    "spatne": [
+      "Jiří Bartoška",
+      "Jan Tříska",
+      "Josef Abrhám"
+    ],
+    "fakt": "Film Kolja natočil Jan Svěrák, hlavní roli napsal a ztvárnil jeho otec.",
+    "src": "https://cs.wikipedia.org/wiki/Kolja",
+    "cit": "starý mládenec Louka (Zdeněk Svěrák)",
+    "plati": null
+  },
+  {
+    "id": "fim-1-03",
+    "kat": "film-hudba",
+    "obt": 1,
+    "q": "Kdo režíroval českou komedii Pelíšky z roku 1999?",
+    "spravne": "Jan Hřebejk",
+    "spatne": [
+      "Jan Svěrák",
+      "Petr Zelenka",
+      "Zdeněk Troška"
+    ],
+    "fakt": "Děj Pelíšků se odehrává v Praze mezi prosincem 1967 a koncem léta 1968.",
+    "src": "https://cs.wikipedia.org/wiki/Pelíšky",
+    "cit": "česká filmová komedie režiséra Jana Hřebejka z roku 1999",
+    "plati": null
+  },
+  {
+    "id": "fim-1-04",
+    "kat": "film-hudba",
+    "obt": 1,
+    "q": "S jakou písní vyhrála ABBA Eurovizi v roce 1974?",
+    "spravne": "Waterloo",
+    "spatne": [
+      "Fernando",
+      "Dancing Queen",
+      "Mamma Mia"
+    ],
+    "fakt": "V roce 2005 byla Waterloo zvolena nejlepší písní v historii Eurovize.",
+    "src": "https://cs.wikipedia.org/wiki/ABBA",
+    "cit": "ABBA vyhrála Eurovizi pro Švédsko s písní „Waterloo“",
+    "plati": null
+  },
+  {
+    "id": "fim-1-05",
+    "kat": "film-hudba",
+    "obt": 1,
+    "q": "Kdo byl hlavním zpěvákem britské skupiny Queen?",
+    "spravne": "Freddie Mercury",
+    "spatne": [
+      "Mick Jagger",
+      "Elton John",
+      "Robert Plant"
+    ],
+    "fakt": "Freddie Mercury se původně jmenoval Farrokh Bulsara.",
+    "src": "https://cs.wikipedia.org/wiki/Queen",
+    "cit": "Freddie Mercury (zpěv, klavír)",
+    "plati": null
+  },
+  {
+    "id": "fim-1-06",
+    "kat": "film-hudba",
+    "obt": 1,
+    "q": "Která grungeová skupina vydala v roce 1991 album Nevermind?",
+    "spravne": "Nirvana",
+    "spatne": [
+      "Pearl Jam",
+      "Soundgarden",
+      "Alice in Chains"
+    ],
+    "fakt": "Prvním singlem z alba byla píseň Smells Like Teen Spirit.",
+    "src": "https://cs.wikipedia.org/wiki/Nevermind",
+    "cit": "druhé album grungeové skupiny Nirvana vydané v září 1991",
+    "plati": null
+  },
+  {
+    "id": "fim-1-07",
+    "kat": "film-hudba",
+    "obt": 1,
+    "q": "Které album Michaela Jacksona z roku 1982 obsahuje skladbu Billie Jean?",
+    "spravne": "Thriller",
+    "spatne": [
+      "Bad",
+      "Dangerous",
+      "Off the Wall"
+    ],
+    "fakt": "Thriller vyšel 30. listopadu 1982 a v roce 2008 ho přijala knihovna Kongresu.",
+    "src": "https://cs.wikipedia.org/wiki/Billie_Jean",
+    "cit": "je „Billie Jean“ druhý singl, který vyšel na albu Thriller",
+    "plati": null
+  },
+  {
+    "id": "fim-1-08",
+    "kat": "film-hudba",
+    "obt": 1,
+    "q": "Kdo vytvořil animovanou postavičku Krtečka?",
+    "spravne": "Zdeněk Miler",
+    "spatne": [
+      "Jiří Trnka",
+      "Radek Pilař",
+      "Hermína Týrlová"
+    ],
+    "fakt": "Krtečka prý Miler vymyslel po spatření krtinců na procházce přírodou.",
+    "src": "https://cs.wikipedia.org/wiki/O_krtkovi",
+    "cit": "výtvarníka Zdeňka Milera",
+    "plati": null
+  },
+  {
+    "id": "fim-1-09",
+    "kat": "film-hudba",
+    "obt": 1,
+    "q": "Kdo složil symfonii č. 9 „Z Nového světa“?",
+    "spravne": "Antonín Dvořák",
+    "spatne": [
+      "Bedřich Smetana",
+      "Leoš Janáček",
+      "Bohuslav Martinů"
+    ],
+    "fakt": "Dvořák ji napsal v USA, kde byl v letech 1892–1895 ředitelem konzervatoře.",
+    "src": "https://cs.wikipedia.org/wiki/Symfonie_č._9_(Dvořák)",
+    "cit": "v pořadí poslední symfonie Antonína Dvořáka",
+    "plati": null
+  },
+  {
+    "id": "fim-1-10",
+    "kat": "film-hudba",
+    "obt": 1,
+    "q": "Kdo napsal sérii Píseň ledu a ohně, podle níž vznikl seriál Hra o trůny?",
+    "spravne": "George R. R. Martin",
+    "spatne": [
+      "J. R. R. Tolkien",
+      "Terry Pratchett",
+      "Andrzej Sapkowski"
+    ],
+    "fakt": "Seriál HBO měl premiéru 17. dubna 2011 a skončil roku 2019.",
+    "src": "https://cs.wikipedia.org/wiki/Hra_o_trůny_(seriál)",
+    "cit": "fantasy sága Píseň ledu a ohně spisovatele George R. R. Martina",
+    "plati": null
+  },
+  {
+    "id": "fim-2-01",
+    "kat": "film-hudba",
+    "obt": 2,
+    "q": "Kdo natočil film Ostře sledované vlaky podle novely Bohumila Hrabala?",
+    "spravne": "Jiří Menzel",
+    "spatne": [
+      "Miloš Forman",
+      "Věra Chytilová",
+      "Karel Zeman"
+    ],
+    "fakt": "Hlavního hrdinu Miloše Hrmu hrál ve filmu Václav Neckář.",
+    "src": "https://cs.wikipedia.org/wiki/Ostře_sledované_vlaky",
+    "cit": "natočený režisérem Jiřím Menzelem v roce 1966",
+    "plati": null
+  },
+  {
+    "id": "fim-2-02",
+    "kat": "film-hudba",
+    "obt": 2,
+    "q": "Kolik Oscarů získal film Amadeus režiséra Miloše Formana?",
+    "spravne": "Osm",
+    "spatne": [
+      "Šest",
+      "Devět",
+      "Pět"
+    ],
+    "fakt": "Natáčení Amadea částečně probíhalo v komunistickém Československu.",
+    "src": "https://cs.wikipedia.org/wiki/Amadeus_(film)",
+    "cit": "který obdržel osm Oscarů",
+    "plati": null
+  },
+  {
+    "id": "fim-2-03",
+    "kat": "film-hudba",
+    "obt": 2,
+    "q": "Který Tarantinův film vyhrál Zlatou palmu na festivalu v Cannes?",
+    "spravne": "Pulp Fiction",
+    "spatne": [
+      "Reservoir Dogs",
+      "Jackie Brown",
+      "Kill Bill"
+    ],
+    "fakt": "Z Oscarů se Pulp Fiction podařilo získat jen cenu za původní scénář.",
+    "src": "https://cs.wikipedia.org/wiki/Pulp_Fiction:_Historky_z_podsvětí",
+    "cit": "Na Filmovém festivalu v Cannes film získal ocenění Zlatá palma",
+    "plati": null
+  },
+  {
+    "id": "fim-2-04",
+    "kat": "film-hudba",
+    "obt": 2,
+    "q": "Které album Pink Floyd vyšlo v březnu 1973?",
+    "spravne": "The Dark Side of the Moon",
+    "spatne": [
+      "Wish You Were Here",
+      "The Wall",
+      "Animals"
+    ],
+    "fakt": "Koncepci alba a všechny texty vytvořil baskytarista Roger Waters.",
+    "src": "https://cs.wikipedia.org/wiki/The_Dark_Side_of_the_Moon",
+    "cit": "osmé studiové album anglické skupiny Pink Floyd, vydáno bylo v březnu 1973",
+    "plati": null
+  },
+  {
+    "id": "fim-2-05",
+    "kat": "film-hudba",
+    "obt": 2,
+    "q": "Které album Beatles z roku 1969 je jejich poslední společnou studiovou nahrávkou?",
+    "spravne": "Abbey Road",
+    "spatne": [
+      "Revolver",
+      "Rubber Soul",
+      "Help!"
+    ],
+    "fakt": "Producentem alba byl George Martin, v Británii vyšlo 26. září 1969.",
+    "src": "https://cs.wikipedia.org/wiki/Abbey_Road",
+    "cit": "zároveň i poslední společnou studiovou nahrávkou skupiny",
+    "plati": null
+  },
+  {
+    "id": "fim-2-06",
+    "kat": "film-hudba",
+    "obt": 2,
+    "q": "Kdo hraje v seriálu Perníkový táta učitele chemie Waltera Whitea?",
+    "spravne": "Bryan Cranston",
+    "spatne": [
+      "Steve Carell",
+      "Hugh Laurie",
+      "Jon Hamm"
+    ],
+    "fakt": "Jesseho Pinkmana, Walterova bývalého studenta, hraje Aaron Paul.",
+    "src": "https://cs.wikipedia.org/wiki/Perníkový_táta",
+    "cit": "Walter White (Bryan Cranston)",
+    "plati": null
+  },
+  {
+    "id": "fim-2-07",
+    "kat": "film-hudba",
+    "obt": 2,
+    "q": "Který herec ztvárnil ve filmu Vykoupení z věznice Shawshank vězně Andyho Dufresna?",
+    "spravne": "Tim Robbins",
+    "spatne": [
+      "Morgan Freeman",
+      "Kevin Costner",
+      "Bruce Willis"
+    ],
+    "fakt": "Film vznikl na motivy novely Stephena Kinga, režíroval ho Frank Darabont.",
+    "src": "https://cs.wikipedia.org/wiki/Vykoupení_z_věznice_Shawshank",
+    "cit": "Andy Dufresne (hraje ho Tim Robbins)",
+    "plati": null
+  },
+  {
+    "id": "fim-2-08",
+    "kat": "film-hudba",
+    "obt": 2,
+    "q": "Kdo je tvůrcem animovaného seriálu Simpsonovi?",
+    "spravne": "Matt Groening",
+    "spatne": [
+      "Seth MacFarlane",
+      "Trey Parker",
+      "Mike Judge"
+    ],
+    "fakt": "Bart je podle Groeninga anagramem anglického slova brat, tedy spratek.",
+    "src": "https://cs.wikipedia.org/wiki/Simpsonovi",
+    "cit": "seriál vytvořený Mattem Groeningem",
+    "plati": null
+  },
+  {
+    "id": "fim-2-09",
+    "kat": "film-hudba",
+    "obt": 2,
+    "q": "Který slovenský herec hrál v seriálu Nemocnice na kraji města primáře Sovu?",
+    "spravne": "Ladislav Chudík",
+    "spatne": [
+      "Jozef Kroner",
+      "Marián Labuda",
+      "Juraj Kukura"
+    ],
+    "fakt": "Scénář seriálu napsal Jaroslav Dietl, první řada měla premiéru v roce 1978.",
+    "src": "https://cs.wikipedia.org/wiki/Nemocnice_na_kraji_města",
+    "cit": "slovenský herec Ladislav Chudík",
+    "plati": null
+  },
+  {
+    "id": "fim-2-10",
+    "kat": "film-hudba",
+    "obt": 2,
+    "q": "Z kolika symfonických básní se skládá Smetanův cyklus Má vlast?",
+    "spravne": "Ze šesti",
+    "spatne": [
+      "Ze čtyř",
+      "Z pěti",
+      "Ze sedmi"
+    ],
+    "fakt": "Cyklus tvoří Vyšehrad, Vltava, Šárka, Z českých luhů a hájů, Tábor a Blaník.",
+    "src": "https://cs.wikipedia.org/wiki/Má_vlast",
+    "cit": "cyklus šesti symfonických básní",
+    "plati": null
+  },
+  {
+    "id": "fim-3-11",
+    "kat": "film-hudba",
+    "obt": 3,
+    "q": "Kdo složil jazzem inspirovanou skladbu Rapsodie v modrém?",
+    "spravne": "George Gershwin",
+    "spatne": [
+      "Leonard Bernstein",
+      "Aaron Copland",
+      "Duke Ellington"
+    ],
+    "fakt": "Skladbu pro Gershwina instrumentoval aranžér Whitemanova orchestru Ferdinand Grofé.",
+    "src": "https://cs.wikipedia.org/wiki/Rhapsody_in_Blue",
+    "cit": "je nejznámější skladba amerického hudebního skladatele George Gershwina",
+    "plati": null
+  },
+  {
+    "id": "fim-3-02",
+    "kat": "film-hudba",
+    "obt": 3,
+    "q": "Kdo složil hudbu k filmu Pán prstenů: Návrat krále?",
+    "spravne": "Howard Shore",
+    "spatne": [
+      "Hans Zimmer",
+      "John Williams",
+      "James Horner"
+    ],
+    "fakt": "Ústřední píseň Into the West nazpívala Annie Lennox.",
+    "src": "https://cs.wikipedia.org/wiki/Pán_prstenů:_Návrat_krále",
+    "cit": "Autorem hudby byl Howard Shore",
+    "plati": null
+  },
+  {
+    "id": "fim-3-03",
+    "kat": "film-hudba",
+    "obt": 3,
+    "q": "Za jakou kategorii získal Občan Kane svého jediného Oscara?",
+    "spravne": "Nejlepší originální scénář",
+    "spatne": [
+      "Nejlepší herec v hlavní roli",
+      "Nejlepší kamera",
+      "Nejlepší režie"
+    ],
+    "fakt": "Film byl nominován v devíti kategoriích, scénář napsal Welles s Mankiewiczem.",
+    "src": "https://cs.wikipedia.org/wiki/Občan_Kane",
+    "cit": "získal pouze cenu za nejlepší originální scénář",
+    "plati": null
+  },
+  {
+    "id": "fim-3-04",
+    "kat": "film-hudba",
+    "obt": 3,
+    "q": "Kolik Oscarů získala Casablanca z osmi nominací?",
+    "spravne": "Tři",
+    "spatne": [
+      "Jeden",
+      "Pět",
+      "Šest"
+    ],
+    "fakt": "Casablanca vyhrála Oscary za nejlepší film, režii a scénář.",
+    "src": "https://cs.wikipedia.org/wiki/Casablanca_(film)",
+    "cit": "Z celkem osmi nominací na Oscara získal tři",
+    "plati": null
+  },
+  {
+    "id": "fim-3-05",
+    "kat": "film-hudba",
+    "obt": 3,
+    "q": "Který film vyhlásila v roce 1998 anketa kritiků nejvýznamnějším filmem české kinematografie?",
+    "spravne": "Marketa Lazarová",
+    "spatne": [
+      "Údolí včel",
+      "Spalovač mrtvol",
+      "Ostře sledované vlaky"
+    ],
+    "fakt": "Film Františka Vláčila z roku 1967 byl nejdražším československým filmem 60. let.",
+    "src": "https://cs.wikipedia.org/wiki/Marketa_Lazarová_(film)",
+    "cit": "Roku 1998 byl film v anketě filmových kritiků a publicistů vyhlášen nejvýznamnějším filmem stoleté historie české kinematografie",
+    "plati": null
+  },
+  {
+    "id": "fim-3-06",
+    "kat": "film-hudba",
+    "obt": 3,
+    "q": "Kdo napsal původní novinový příběh, podle něhož Janáček složil Příhody lišky Bystroušky?",
+    "spravne": "Rudolf Těsnohlídek",
+    "spatne": [
+      "Karel Čapek",
+      "Eduard Bass",
+      "Ivan Olbracht"
+    ],
+    "fakt": "Opera měla premiéru 6. listopadu 1924 v Národním divadle v Brně.",
+    "src": "https://cs.wikipedia.org/wiki/Příhody_lišky_Bystroušky",
+    "cit": "Autorem původního námětu byl spisovatel a novinář Rudolf Těsnohlídek",
+    "plati": null
+  },
+  {
+    "id": "fim-3-07",
+    "kat": "film-hudba",
+    "obt": 3,
+    "q": "Který film jako první československý snímek získal Oscara za nejlepší cizojazyčný film?",
+    "spravne": "Obchod na korze",
+    "spatne": [
+      "Ostře sledované vlaky",
+      "Kolja",
+      "Obecná škola"
+    ],
+    "fakt": "Film natočili Ján Kadár a Elmar Klos na motivy novely Ladislava Grosmana.",
+    "src": "https://cs.wikipedia.org/wiki/Obchod_na_korze",
+    "cit": "Tento film jako první československý snímek získal Oscara za nejlepší cizojazyčný film",
+    "plati": null
+  },
+  {
+    "id": "fim-3-08",
+    "kat": "film-hudba",
+    "obt": 3,
+    "q": "Která skupina nazpívala úvodní píseň seriálu Přátelé „I'll Be There for You“?",
+    "spravne": "The Rembrandts",
+    "spatne": [
+      "The Monkees",
+      "The Turtles",
+      "The Hollies"
+    ],
+    "fakt": "První epizoda Přátel se na NBC vysílala 22. září 1994, poslední v květnu 2004.",
+    "src": "https://cs.wikipedia.org/wiki/Přátelé",
+    "cit": "pochází od skupiny The Rembrandts",
+    "plati": null
+  },
+  {
+    "id": "fim-3-09",
+    "kat": "film-hudba",
+    "obt": 3,
+    "q": "Na kterém albu Queen vyšla v roce 1975 skladba Bohemian Rhapsody?",
+    "spravne": "A Night at the Opera",
+    "spatne": [
+      "A Day at the Races",
+      "Sheer Heart Attack",
+      "News of the World"
+    ],
+    "fakt": "Nahrávání samotné skladby trvalo tři týdny, tedy dobu na celé album.",
+    "src": "https://cs.wikipedia.org/wiki/Bohemian_Rhapsody",
+    "cit": "Nachází se na albu „A Night at the Opera“ z roku 1975",
+    "plati": null
+  },
+  {
+    "id": "fim-3-10",
+    "kat": "film-hudba",
+    "obt": 3,
+    "q": "Podle románu kterého spisovatele natočil Spielberg Čelisti z roku 1975?",
+    "spravne": "Peter Benchley",
+    "spatne": [
+      "Michael Crichton",
+      "Stephen King",
+      "Robert Ludlum"
+    ],
+    "fakt": "Film měl americkou premiéru 20. června 1975, hudbu k němu složil John Williams.",
+    "src": "https://cs.wikipedia.org/wiki/Čelisti_(film)",
+    "cit": "podle úspěšného románu Petera Benchleyho",
+    "plati": null
+  }
+]

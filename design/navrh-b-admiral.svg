@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 892 932" width="892" height="932">
+<rect width="100%" height="100%" fill="#ECE7E1"/>
+  <text x="32" y="44" font-family="Onest" font-size="14" fill="#6B7280">B · Admirál – střelba (čerstvý zásah)</text>
+  <g transform="translate(32 56)">
+    <clipPath id="clip32"><rect width="390" height="844" rx="44"/></clipPath>
+    <g clip-path="url(#clip32)"><rect width="390" height="844" fill="#0F2F4D"/>
+  <text x="24" y="62" font-family="Alfa Slab One" font-size="17" fill="#F3E8D0">Admirál Vševěd</text>
+  <g transform="translate(352 56)" stroke="#F3E8D0" stroke-width="2.6" fill="none" stroke-linecap="round"><path d="M-9 -3v-6h6M3 -9h6v6M9 3v6h-6M-3 9h-6v-6"/></g>
+  <g transform="translate(80 140) scale(1 1)">
+    <path d="M-30 30q30 18 60 0v20h-60z" fill="#22364B"/>
+    <circle r="32" fill="#F0C29C"/>
+    <path d="M-50 -16q50 -54 100 0q-50 -12 -100 0z" fill="#1A1F26"/>
+    <path d="M-44 -18q44 -10 88 0" stroke="#D9A93A" stroke-width="3" fill="none"/>
+    <circle cx="0" cy="-30" r="7" fill="#E8452C"/>
+    <g transform="translate(0 6)"><path d="M-15 -1q5 -4 10 0M5 -1q5 -4 10 0" stroke="#14202C" stroke-width="3.2" fill="none" stroke-linecap="round"/><path d="M-7 16q8 5 14 -3" stroke="#14202C" stroke-width="3.2" fill="none" stroke-linecap="round"/></g>
+  </g><g transform="translate(310 140) scale(-1 1)">
+    <path d="M-30 30q30 18 60 0v20h-60z" fill="#22364B"/>
+    <circle r="32" fill="#C48B67"/>
+    <path d="M-50 -16q50 -54 100 0q-50 -12 -100 0z" fill="#1A1F26"/>
+    <path d="M-44 -18q44 -10 88 0" stroke="#D9A93A" stroke-width="3" fill="none"/>
+    <circle cx="0" cy="-30" r="7" fill="#F2B233"/>
+    <g transform="translate(0 6)"><circle cx="-10" cy="0" r="5" fill="#14202C"/><circle cx="10" cy="0" r="5" fill="#14202C"/><path d="M-16 -10l10 2M16 -10l-10 2" stroke="#14202C" stroke-width="3" stroke-linecap="round"/><ellipse cx="0" cy="18" rx="5" ry="7" fill="#14202C"/></g>
+  </g>
+  <text x="195" y="146" text-anchor="middle" font-family="Alfa Slab One" font-size="36" fill="#F3E8D0">2 : 1</text>
+  <text x="80" y="200" text-anchor="middle" font-family="Figtree" font-weight="700" font-size="13" fill="#F3E8D0">Mark</text>
+  <text x="310" y="200" text-anchor="middle" font-family="Figtree" font-weight="700" font-size="13" fill="#F3E8D0">Radka</text><rect x="35" y="232" width="320" height="320" rx="6" fill="#17507A"/><path d="M75 232v320M35 272h320" stroke="rgba(255,255,255,.13)" stroke-width="1.2"/><path d="M115 232v320M35 312h320" stroke="rgba(255,255,255,.13)" stroke-width="1.2"/><path d="M155 232v320M35 352h320" stroke="rgba(255,255,255,.13)" stroke-width="1.2"/><path d="M195 232v320M35 392h320" stroke="rgba(255,255,255,.13)" stroke-width="1.2"/><path d="M235 232v320M35 432h320" stroke="rgba(255,255,255,.13)" stroke-width="1.2"/><path d="M275 232v320M35 472h320" stroke="rgba(255,255,255,.13)" stroke-width="1.2"/><path d="M315 232v320M35 512h320" stroke="rgba(255,255,255,.13)" stroke-width="1.2"/><text x="55" y="225" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">A</text><text x="27" y="256" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">1</text><text x="95" y="225" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">B</text><text x="27" y="296" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">2</text><text x="135" y="225" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">C</text><text x="27" y="336" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">3</text><text x="175" y="225" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">D</text><text x="27" y="376" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">4</text><text x="215" y="225" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">E</text><text x="27" y="416" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">5</text><text x="255" y="225" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">F</text><text x="27" y="456" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">6</text><text x="295" y="225" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">G</text><text x="27" y="496" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">7</text><text x="335" y="225" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">H</text><text x="27" y="536" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">8</text><circle cx="55" cy="252" r="6.4" fill="#F3E8D0" opacity=".8"/><circle cx="255" cy="292" r="6.4" fill="#F3E8D0" opacity=".8"/><circle cx="135" cy="492" r="6.4" fill="#F3E8D0" opacity=".8"/><circle cx="295" cy="372" r="6.4" fill="#F3E8D0" opacity=".8"/><circle cx="175" cy="332" r="6.4" fill="#F3E8D0" opacity=".8"/><circle cx="335" cy="452" r="6.4" fill="#F3E8D0" opacity=".8"/><circle cx="255" cy="452" r="6.4" fill="#F3E8D0" opacity=".8"/><circle cx="255" cy="492" r="6.4" fill="#F3E8D0" opacity=".8"/><circle cx="255" cy="532" r="6.4" fill="#F3E8D0" opacity=".8"/><circle cx="335" cy="452" r="6.4" fill="#F3E8D0" opacity=".8"/><g transform="translate(295 472) rotate(90)"><path d="M3.5999999999999996 -12.4H60.8Q76.39999999999999 0 60.8 12.4H3.5999999999999996Q-0.8 0 3.5999999999999996 -12.4z" fill="#3A4C5E"/>
+    <rect x="16" y="-5.456" width="24.799999999999997" height="10.912" rx="2.976" fill="#2C3A48"/>
+    <circle cx="30" cy="0" r="4.8" fill="#22303D"/></g><g transform="translate(135 412)"><path d="M0.0 -16.8L3.1 -7.4L11.9 -11.9L7.4 -3.1L16.8 0.0L7.4 3.1L11.9 11.9L3.1 7.4L0.0 16.8L-3.1 7.4L-11.9 11.9L-7.4 3.1L-16.8 0.0L-7.4 -3.1L-11.9 -11.9L-3.1 -7.4Z" fill="#E8452C"/><circle r="5.6000000000000005" fill="#F2B233"/></g><g transform="translate(175 412)"><path d="M0.0 -38.0L5.6 -17.1L22.3 -30.7L14.6 -10.6L36.1 -11.7L18.0 0.0L36.1 11.7L14.6 10.6L22.3 30.7L5.6 17.1L0.0 38.0L-5.6 17.1L-22.3 30.7L-14.6 10.6L-36.1 11.7L-18.0 0.0L-36.1 -11.7L-14.6 -10.6L-22.3 -30.7L-5.6 -17.1Z" fill="#F2B233"/><path d="M0.0 -26.0L4.6 -11.1L18.4 -18.4L11.1 -4.6L26.0 0.0L11.1 4.6L18.4 18.4L4.6 11.1L0.0 26.0L-4.6 11.1L-18.4 18.4L-11.1 4.6L-26.0 0.0L-11.1 -4.6L-18.4 -18.4L-4.6 -11.1Z" fill="#E8452C"/><circle r="8" fill="#F3E8D0"/></g>
+  <text x="197" y="378" font-family="Alfa Slab One" font-size="24" fill="#F3E8D0" transform="rotate(-6 175 412)">ZÁSAH!</text><rect x="237" y="314" width="36" height="36" fill="none" stroke="#F3E8D0" stroke-width="3" stroke-dasharray="7 5"/><rect x="30" y="600" width="136" height="136" rx="6" fill="#17507A"/><path d="M47 600v136M30 617h136" stroke="rgba(255,255,255,.13)" stroke-width="1.2"/><path d="M64 600v136M30 634h136" stroke="rgba(255,255,255,.13)" stroke-width="1.2"/><path d="M81 600v136M30 651h136" stroke="rgba(255,255,255,.13)" stroke-width="1.2"/><path d="M98 600v136M30 668h136" stroke="rgba(255,255,255,.13)" stroke-width="1.2"/><path d="M115 600v136M30 685h136" stroke="rgba(255,255,255,.13)" stroke-width="1.2"/><path d="M132 600v136M30 702h136" stroke="rgba(255,255,255,.13)" stroke-width="1.2"/><path d="M149 600v136M30 719h136" stroke="rgba(255,255,255,.13)" stroke-width="1.2"/><g transform="translate(30 608.5)"><path d="M1.53 -5.27H59.839999999999996Q66.47 0 59.839999999999996 5.27H1.53Q-0.34 0 1.53 -5.27z" fill="#A7B6C5"/>
+    <rect x="6.800000000000001" y="-2.3188" width="44.54" height="4.6376" rx="1.2648" fill="#7D90A3"/>
+    <circle cx="12.75" cy="0" r="2.04" fill="#5E7387"/><circle cx="29.75" cy="0" r="2.04" fill="#5E7387"/><circle cx="46.75" cy="0" r="2.04" fill="#5E7387"/></g><g transform="translate(123.5 634) rotate(90)"><path d="M1.53 -5.27H42.839999999999996Q49.47 0 42.839999999999996 5.27H1.53Q-0.34 0 1.53 -5.27z" fill="#A7B6C5"/>
+    <rect x="6.800000000000001" y="-2.3188" width="27.54" height="4.6376" rx="1.2648" fill="#7D90A3"/>
+    <circle cx="12.75" cy="0" r="2.04" fill="#5E7387"/><circle cx="29.75" cy="0" r="2.04" fill="#5E7387"/></g><g transform="translate(47 693.5)"><path d="M1.53 -5.27H42.839999999999996Q49.47 0 42.839999999999996 5.27H1.53Q-0.34 0 1.53 -5.27z" fill="#A7B6C5"/>
+    <rect x="6.800000000000001" y="-2.3188" width="27.54" height="4.6376" rx="1.2648" fill="#7D90A3"/>
+    <circle cx="12.75" cy="0" r="2.04" fill="#5E7387"/><circle cx="29.75" cy="0" r="2.04" fill="#5E7387"/></g><g transform="translate(115 727.5)"><path d="M1.53 -5.27H25.840000000000003Q32.47 0 25.840000000000003 5.27H1.53Q-0.34 0 1.53 -5.27z" fill="#A7B6C5"/>
+    <rect x="6.800000000000001" y="-2.3188" width="10.540000000000003" height="4.6376" rx="1.2648" fill="#7D90A3"/>
+    <circle cx="12.75" cy="0" r="2.04" fill="#5E7387"/></g><circle cx="89.5" cy="659.5" r="2.72" fill="#F3E8D0" opacity=".8"/><circle cx="157.5" cy="625.5" r="2.72" fill="#F3E8D0" opacity=".8"/><circle cx="38.5" cy="727.5" r="2.72" fill="#F3E8D0" opacity=".8"/><g transform="translate(123.5 659.5)"><path d="M0.0 -7.1L1.3 -3.1L5.0 -5.0L3.1 -1.3L7.1 0.0L3.1 1.3L5.0 5.0L1.3 3.1L0.0 7.1L-1.3 3.1L-5.0 5.0L-3.1 1.3L-7.1 0.0L-3.1 -1.3L-5.0 -5.0L-1.3 -3.1Z" fill="#E8452C"/><circle r="2.3800000000000003" fill="#F2B233"/></g><text x="98" y="760" text-anchor="middle" font-family="Figtree" font-size="12" fill="#F3E8D0" opacity=".6">Tvoje flotila</text>
+  <g transform="translate(196 606)">
+    <text font-family="Figtree" font-weight="700" font-size="13" fill="#F3E8D0" opacity=".6">SALVA</text>
+    <circle cx="14" cy="34" r="11" fill="none" stroke="#F2B233" stroke-width="3"/><circle cx="44" cy="34" r="11" fill="#F2B233" stroke="#F2B233" stroke-width="3"/><circle cx="74" cy="34" r="11" fill="#F2B233" stroke="#F2B233" stroke-width="3"/>
+    <text y="72" font-family="Figtree" font-size="13" fill="#F3E8D0">Správně, střední otázka</text>
+    <g transform="translate(0 90)"><rect width="160" height="46" rx="8" fill="#F3E8D0"/><text x="80" y="29" text-anchor="middle" font-family="Figtree" font-weight="800" font-size="15" fill="#14202C">Radar 3 × 3</text></g>
+  </g>
+  <text x="195" y="800" text-anchor="middle" font-family="Figtree" font-weight="600" font-size="15" fill="#F3E8D0">Vyber cíl v Radčině moři</text></g>
+    <rect width="390" height="844" rx="44" fill="none" stroke="#111" stroke-width="6"/>
+  </g>
+  <text x="470" y="44" font-family="Onest" font-size="14" fill="#6B7280">B · Admirál – otázka (kategorii vybrala soupeřka)</text>
+  <g transform="translate(470 56)">
+    <clipPath id="clip470"><rect width="390" height="844" rx="44"/></clipPath>
+    <g clip-path="url(#clip470)"><rect width="390" height="844" fill="#0F2F4D"/>
+  <text x="24" y="62" font-family="Alfa Slab One" font-size="17" fill="#F3E8D0">Admirál Vševěd</text>
+  <g transform="translate(352 56)" stroke="#F3E8D0" stroke-width="2.6" fill="none" stroke-linecap="round"><path d="M-9 -3v-6h6M3 -9h6v6M9 3v6h-6M-3 9h-6v-6"/></g>
+  <g transform="translate(80 140) scale(1 1)">
+    <path d="M-30 30q30 18 60 0v20h-60z" fill="#22364B"/>
+    <circle r="32" fill="#F0C29C"/>
+    <path d="M-50 -16q50 -54 100 0q-50 -12 -100 0z" fill="#1A1F26"/>
+    <path d="M-44 -18q44 -10 88 0" stroke="#D9A93A" stroke-width="3" fill="none"/>
+    <circle cx="0" cy="-30" r="7" fill="#E8452C"/>
+    <g transform="translate(0 6)"><circle cx="-10" cy="1" r="3.6" fill="#14202C"/><circle cx="10" cy="1" r="3.6" fill="#14202C"/><path d="M-16 -7l10 -4M16 -7l-10 -4" stroke="#14202C" stroke-width="3" stroke-linecap="round"/><path d="M-8 19q4 -4 8 0t8 0" stroke="#14202C" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+  </g><g transform="translate(310 140) scale(-1 1)">
+    <path d="M-30 30q30 18 60 0v20h-60z" fill="#22364B"/>
+    <circle r="32" fill="#C48B67"/>
+    <path d="M-50 -16q50 -54 100 0q-50 -12 -100 0z" fill="#1A1F26"/>
+    <path d="M-44 -18q44 -10 88 0" stroke="#D9A93A" stroke-width="3" fill="none"/>
+    <circle cx="0" cy="-30" r="7" fill="#F2B233"/>
+    <g transform="translate(0 6)"><circle cx="-10" cy="1" r="3.6" fill="#14202C"/><circle cx="10" cy="1" r="3.6" fill="#14202C"/><path d="M-17 -8l12 4M17 -10l-12 6" stroke="#14202C" stroke-width="3.2" stroke-linecap="round"/><path d="M-10 13q10 9 20 0z" fill="#14202C"/></g>
+  </g>
+  <text x="195" y="146" text-anchor="middle" font-family="Alfa Slab One" font-size="36" fill="#F3E8D0">2 : 1</text>
+  <text x="80" y="200" text-anchor="middle" font-family="Figtree" font-weight="700" font-size="13" fill="#F3E8D0">Mark</text>
+  <text x="310" y="200" text-anchor="middle" font-family="Figtree" font-weight="700" font-size="13" fill="#F3E8D0">Radka</text><rect x="35" y="232" width="320" height="320" rx="6" fill="#17507A"/><path d="M75 232v320M35 272h320" stroke="rgba(255,255,255,.13)" stroke-width="1.2"/><path d="M115 232v320M35 312h320" stroke="rgba(255,255,255,.13)" stroke-width="1.2"/><path d="M155 232v320M35 352h320" stroke="rgba(255,255,255,.13)" stroke-width="1.2"/><path d="M195 232v320M35 392h320" stroke="rgba(255,255,255,.13)" stroke-width="1.2"/><path d="M235 232v320M35 432h320" stroke="rgba(255,255,255,.13)" stroke-width="1.2"/><path d="M275 232v320M35 472h320" stroke="rgba(255,255,255,.13)" stroke-width="1.2"/><path d="M315 232v320M35 512h320" stroke="rgba(255,255,255,.13)" stroke-width="1.2"/><text x="55" y="225" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">A</text><text x="27" y="256" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">1</text><text x="95" y="225" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">B</text><text x="27" y="296" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">2</text><text x="135" y="225" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">C</text><text x="27" y="336" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">3</text><text x="175" y="225" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">D</text><text x="27" y="376" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">4</text><text x="215" y="225" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">E</text><text x="27" y="416" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">5</text><text x="255" y="225" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">F</text><text x="27" y="456" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">6</text><text x="295" y="225" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">G</text><text x="27" y="496" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">7</text><text x="335" y="225" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">H</text><text x="27" y="536" text-anchor="middle" font-family="Martian Mono" font-size="10" fill="#F3E8D0" opacity=".6">8</text><circle cx="55" cy="252" r="6.4" fill="#F3E8D0" opacity=".8"/><circle cx="255" cy="292" r="6.4" fill="#F3E8D0" opacity=".8"/><circle cx="135" cy="492" r="6.4" fill="#F3E8D0" opacity=".8"/><circle cx="295" cy="372" r="6.4" fill="#F3E8D0" opacity=".8"/><circle cx="175" cy="332" r="6.4" fill="#F3E8D0" opacity=".8"/><circle cx="335" cy="452" r="6.4" fill="#F3E8D0" opacity=".8"/><circle cx="255" cy="452" r="6.4" fill="#F3E8D0" opacity=".8"/><circle cx="255" cy="492" r="6.4" fill="#F3E8D0" opacity=".8"/><circle cx="255" cy="532" r="6.4" fill="#F3E8D0" opacity=".8"/><circle cx="335" cy="452" r="6.4" fill="#F3E8D0" opacity=".8"/><g transform="translate(295 472) rotate(90)"><path d="M3.5999999999999996 -12.4H60.8Q76.39999999999999 0 60.8 12.4H3.5999999999999996Q-0.8 0 3.5999999999999996 -12.4z" fill="#3A4C5E"/>
+    <rect x="16" y="-5.456" width="24.799999999999997" height="10.912" rx="2.976" fill="#2C3A48"/>
+    <circle cx="30" cy="0" r="4.8" fill="#22303D"/></g><g transform="translate(135 412)"><path d="M0.0 -16.8L3.1 -7.4L11.9 -11.9L7.4 -3.1L16.8 0.0L7.4 3.1L11.9 11.9L3.1 7.4L0.0 16.8L-3.1 7.4L-11.9 11.9L-7.4 3.1L-16.8 0.0L-7.4 -3.1L-11.9 -11.9L-3.1 -7.4Z" fill="#E8452C"/><circle r="5.6000000000000005" fill="#F2B233"/></g><g transform="translate(175 412)"><path d="M0.0 -16.8L3.1 -7.4L11.9 -11.9L7.4 -3.1L16.8 0.0L7.4 3.1L11.9 11.9L3.1 7.4L0.0 16.8L-3.1 7.4L-11.9 11.9L-7.4 3.1L-16.8 0.0L-7.4 -3.1L-11.9 -11.9L-3.1 -7.4Z" fill="#E8452C"/><circle r="5.6000000000000005" fill="#F2B233"/></g><rect width="390" height="844" fill="#06121E" opacity=".55"/><g transform="translate(14 300)">
+    <rect width="362" height="530" rx="10" fill="#F3E8D0"/>
+    <path d="M0 0h362v46H0z" fill="#F2B233"/>
+    <g transform="translate(22 15)"><rect x="0" y="0" width="14" height="16" fill="#F3E8D0"/><rect x="18" y="0" width="14" height="16" fill="#14202C"/><rect x="36" y="0" width="14" height="16" fill="#F3E8D0"/><rect x="54" y="0" width="14" height="16" fill="#14202C"/></g>
+    <text x="104" y="29" font-family="Alfa Slab One" font-size="16" fill="#14202C">SPORT</text>
+    <text x="340" y="29" text-anchor="end" font-family="Figtree" font-weight="700" font-size="13" fill="#14202C">od Radky · střední</text>
+    <g transform="translate(22 70)">
+      <rect width="318" height="10" fill="#E2D3B2"/><rect width="197.16" height="10" fill="#E8452C"/>
+      <text y="30" font-family="Martian Mono" font-size="11" fill="#14202C" opacity=".7">12 s</text>
+    </g>
+    <text font-family="Alfa Slab One" font-size="23" fill="#14202C">
+      <tspan x="22" y="150">Ve kterém městě vyhráli</tspan><tspan x="22" y="180">čeští hokejisté olympijské</tspan><tspan x="22" y="210">zlato v roce 1998?</tspan></text>
+    
+      <g transform="translate(22 256)">
+        <rect width="154" height="74" rx="6" fill="none" stroke="#14202C" stroke-width="2.5"/>
+        <text x="16" y="44" font-family="Martian Mono" font-size="13" fill="#14202C" opacity=".6">A</text>
+        <text x="40" y="44" font-family="Figtree" font-weight="700" font-size="17" fill="#14202C">Lillehammer</text>
+      </g>
+      <g transform="translate(186 256)">
+        <rect width="154" height="74" rx="6" fill="none" stroke="#14202C" stroke-width="2.5"/>
+        <text x="16" y="44" font-family="Martian Mono" font-size="13" fill="#14202C" opacity=".6">B</text>
+        <text x="40" y="44" font-family="Figtree" font-weight="700" font-size="17" fill="#14202C">Nagano</text>
+      </g>
+      <g transform="translate(22 342)">
+        <rect width="154" height="74" rx="6" fill="none" stroke="#14202C" stroke-width="2.5"/>
+        <text x="16" y="44" font-family="Martian Mono" font-size="13" fill="#14202C" opacity=".6">C</text>
+        <text x="40" y="44" font-family="Figtree" font-weight="700" font-size="15" fill="#14202C">Salt Lake City</text>
+      </g>
+      <g transform="translate(186 342)">
+        <rect width="154" height="74" rx="6" fill="none" stroke="#14202C" stroke-width="2.5"/>
+        <text x="16" y="44" font-family="Martian Mono" font-size="13" fill="#14202C" opacity=".6">D</text>
+        <text x="40" y="44" font-family="Figtree" font-weight="700" font-size="17" fill="#14202C">Albertville</text>
+      </g>
+    <text x="181" y="460" text-anchor="middle" font-family="Figtree" font-size="13" fill="#14202C" opacity=".6">Správně 3 rány · špatně 1 rána</text>
+  </g></g>
+    <rect width="390" height="844" rx="44" fill="none" stroke="#111" stroke-width="6"/>
+  </g></svg>

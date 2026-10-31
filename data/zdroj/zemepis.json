@@ -1,0 +1,482 @@
+[
+  {
+    "id": "zem-1-01",
+    "kat": "zemepis",
+    "obt": 1,
+    "q": "Které město je hlavním městem Slovenska?",
+    "spravne": "Bratislava",
+    "spatne": [
+      "Košice",
+      "Žilina",
+      "Prešov"
+    ],
+    "fakt": "Bratislava leží na Dunaji a hraničí se dvěma státy zároveň.",
+    "src": "https://cs.wikipedia.org/wiki/Bratislava",
+    "cit": "je hlavní a největší město Slovenska",
+    "plati": null
+  },
+  {
+    "id": "zem-1-02",
+    "kat": "zemepis",
+    "obt": 1,
+    "q": "Které město je domovem Eiffelovy věže?",
+    "spravne": "Paříž",
+    "spatne": [
+      "Lyon",
+      "Marseille",
+      "Bordeaux"
+    ],
+    "fakt": "Věž byla postavena pro Světovou výstavu v roce 1889.",
+    "src": "https://cs.wikipedia.org/wiki/Eiffelova_věž",
+    "cit": "je ocelová věž v Paříži",
+    "plati": null
+  },
+  {
+    "id": "zem-1-03",
+    "kat": "zemepis",
+    "obt": 1,
+    "q": "Které město je hlavním městem Austrálie?",
+    "spravne": "Canberra",
+    "spatne": [
+      "Sydney",
+      "Melbourne",
+      "Perth"
+    ],
+    "fakt": "Canberra je hlavním městem, ne však největším městem země.",
+    "src": "https://cs.wikipedia.org/wiki/Canberra",
+    "cit": "je hlavní, ne však největší, město Australského společenství",
+    "plati": null
+  },
+  {
+    "id": "zem-1-04",
+    "kat": "zemepis",
+    "obt": 1,
+    "q": "Které pohoří je nejvyšší v Česku?",
+    "spravne": "Krkonoše",
+    "spatne": [
+      "Šumava",
+      "Jeseníky",
+      "Beskydy"
+    ],
+    "fakt": "Nejvyšší horou Krkonoš je Sněžka.",
+    "src": "https://cs.wikipedia.org/wiki/Krkonoše",
+    "cit": "nejvyšší pohoří Česka a České vysočiny",
+    "plati": null
+  },
+  {
+    "id": "zem-1-05",
+    "kat": "zemepis",
+    "obt": 1,
+    "q": "Která řeka protéká Českým Krumlovem, Českými Budějovicemi a Prahou?",
+    "spravne": "Vltava",
+    "spatne": [
+      "Labe",
+      "Morava",
+      "Ohře"
+    ],
+    "fakt": "Vltava ústí zleva do Labe v Mělníku.",
+    "src": "https://cs.wikipedia.org/wiki/Vltava",
+    "cit": "Protéká mimo jiné Českým Krumlovem, Českými Budějovicemi a Prahou",
+    "plati": null
+  },
+  {
+    "id": "zem-1-06",
+    "kat": "zemepis",
+    "obt": 1,
+    "q": "Z kolika států se skládají Spojené státy americké?",
+    "spravne": "50",
+    "spatne": [
+      "48",
+      "51",
+      "52"
+    ],
+    "fakt": "K tomu patří ještě federální hlavní město Washington, D. C.",
+    "src": "https://cs.wikipedia.org/wiki/Spojené_státy_americké",
+    "cit": "USA se skládají z 50 států",
+    "plati": "2026-10"
+  },
+  {
+    "id": "zem-1-07",
+    "kat": "zemepis",
+    "obt": 1,
+    "q": "Který průliv odděluje Evropu od Afriky u vjezdu do Středozemního moře?",
+    "spravne": "Gibraltarský",
+    "spatne": [
+      "Bosporský",
+      "Messinský",
+      "Dardanelský"
+    ],
+    "fakt": "Průliv odděluje Atlantský oceán od Středozemního moře.",
+    "src": "https://cs.wikipedia.org/wiki/Gibraltarský_průliv",
+    "cit": "je mořská úžina mezi Evropou a Afrikou",
+    "plati": null
+  },
+  {
+    "id": "zem-1-08",
+    "kat": "zemepis",
+    "obt": 1,
+    "q": "Která hora je podle nadmořské výšky nejvyšší na světě?",
+    "spravne": "Mount Everest",
+    "spatne": [
+      "K2",
+      "Kančendženga",
+      "Lhoce"
+    ],
+    "fakt": "Jako nejvyšší horu světa ji určil roku 1852 Radhanath Sikdar.",
+    "src": "https://cs.wikipedia.org/wiki/Mount_Everest",
+    "cit": "prvním, kdo určil Everest jako nejvyšší horu světa",
+    "plati": null
+  },
+  {
+    "id": "zem-1-09",
+    "kat": "zemepis",
+    "obt": 1,
+    "q": "Které město je hlavním městem Kanady?",
+    "spravne": "Ottawa",
+    "spatne": [
+      "Toronto",
+      "Montreal",
+      "Vancouver"
+    ],
+    "fakt": "Ottawa leží v provincii Ontario a není největším kanadským městem.",
+    "src": "https://cs.wikipedia.org/wiki/Ottawa",
+    "cit": "Ottawa je hlavní město Kanady",
+    "plati": null
+  },
+  {
+    "id": "zem-1-10",
+    "kat": "zemepis",
+    "obt": 1,
+    "q": "Která řeka protéká Vídní, Budapeští a Bělehradem?",
+    "spravne": "Dunaj",
+    "spatne": [
+      "Rýn",
+      "Visla",
+      "Seina"
+    ],
+    "fakt": "Dunaj protéká čtyřmi hlavními městy a deseti státy.",
+    "src": "https://cs.wikipedia.org/wiki/Dunaj",
+    "cit": "nejvíce hlavních měst (4: Vídeň, Bratislava, Budapešť a Bělehrad)",
+    "plati": null
+  },
+  {
+    "id": "zem-2-01",
+    "kat": "zemepis",
+    "obt": 2,
+    "q": "Které pohoří v Rusku se považuje za hranici mezi Evropou a Asií?",
+    "spravne": "Ural",
+    "spatne": [
+      "Altaj",
+      "Karpaty",
+      "Skandinávské hory"
+    ],
+    "fakt": "Pohoří dělí Rusko na evropskou a asijskou část.",
+    "src": "https://cs.wikipedia.org/wiki/Ural",
+    "cit": "Tvoří tak geografickou hranici mezi Evropou a Asií",
+    "plati": null
+  },
+  {
+    "id": "zem-2-02",
+    "kat": "zemepis",
+    "obt": 2,
+    "q": "Které město je dnes hlavním městem Brazílie?",
+    "spravne": "Brasília",
+    "spatne": [
+      "Rio de Janeiro",
+      "São Paulo",
+      "Salvador"
+    ],
+    "fakt": "Do vybudování Brasílie bylo hlavním městem Rio de Janeiro.",
+    "src": "https://cs.wikipedia.org/wiki/Brasília",
+    "cit": "Brasília je hlavní město Brazílie",
+    "plati": null
+  },
+  {
+    "id": "zem-2-03",
+    "kat": "zemepis",
+    "obt": 2,
+    "q": "Které město je hlavním městem Nového Zélandu?",
+    "spravne": "Wellington",
+    "spatne": [
+      "Auckland",
+      "Christchurch",
+      "Hamilton"
+    ],
+    "fakt": "Wellington je nejjižněji položené hlavní město světa.",
+    "src": "https://cs.wikipedia.org/wiki/Wellington",
+    "cit": "je hlavní město a významný přístav Nového Zélandu",
+    "plati": null
+  },
+  {
+    "id": "zem-2-04",
+    "kat": "zemepis",
+    "obt": 2,
+    "q": "V které africké zemi leží sopka Kilimandžáro?",
+    "spravne": "Tanzanie",
+    "spatne": [
+      "Keňa",
+      "Uganda",
+      "Etiopie"
+    ],
+    "fakt": "Kilimandžáro je nejvyšší horou Afriky.",
+    "src": "https://cs.wikipedia.org/wiki/Kilimandžáro",
+    "cit": "Kilimandžáro je velká spící sopka v Tanzanii",
+    "plati": null
+  },
+  {
+    "id": "zem-2-05",
+    "kat": "zemepis",
+    "obt": 2,
+    "q": "Která hora je nejvyšší na Moravě?",
+    "spravne": "Praděd",
+    "spatne": [
+      "Králický Sněžník",
+      "Keprník",
+      "Šerák"
+    ],
+    "fakt": "Praděd měří 1491 m a leží v Hrubém Jeseníku.",
+    "src": "https://cs.wikipedia.org/wiki/Praděd",
+    "cit": "Je to zároveň nejvyšší hora Moravy",
+    "plati": null
+  },
+  {
+    "id": "zem-2-06",
+    "kat": "zemepis",
+    "obt": 2,
+    "q": "Která hora je nejvyšší v Moravskoslezských Beskydech?",
+    "spravne": "Lysá hora",
+    "spatne": [
+      "Radhošť",
+      "Smrk",
+      "Kněhyně"
+    ],
+    "fakt": "Hora měří 1324 m a leží ve Slezsku.",
+    "src": "https://cs.wikipedia.org/wiki/Lysá_hora_(Moravskoslezské_Beskydy)",
+    "cit": "je nejvyšší hora Moravskoslezských Beskyd",
+    "plati": null
+  },
+  {
+    "id": "zem-2-07",
+    "kat": "zemepis",
+    "obt": 2,
+    "q": "V které oblasti najdeme propast Macocha?",
+    "spravne": "Moravský kras",
+    "spatne": [
+      "Český kras",
+      "Slovenský kras",
+      "Český ráj"
+    ],
+    "fakt": "Hloubka suché části propasti je 138,4 m.",
+    "src": "https://cs.wikipedia.org/wiki/Macocha",
+    "cit": "nejznámější propast v oblasti Moravského krasu",
+    "plati": null
+  },
+  {
+    "id": "zem-2-08",
+    "kat": "zemepis",
+    "obt": 2,
+    "q": "Které dva oceány spojuje Panamský průplav?",
+    "spravne": "Atlantský a Tichý",
+    "spatne": [
+      "Tichý a Indický",
+      "Atlantský a Indický",
+      "Indický a Severní ledový"
+    ],
+    "fakt": "Průplav vede skrz Panamskou šíji.",
+    "src": "https://cs.wikipedia.org/wiki/Panamský_průplav",
+    "cit": "spojuje Atlantský oceán a Tichý oceán",
+    "plati": null
+  },
+  {
+    "id": "zem-2-09",
+    "kat": "zemepis",
+    "obt": 2,
+    "q": "V které zemi leží incké město Machu Picchu?",
+    "spravne": "Peru",
+    "spatne": [
+      "Bolívie",
+      "Ekvádor",
+      "Kolumbie"
+    ],
+    "fakt": "Město leží v peruánských Andách a je turistickým lákadlem.",
+    "src": "https://cs.wikipedia.org/wiki/Machu_Picchu",
+    "cit": "ruiny předkolumbovského inckého kultovního města v peruánských Andách",
+    "plati": null
+  },
+  {
+    "id": "zem-2-10",
+    "kat": "zemepis",
+    "obt": 2,
+    "q": "Které velké město leží na dvou kontinentech, v Evropě i v Asii?",
+    "spravne": "Istanbul",
+    "spatne": [
+      "Ankara",
+      "Soluň",
+      "Káhira"
+    ],
+    "fakt": "Oba kontinenty zde spojuje a dělí průliv Bospor.",
+    "src": "https://cs.wikipedia.org/wiki/Istanbul",
+    "cit": "se rozkládá na dvou kontinentech",
+    "plati": null
+  },
+  {
+    "id": "zem-3-01",
+    "kat": "zemepis",
+    "obt": 3,
+    "q": "Která hora je nejvyšší horou Polska?",
+    "spravne": "Rysy",
+    "spatne": [
+      "Sněžka",
+      "Babia Góra",
+      "Kasprowy Wierch"
+    ],
+    "fakt": "Nejvyšší vrchol Rysů (2501 m) leží na Slovensku, polský má podle různých údajů asi 2495 m.",
+    "src": "https://cs.wikipedia.org/wiki/Rysy",
+    "cit": "Severozápadní vrchol je nejvyšší horou celého Polska",
+    "plati": null
+  },
+  {
+    "id": "zem-3-02",
+    "kat": "zemepis",
+    "obt": 3,
+    "q": "Které jezero je největší ve střední Evropě?",
+    "spravne": "Balaton",
+    "spatne": [
+      "Neziderské jezero",
+      "Müritz",
+      "Lipno"
+    ],
+    "fakt": "Maďaři mu říkají také Maďarské moře.",
+    "src": "https://cs.wikipedia.org/wiki/Balaton",
+    "cit": "největší jezero ve střední Evropě",
+    "plati": null
+  },
+  {
+    "id": "zem-3-03",
+    "kat": "zemepis",
+    "obt": 3,
+    "q": "V které zemi leží historické město Timbuktu?",
+    "spravne": "Mali",
+    "spatne": [
+      "Niger",
+      "Mauretánie",
+      "Senegal"
+    ],
+    "fakt": "Své zlaté období zažilo za Malijské říše.",
+    "src": "https://cs.wikipedia.org/wiki/Timbuktu",
+    "cit": "město v západní Africe ležící ve státě Mali",
+    "plati": null
+  },
+  {
+    "id": "zem-3-04",
+    "kat": "zemepis",
+    "obt": 3,
+    "q": "V které zemi leží skalní město Petra?",
+    "spravne": "Jordánsko",
+    "spatne": [
+      "Egypt",
+      "Sýrie",
+      "Saúdská Arábie"
+    ],
+    "fakt": "Petra leží zhruba tři hodiny cesty od Ammánu.",
+    "src": "https://cs.wikipedia.org/wiki/Petra_(město)",
+    "cit": "skalní město a archeologické naleziště v Jordánsku",
+    "plati": null
+  },
+  {
+    "id": "zem-3-05",
+    "kat": "zemepis",
+    "obt": 3,
+    "q": "Která hora je nejvyšším vrcholem ležícím celým uvnitř hranic Česka?",
+    "spravne": "Luční hora",
+    "spatne": [
+      "Sněžka",
+      "Praděd",
+      "Smrk"
+    ],
+    "fakt": "Vrchol Sněžky leží těsně za hranicí, v Polsku.",
+    "src": "https://cs.wikipedia.org/wiki/Luční_hora",
+    "cit": "Luční hora nejvyšším vrcholem ležícím uvnitř hranic Česka",
+    "plati": null
+  },
+  {
+    "id": "zem-3-06",
+    "kat": "zemepis",
+    "obt": 3,
+    "q": "Které místo na jihu Londýna proslulo nultým poledníkem?",
+    "spravne": "Greenwich",
+    "spatne": [
+      "Richmond",
+      "Wimbledon",
+      "Hampstead"
+    ],
+    "fakt": "Poledník prochází Královskou observatoří.",
+    "src": "https://cs.wikipedia.org/wiki/Greenwichský_poledník",
+    "cit": "Zemský základní poledník prochází Královskou observatoří v Greenwichi",
+    "plati": null
+  },
+  {
+    "id": "zem-3-07",
+    "kat": "zemepis",
+    "obt": 3,
+    "q": "Která poušť se táhne podél Pacifiku od Peru do Chile?",
+    "spravne": "Atacama",
+    "spatne": [
+      "Namib",
+      "Gobi",
+      "Mojave"
+    ],
+    "fakt": "Poušť je dlouhá asi 1000 km.",
+    "src": "https://cs.wikipedia.org/wiki/Atacama",
+    "cit": "se táhne 1 000 km podél Pacifiku od jižní hranice horského státu Peru až do centrálních oblastí Chile",
+    "plati": null
+  },
+  {
+    "id": "zem-3-08",
+    "kat": "zemepis",
+    "obt": 3,
+    "q": "Ve které oblasti stojí skalní brána Pravčická brána?",
+    "spravne": "České Švýcarsko",
+    "spatne": [
+      "Český ráj",
+      "Šumava",
+      "Broumovsko"
+    ],
+    "fakt": "Je největší pískovcovou skalní bránou v Evropě.",
+    "src": "https://cs.wikipedia.org/wiki/Pravčická_brána",
+    "cit": "skalní brána na území obce Hřensko v okrese Děčín v Českém Švýcarsku",
+    "plati": null
+  },
+  {
+    "id": "zem-3-09",
+    "kat": "zemepis",
+    "obt": 3,
+    "q": "Ke kterému státu patří autonomní území Grónsko?",
+    "spravne": "Dánsko",
+    "spatne": [
+      "Norsko",
+      "Island",
+      "Kanada"
+    ],
+    "fakt": "Grónsko samo není součástí Evropské unie.",
+    "src": "https://cs.wikipedia.org/wiki/Grónsko",
+    "cit": "severoamerické autonomní území Dánského království",
+    "plati": "2026-10"
+  },
+  {
+    "id": "zem-3-10",
+    "kat": "zemepis",
+    "obt": 3,
+    "q": "Do kterého moře ústí řeka Odra?",
+    "spravne": "Baltské moře",
+    "spatne": [
+      "Severní moře",
+      "Černé moře",
+      "Jaderské moře"
+    ],
+    "fakt": "Odra pramení v Česku a tvoří část hranice mezi Polskem a Německem.",
+    "src": "https://cs.wikipedia.org/wiki/Odra",
+    "cit": "se vlévá do Baltského moře",
+    "plati": null
+  }
+]

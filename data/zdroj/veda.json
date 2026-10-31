@@ -1,0 +1,482 @@
+[
+  {
+    "id": "ved-1-01",
+    "kat": "veda",
+    "obt": 1,
+    "q": "Která chemická značka patří zlatu?",
+    "spravne": "Au",
+    "spatne": [
+      "Ag",
+      "Al",
+      "Fe"
+    ],
+    "fakt": "Značka Au pochází z latinského názvu aurum.",
+    "src": "https://cs.wikipedia.org/wiki/Zlato",
+    "cit": "Zlato (chemická značka Au, latinsky aurum)",
+    "plati": null
+  },
+  {
+    "id": "ved-1-02",
+    "kat": "veda",
+    "obt": 1,
+    "q": "Která planeta obíhá nejblíže ke Slunci?",
+    "spravne": "Merkur",
+    "spatne": [
+      "Venuše",
+      "Mars",
+      "Země"
+    ],
+    "fakt": "Merkur je zároveň nejmenší planetou sluneční soustavy.",
+    "src": "https://cs.wikipedia.org/wiki/Merkur_(planeta)",
+    "cit": "Merkur je Slunci nejbližší a současně i nejmenší planetou sluneční soustavy",
+    "plati": null
+  },
+  {
+    "id": "ved-1-03",
+    "kat": "veda",
+    "obt": 1,
+    "q": "Jaký chemický vzorec má voda?",
+    "spravne": "H2O",
+    "spatne": [
+      "CO2",
+      "H2O2",
+      "NaCl"
+    ],
+    "fakt": "Voda je sloučenina vodíku a kyslíku, její systematický název je oxidan.",
+    "src": "https://cs.wikipedia.org/wiki/Voda",
+    "cit": "Voda, chemickým vzorcem H2O, systematický název oxidan, je chemická sloučenina vodíku a kyslíku",
+    "plati": null
+  },
+  {
+    "id": "ved-1-04",
+    "kat": "veda",
+    "obt": 1,
+    "q": "Který český chemik vynalezl gelové kontaktní čočky?",
+    "spravne": "Otto Wichterle",
+    "spatne": [
+      "Jaroslav Heyrovský",
+      "Gregor Mendel",
+      "Jan Evangelista Purkyně"
+    ],
+    "fakt": "Wichterle se proslavil též objevem umělého polyamidového vlákna silonu.",
+    "src": "https://cs.wikipedia.org/wiki/Otto_Wichterle",
+    "cit": "Nejznámějším vynálezem Otty Wichterla jsou gelové kontaktní čočky.",
+    "plati": null
+  },
+  {
+    "id": "ved-1-11",
+    "kat": "veda",
+    "obt": 1,
+    "q": "Jak se jmenuje galaxie, v níž leží naše Sluneční soustava?",
+    "spravne": "Mléčná dráha",
+    "spatne": [
+      "Andromeda",
+      "Trojúhelník",
+      "Vír"
+    ],
+    "fakt": "Sluneční soustava leží necelých 26 tisíc světelných let od galaktického jádra.",
+    "src": "https://cs.wikipedia.org/wiki/Mléčná_dráha",
+    "cit": "je galaxie, ve které se nachází Slunce se Sluneční soustavou",
+    "plati": null
+  },
+  {
+    "id": "ved-1-06",
+    "kat": "veda",
+    "obt": 1,
+    "q": "Která planeta je načervenalá kvůli oxidu železitému na povrchu?",
+    "spravne": "Mars",
+    "spatne": [
+      "Venuše",
+      "Jupiter",
+      "Merkur"
+    ],
+    "fakt": "Staré národy považovaly Mars kvůli rudé barvě za symbol ohně, krve a zániku.",
+    "src": "https://cs.wikipedia.org/wiki/Mars_(planeta)",
+    "cit": "celý povrch planety pokrývá oxid železitý",
+    "plati": null
+  },
+  {
+    "id": "ved-1-07",
+    "kat": "veda",
+    "obt": 1,
+    "q": "Který orgán svými stahy zajišťuje oběh krve tělem?",
+    "spravne": "Srdce",
+    "spatne": [
+      "Plíce",
+      "Játra",
+      "Ledviny"
+    ],
+    "fakt": "Srdce savců a ptáků má čtyři oddíly s chlopněmi.",
+    "src": "https://cs.wikipedia.org/wiki/Srdce",
+    "cit": "svými pravidelnými stahy zajišťuje oběh hemolymfy nebo krve tělem",
+    "plati": null
+  },
+  {
+    "id": "ved-1-08",
+    "kat": "veda",
+    "obt": 1,
+    "q": "Kdo byl prvním člověkem ve vesmíru?",
+    "spravne": "Jurij Gagarin",
+    "spatne": [
+      "Alan Shepard",
+      "Neil Armstrong",
+      "German Titov"
+    ],
+    "fakt": "Gagarin vzlétl 12. dubna 1961 v lodi Vostok 1 z kosmodromu Bajkonur.",
+    "src": "https://cs.wikipedia.org/wiki/Jurij_Gagarin",
+    "cit": "první člověk, který vzlétl do vesmíru",
+    "plati": null
+  },
+  {
+    "id": "ved-1-09",
+    "kat": "veda",
+    "obt": 1,
+    "q": "Který fyzik přišel roku 1905 se speciální teorií relativity?",
+    "spravne": "Albert Einstein",
+    "spatne": [
+      "Isaac Newton",
+      "Niels Bohr",
+      "Max Planck"
+    ],
+    "fakt": "Obecnou teorii relativity zformuloval roku 1915.",
+    "src": "https://cs.wikipedia.org/wiki/Albert_Einstein",
+    "cit": "speciální teorie relativity (1905)",
+    "plati": null
+  },
+  {
+    "id": "ved-1-10",
+    "kat": "veda",
+    "obt": 1,
+    "q": "Kdo byl prvním Čechoslovákem ve vesmíru?",
+    "spravne": "Vladimír Remek",
+    "spatne": [
+      "Oldřich Pelčák",
+      "Alexej Gubarev",
+      "Jurij Gagarin"
+    ],
+    "fakt": "Na stanici Saljut 6 vzlétl 2. března 1978 lodí Sojuz 28 s kosmonautem Gubarevem.",
+    "src": "https://cs.wikipedia.org/wiki/Vladimír_Remek",
+    "cit": "prvním z jiné země než Sovětského svazu nebo USA",
+    "plati": null
+  },
+  {
+    "id": "ved-2-01",
+    "kat": "veda",
+    "obt": 2,
+    "q": "Který český kněz je znám jako vynálezce bleskosvodu?",
+    "spravne": "Prokop Diviš",
+    "spatne": [
+      "Gregor Mendel",
+      "Jan Amos Komenský",
+      "Josef Dobrovský"
+    ],
+    "fakt": "Svůj bleskosvod sestrojil roku 1754, dříve než Benjamin Franklin.",
+    "src": "https://cs.wikipedia.org/wiki/Prokop_Diviš",
+    "cit": "Je znám především jako vynálezce bleskosvodu či hromosvodu",
+    "plati": null
+  },
+  {
+    "id": "ved-2-02",
+    "kat": "veda",
+    "obt": 2,
+    "q": "Který kovový prvek je za normálních podmínek kapalný?",
+    "spravne": "Rtuť",
+    "spatne": [
+      "Olovo",
+      "Cín",
+      "Hliník"
+    ],
+    "fakt": "Rtuť je stříbřitě bílá a s kovy tvoří slitiny zvané amalgámy.",
+    "src": "https://cs.wikipedia.org/wiki/Rtuť",
+    "cit": "Je jediným kovovým prvkem, který je za normálních podmínek kapalný.",
+    "plati": null
+  },
+  {
+    "id": "ved-2-03",
+    "kat": "veda",
+    "obt": 2,
+    "q": "Který český vynálezce zkonstruoval jeden z prvních lodních šroubů?",
+    "spravne": "Josef Ressel",
+    "spatne": [
+      "František Křižík",
+      "Prokop Diviš",
+      "Emil Kolben"
+    ],
+    "fakt": "Šroub z roku 1827 vyzkoušel v Terstu, úspěšné parníky s ním vznikly až v 50. letech 19. století.",
+    "src": "https://cs.wikipedia.org/wiki/Josef_Ressel",
+    "cit": "který zkonstruoval jeden z prvních lodních šroubů",
+    "plati": null
+  },
+  {
+    "id": "ved-2-04",
+    "kat": "veda",
+    "obt": 2,
+    "q": "Který český vynálezce patentoval roku 1880 zdokonalenou obloukovou lampu?",
+    "spravne": "František Křižík",
+    "spatne": [
+      "Josef Ressel",
+      "Viktor Kaplan",
+      "Emil Kolben"
+    ],
+    "fakt": "Nejznámějším Křižíkovým vynálezem byla oblouková lampa se samočinnou regulací.",
+    "src": "https://cs.wikipedia.org/wiki/František_Křižík",
+    "cit": "roku 1880 patentoval podstatně zdokonalenou obloukovou lampu",
+    "plati": null
+  },
+  {
+    "id": "ved-2-05",
+    "kat": "veda",
+    "obt": 2,
+    "q": "Jaký vynález se připisuje řediteli dačického cukrovaru Jakubu Radovi?",
+    "spravne": "Kostkový cukr",
+    "spatne": [
+      "Cukrová vata",
+      "Řepný sirup",
+      "Cukr moučka"
+    ],
+    "fakt": "Do Dačic přišel roku 1840 a roku 1842 zavedl v cukrovaru první parní stroj.",
+    "src": "https://cs.wikipedia.org/wiki/Jakub_Kryštof_Rad",
+    "cit": "ředitel dačického cukrovaru, vynálezce kostkového cukru",
+    "plati": null
+  },
+  {
+    "id": "ved-2-06",
+    "kat": "veda",
+    "obt": 2,
+    "q": "Jakou tvrdost má diamant na Mohsově stupnici?",
+    "spravne": "10",
+    "spatne": [
+      "9",
+      "8",
+      "7"
+    ],
+    "fakt": "Diamant je přibližně čtyřikrát tvrdší než korund.",
+    "src": "https://cs.wikipedia.org/wiki/Diamant",
+    "cit": "Má tvrdost 10 v Mohsově stupnici",
+    "plati": null
+  },
+  {
+    "id": "ved-2-07",
+    "kat": "veda",
+    "obt": 2,
+    "q": "Který plyn tvoří největší část zemské atmosféry?",
+    "spravne": "Dusík",
+    "spatne": [
+      "Kyslík",
+      "Argon",
+      "Oxid uhličitý"
+    ],
+    "fakt": "Kyslík tvoří asi 21 % atmosféry, dalších přibližně 1 % je především argon.",
+    "src": "https://cs.wikipedia.org/wiki/Atmosféra_Země",
+    "cit": "Obsahuje přibližně 78 % dusíku, 21 % kyslíku a 1 % ostatních plynů",
+    "plati": null
+  },
+  {
+    "id": "ved-2-08",
+    "kat": "veda",
+    "obt": 2,
+    "q": "Která hvězda je Slunci nejbližší?",
+    "spravne": "Proxima Centauri",
+    "spatne": [
+      "Sirius",
+      "Betelgeuze",
+      "Polárka"
+    ],
+    "fakt": "Je to červený trpaslík ve vzdálenosti 4,22 světelných let od Země.",
+    "src": "https://cs.wikipedia.org/wiki/Proxima_Centauri",
+    "cit": "Pro pozemského pozorovatele se po Slunci jedná o nejbližší známou hvězdu.",
+    "plati": null
+  },
+  {
+    "id": "ved-2-09",
+    "kat": "veda",
+    "obt": 2,
+    "q": "Která kost je nejdelší v lidském těle?",
+    "spravne": "Stehenní kost",
+    "spatne": [
+      "Holenní kost",
+      "Pažní kost",
+      "Lýtková kost"
+    ],
+    "fakt": "Stehenní kost snese velké zatížení.",
+    "src": "https://cs.wikipedia.org/wiki/Stehenní_kost",
+    "cit": "je nejdelší kost lidského těla",
+    "plati": null
+  },
+  {
+    "id": "ved-2-10",
+    "kat": "veda",
+    "obt": 2,
+    "q": "V kterém roce poprvé vzlétli bratři Wrightové s letadlem Wright Flyer?",
+    "spravne": "1903",
+    "spatne": [
+      "1899",
+      "1908",
+      "1911"
+    ],
+    "fakt": "Letadlo používalo k převodu řetěz z bicyklu.",
+    "src": "https://cs.wikipedia.org/wiki/Bratři_Wrightové",
+    "cit": "17. prosince 1903 vzlétli, každý dvakrát.",
+    "plati": null
+  },
+  {
+    "id": "ved-3-01",
+    "kat": "veda",
+    "obt": 3,
+    "q": "Který fyzik podal roku 1897 experimentální důkaz existence elektronu?",
+    "spravne": "Joseph John Thomson",
+    "spatne": [
+      "Ernest Rutherford",
+      "Niels Bohr",
+      "James Chadwick"
+    ],
+    "fakt": "Zkoumal katodové paprsky a dokázal, že jsou tvořeny záporně nabitými částicemi.",
+    "src": "https://cs.wikipedia.org/wiki/Joseph_John_Thomson",
+    "cit": "V roce 1897 podal experimentální důkaz existence elektronu.",
+    "plati": null
+  },
+  {
+    "id": "ved-3-02",
+    "kat": "veda",
+    "obt": 3,
+    "q": "Která planeta má osu skloněnou téměř do roviny své oběžné dráhy?",
+    "spravne": "Uran",
+    "spatne": [
+      "Neptun",
+      "Saturn",
+      "Jupiter"
+    ],
+    "fakt": "Sklon rovníku Uranu k rovině jeho dráhy činí 97,86°.",
+    "src": "https://cs.wikipedia.org/wiki/Uran_(planeta)",
+    "cit": "Zvláštností Uranu je sklon jeho rotační osy: osa leží téměř v rovině, ve které planeta obíhá.",
+    "plati": null
+  },
+  {
+    "id": "ved-3-03",
+    "kat": "veda",
+    "obt": 3,
+    "q": "Kdo poprvé publikoval periodickou tabulku prvků v roce 1869?",
+    "spravne": "Dmitrij Mendělejev",
+    "spatne": [
+      "Antoine Lavoisier",
+      "John Dalton",
+      "Robert Boyle"
+    ],
+    "fakt": "Dnešní tabulka řadí prvky podle rostoucích protonových čísel.",
+    "src": "https://cs.wikipedia.org/wiki/Periodická_tabulka_prvků",
+    "cit": "Tabulku poprvé publikoval Dmitrij Ivanovič Mendělejev v roce 1869.",
+    "plati": null
+  },
+  {
+    "id": "ved-3-04",
+    "kat": "veda",
+    "obt": 3,
+    "q": "Který německý fyzik objevil roku 1895 rentgenové záření?",
+    "spravne": "Wilhelm Conrad Röntgen",
+    "spatne": [
+      "Henri Becquerel",
+      "Max von Laue",
+      "Heinrich Hertz"
+    ],
+    "fakt": "Za objev získal roku 1901 jako vůbec první Nobelovu cenu za fyziku.",
+    "src": "https://cs.wikipedia.org/wiki/Wilhelm_Conrad_Röntgen",
+    "cit": "8. listopadu 1895 objevil elektromagnetické záření s krátkou vlnovou délkou",
+    "plati": null
+  },
+  {
+    "id": "ved-3-05",
+    "kat": "veda",
+    "obt": 3,
+    "q": "Jak se jmenovala první umělá družice Země?",
+    "spravne": "Sputnik 1",
+    "spatne": [
+      "Explorer 1",
+      "Vostok 1",
+      "Luna 1"
+    ],
+    "fakt": "Vynesena byla 4. října 1957 a 21 dní vysílala pípavý signál.",
+    "src": "https://cs.wikipedia.org/wiki/Sputnik_1",
+    "cit": "první umělá vesmírná družice Země",
+    "plati": null
+  },
+  {
+    "id": "ved-3-06",
+    "kat": "veda",
+    "obt": 3,
+    "q": "Kdo si nechal v roce 1867 patentovat dynamit?",
+    "spravne": "Alfred Nobel",
+    "spatne": [
+      "Ascanio Sobrero",
+      "Justus von Liebig",
+      "Louis Pasteur"
+    ],
+    "fakt": "Podle jeho závěti se každoročně udělují Nobelovy ceny.",
+    "src": "https://cs.wikipedia.org/wiki/Alfred_Nobel",
+    "cit": "V roce 1867 si nechal patentovat dynamit.",
+    "plati": null
+  },
+  {
+    "id": "ved-3-07",
+    "kat": "veda",
+    "obt": 3,
+    "q": "Který český chemik získal roku 1959 Nobelovu cenu za chemii?",
+    "spravne": "Jaroslav Heyrovský",
+    "spatne": [
+      "Otto Wichterle",
+      "Antonín Holý",
+      "Jan Evangelista Purkyně"
+    ],
+    "fakt": "Polarografii objevil roku 1922, metoda měří proud procházející rtuťovou kapkou.",
+    "src": "https://cs.wikipedia.org/wiki/Jaroslav_Heyrovský",
+    "cit": "nositel Nobelovy ceny za chemii z roku 1959",
+    "plati": null
+  },
+  {
+    "id": "ved-3-08",
+    "kat": "veda",
+    "obt": 3,
+    "q": "Kdo objevil roku 1930 trpasličí planetu Pluto?",
+    "spravne": "Clyde Tombaugh",
+    "spatne": [
+      "Percival Lowell",
+      "Edwin Hubble",
+      "William Herschel"
+    ],
+    "fakt": "V době objevu byl Pluto považován za nejvzdálenější planetu sluneční soustavy.",
+    "src": "https://cs.wikipedia.org/wiki/Clyde_Tombaugh",
+    "cit": "v roce 1930 objevil trpasličí planetu Pluto",
+    "plati": null
+  },
+  {
+    "id": "ved-3-09",
+    "kat": "veda",
+    "obt": 3,
+    "q": "Který americký fyzik je považován za vynálezce prvního funkčního laseru?",
+    "spravne": "Theodore Maiman",
+    "spatne": [
+      "Charles Townes",
+      "Arthur Schawlow",
+      "Gordon Gould"
+    ],
+    "fakt": "První laser představil v červenci 1960 na tiskové konferenci v Manhattanu.",
+    "src": "https://cs.wikipedia.org/wiki/Theodore_Maiman",
+    "cit": "považovaný za vynálezce prvního funkčního laseru",
+    "plati": null
+  },
+  {
+    "id": "ved-3-10",
+    "kat": "veda",
+    "obt": 3,
+    "q": "Který hodinář postavil roku 1410 současný Pražský orloj?",
+    "spravne": "Mikuláš z Kadaně",
+    "spatne": [
+      "Peter Henlein",
+      "Petr Parléř",
+      "Tycho Brahe"
+    ],
+    "fakt": "Na návrhu se pravděpodobně podílel astronom Jan Šindel, rektor pražské univerzity.",
+    "src": "https://cs.wikipedia.org/wiki/Pražský_orloj",
+    "cit": "Mechanický hodinový stroj a astronomický číselník vytvořil roku 1410 hodinář Mikuláš z Kadaně",
+    "plati": null
+  }
+]

@@ -1,0 +1,482 @@
+[
+  {
+    "id": "jid-1-01",
+    "kat": "jidlo",
+    "obt": 1,
+    "q": "Která surovina je základem mexického guacamole?",
+    "spravne": "Avokádo",
+    "spatne": [
+      "Cuketa",
+      "Lilek",
+      "Okurka"
+    ],
+    "fakt": "Název vychází z nahuatlského ahuacamolli, tedy avokádová salsa.",
+    "src": "https://cs.wikipedia.org/wiki/Guacamole",
+    "cit": "Guacamole (česky Gvakamole) je avokádový pokrm, který pochází od Aztéků",
+    "plati": null
+  },
+  {
+    "id": "jid-1-02",
+    "kat": "jidlo",
+    "obt": 1,
+    "q": "Co je základem japonského suši?",
+    "spravne": "Rýže",
+    "spatne": [
+      "Pohanka",
+      "Kuskus",
+      "Bulgur"
+    ],
+    "fakt": "Slovo suši v japonštině doslova znamená kyselá chuť.",
+    "src": "https://cs.wikipedia.org/wiki/Suši",
+    "cit": "Suši je vařená rýže spojená se speciální sladkokyselou omáčkou",
+    "plati": null
+  },
+  {
+    "id": "jid-1-03",
+    "kat": "jidlo",
+    "obt": 1,
+    "q": "Které maso se tradičně podává ve svíčkové na smetaně?",
+    "spravne": "Hovězí",
+    "spatne": [
+      "Vepřové",
+      "Kuřecí",
+      "Jehněčí"
+    ],
+    "fakt": "Obvykle se podává s knedlíky, plátkem citronu, šlehačkou a brusinkami.",
+    "src": "https://cs.wikipedia.org/wiki/Svíčková_na_smetaně",
+    "cit": "Maso v omáčce je hovězí",
+    "plati": null
+  },
+  {
+    "id": "jid-1-04",
+    "kat": "jidlo",
+    "obt": 1,
+    "q": "Z které rostliny se vyrábí tequila?",
+    "spravne": "Agáve",
+    "spatne": [
+      "Aloe vera",
+      "Opuncie",
+      "Juka"
+    ],
+    "fakt": "Vyrábí se hlavně v okolí města Tequila v mexickém státě Jalisco.",
+    "src": "https://cs.wikipedia.org/wiki/Tequila",
+    "cit": "Vyrábí se z mexického druhu Agave tequilana, zvané Weberova modrá agáve.",
+    "plati": null
+  },
+  {
+    "id": "jid-1-05",
+    "kat": "jidlo",
+    "obt": 1,
+    "q": "Z čeho se destiluje rum?",
+    "spravne": "Z cukrové třtiny",
+    "spatne": [
+      "Z cukrové řepy",
+      "Z brambor",
+      "Z kukuřice"
+    ],
+    "fakt": "Původ slova rum není jasný, může pocházet z anglického rumbellion, tedy velký ruch.",
+    "src": "https://cs.wikipedia.org/wiki/Rum",
+    "cit": "Rum je alkoholický nápoj destilovaný z melasy nebo ze šťávy získané z cukrové třtiny",
+    "plati": null
+  },
+  {
+    "id": "jid-1-06",
+    "kat": "jidlo",
+    "obt": 1,
+    "q": "Ve kterém lázeňském městě se vyrábí bylinný likér Becherovka?",
+    "spravne": "Karlovy Vary",
+    "spatne": [
+      "Mariánské Lázně",
+      "Františkovy Lázně",
+      "Luhačovice"
+    ],
+    "fakt": "Becherovce se přezdívá třináctý karlovarský pramen.",
+    "src": "https://cs.wikipedia.org/wiki/Becherovka",
+    "cit": "vyráběný v Karlových Varech",
+    "plati": null
+  },
+  {
+    "id": "jid-1-07",
+    "kat": "jidlo",
+    "obt": 1,
+    "q": "Ze zrn kterého stromu se vyrábí čokoláda?",
+    "spravne": "Kakaovník",
+    "spatne": [
+      "Kávovník",
+      "Kolovník",
+      "Muškátovník"
+    ],
+    "fakt": "Slovo čokoláda pochází z aztéckého xocolātl, což znamená hořké pití.",
+    "src": "https://cs.wikipedia.org/wiki/Čokoláda",
+    "cit": "Čokoláda se vyrábí z kvašených, pražených a mletých zrnek tropického kakaového stromu",
+    "plati": null
+  },
+  {
+    "id": "jid-1-08",
+    "kat": "jidlo",
+    "obt": 1,
+    "q": "Jaký sýr se tradičně používá na smažený sýr, smažák?",
+    "spravne": "Eidam",
+    "spatne": [
+      "Parmezán",
+      "Roquefort",
+      "Feta"
+    ],
+    "fakt": "Podává se obvykle s bramborovými přílohami nebo v housce s tatarskou omáčkou.",
+    "src": "https://cs.wikipedia.org/wiki/Smažený_sýr",
+    "cit": "smažením obaleného sýru typu eidam, gouda nebo ementál",
+    "plati": null
+  },
+  {
+    "id": "jid-1-09",
+    "kat": "jidlo",
+    "obt": 1,
+    "q": "Z čeho se dělá český utopenec podávaný k pivu?",
+    "spravne": "Ze špekáčků",
+    "spatne": [
+      "Z kuřecích prsou",
+      "Z hovězí šunky",
+      "Z vepřové pečeně"
+    ],
+    "fakt": "Je to oblíbený český pokrm studené kuchyně, často podávaný v hostincích k pivu.",
+    "src": "https://cs.wikipedia.org/wiki/Utopenec",
+    "cit": "špekáčky/buřty s cibulí ve sladkokyselém nálevu",
+    "plati": null
+  },
+  {
+    "id": "jid-1-10",
+    "kat": "jidlo",
+    "obt": 1,
+    "q": "Která bylinka s čerstvými lístky patří do kubánského koktejlu mojito?",
+    "spravne": "Máta",
+    "spatne": [
+      "Bazalka",
+      "Tymián",
+      "Rozmarýn"
+    ],
+    "fakt": "Mojito se dělá z máty, bílého rumu, třtinového cukru, limetek a perlivé vody.",
+    "src": "https://cs.wikipedia.org/wiki/Mojito",
+    "cit": "Mojito zpravidla obsahuje čerstvé lístky máty",
+    "plati": null
+  },
+  {
+    "id": "jid-2-01",
+    "kat": "jidlo",
+    "obt": 2,
+    "q": "Ve kterém městě uvařil roku 1842 sládek Josef Groll první světlý ležák?",
+    "spravne": "Plzeň",
+    "spatne": [
+      "České Budějovice",
+      "Pardubice",
+      "Kutná Hora"
+    ],
+    "fakt": "Pilsner Urquell byl vůbec první světlý ležák a vzor piv plzeňského typu.",
+    "src": "https://cs.wikipedia.org/wiki/Prazdroj",
+    "cit": "uvařen 5. října 1842 v plzeňském pivovaru německým sládkem Josefem Grollem",
+    "plati": null
+  },
+  {
+    "id": "jid-2-02",
+    "kat": "jidlo",
+    "obt": 2,
+    "q": "Z jakého jazyka pochází české slovo guláš?",
+    "spravne": "Z maďarštiny",
+    "spatne": [
+      "Z němčiny",
+      "Z polštiny",
+      "Z italštiny"
+    ],
+    "fakt": "Guláš je původně maďarský pokrm z masových kostek s cibulí, kořeněný paprikou.",
+    "src": "https://cs.wikipedia.org/wiki/Guláš",
+    "cit": "pochází maďarský název gulyás (výslovnost [gujáš]) a z toho dále české guláš",
+    "plati": null
+  },
+  {
+    "id": "jid-2-03",
+    "kat": "jidlo",
+    "obt": 2,
+    "q": "Který sýr je nezbytnou přísadou italského dezertu tiramisu?",
+    "spravne": "Mascarpone",
+    "spatne": [
+      "Ricotta",
+      "Mozzarella",
+      "Gorgonzola"
+    ],
+    "fakt": "Název tiramisù znamená italsky vytáhni mě nebo zvedni mě.",
+    "src": "https://cs.wikipedia.org/wiki/Tiramisu",
+    "cit": "Tiramisu se vyrábí ze sýra mascarpone",
+    "plati": null
+  },
+  {
+    "id": "jid-2-04",
+    "kat": "jidlo",
+    "obt": 2,
+    "q": "Z kterého španělského města pochází paella?",
+    "spravne": "Valencie",
+    "spatne": [
+      "Sevilla",
+      "Barcelona",
+      "Madrid"
+    ],
+    "fakt": "Většina Španělů ji pokládá za regionální pokrm, Valenčané za svůj symbol.",
+    "src": "https://cs.wikipedia.org/wiki/Paella",
+    "cit": "Pochází ze španělského města Valencie.",
+    "plati": null
+  },
+  {
+    "id": "jid-2-05",
+    "kat": "jidlo",
+    "obt": 2,
+    "q": "V které francouzské oblasti vznikl sýr camembert?",
+    "spravne": "Normandie",
+    "spatne": [
+      "Auvergne",
+      "Alsasko",
+      "Provence"
+    ],
+    "fakt": "Normandský camembert získal roku 1983 označení Appellation d’origine contrôlée.",
+    "src": "https://cs.wikipedia.org/wiki/Camembert",
+    "cit": "ležící v departementu Orne v Normandii, kde vznikl",
+    "plati": null
+  },
+  {
+    "id": "jid-2-06",
+    "kat": "jidlo",
+    "obt": 2,
+    "q": "Z jakého mléka se tradičně vyrábí feta?",
+    "spravne": "Z ovčího a kozího",
+    "spatne": [
+      "Z kravského a ovčího",
+      "Z kravského a buvolího",
+      "Z kozího a velbloudího"
+    ],
+    "fakt": "Název feta znamená řecky nakrájet a odkazuje na krájení sýra na bloky.",
+    "src": "https://cs.wikipedia.org/wiki/Feta",
+    "cit": "Vyrábí se z čerstvého ovčího a kozího mléka",
+    "plati": null
+  },
+  {
+    "id": "jid-2-07",
+    "kat": "jidlo",
+    "obt": 2,
+    "q": "Která část prasete je základem pražské šunky?",
+    "spravne": "Kýta",
+    "spatne": [
+      "Plec",
+      "Žebra",
+      "Panenka"
+    ],
+    "fakt": "Údajně první ji roku 1857 vyrobil v Praze řezník František Zvěřina.",
+    "src": "https://cs.wikipedia.org/wiki/Pražská_šunka",
+    "cit": "lehce uzená a pak vařená vepřová kýta",
+    "plati": null
+  },
+  {
+    "id": "jid-2-08",
+    "kat": "jidlo",
+    "obt": 2,
+    "q": "Jakou marmeládu obsahuje originální Sacherův dort?",
+    "spravne": "Meruňkovou",
+    "spatne": [
+      "Malinovou",
+      "Jahodovou",
+      "Rybízovou"
+    ],
+    "fakt": "Dort vytvořil roku 1832 šestnáctiletý Franz Sacher pro knížete Metternicha.",
+    "src": "https://cs.wikipedia.org/wiki/Sacherův_dort",
+    "cit": "originální druh čokoládového dortu s meruňkovou marmeládou",
+    "plati": null
+  },
+  {
+    "id": "jid-2-09",
+    "kat": "jidlo",
+    "obt": 2,
+    "q": "Pro kterou zemi je národním jídlem haggis z ovčích vnitřností?",
+    "spravne": "Skotsko",
+    "spatne": [
+      "Irsko",
+      "Wales",
+      "Norsko"
+    ],
+    "fakt": "Základem jsou ovčí vnitřnosti, ovesné vločky, cibule a koření.",
+    "src": "https://cs.wikipedia.org/wiki/Haggis",
+    "cit": "tradiční a zároveň národní skotské jídlo",
+    "plati": null
+  },
+  {
+    "id": "jid-2-10",
+    "kat": "jidlo",
+    "obt": 2,
+    "q": "Který sýr se v hospodách nakládá do oleje s cibulí, feferonkami a bobkovým listem?",
+    "spravne": "Hermelín",
+    "spatne": [
+      "Eidam",
+      "Niva",
+      "Romadur"
+    ],
+    "fakt": "Hermelín je česká obdoba camembertu.",
+    "src": "https://cs.wikipedia.org/wiki/Nakládaný_hermelín",
+    "cit": "Nakládaný hermelín je označení pro marinovaný hermelín",
+    "plati": null
+  },
+  {
+    "id": "jid-3-01",
+    "kat": "jidlo",
+    "obt": 3,
+    "q": "Z které části rostliny se získává koření wasabi?",
+    "spravne": "Z oddenku",
+    "spatne": [
+      "Z plodů",
+      "Ze semen",
+      "Z listů"
+    ],
+    "fakt": "Česky se wasabi říká také japonský křen.",
+    "src": "https://cs.wikipedia.org/wiki/Wasabi",
+    "cit": "Wasabi je koření získané z oddenku rostliny eutremy japonské",
+    "plati": null
+  },
+  {
+    "id": "jid-3-02",
+    "kat": "jidlo",
+    "obt": 3,
+    "q": "Čím je okořeněná Kofola, která obsahuje 14 bylin a ovocných látek?",
+    "spravne": "Lékořicí",
+    "spatne": [
+      "Mátou",
+      "Vanilkou",
+      "Zázvorem"
+    ],
+    "fakt": "Kofola vznikla jako československá alternativa k Coca-Cole a Pepsi.",
+    "src": "https://cs.wikipedia.org/wiki/Kofola",
+    "cit": "Kofola obsahuje 14 různých bylin a ovocných látek, okořeněná je lékořicí",
+    "plati": "2026-10"
+  },
+  {
+    "id": "jid-3-03",
+    "kat": "jidlo",
+    "obt": 3,
+    "q": "Z kterého italského regionu pochází sýr mozzarella?",
+    "spravne": "Z Kampánie",
+    "spatne": [
+      "Z Toskánska",
+      "Ze Sicílie",
+      "Z Lombardie"
+    ],
+    "fakt": "Skladuje se v misce se syrovátkou a má sněhobílou barvu.",
+    "src": "https://cs.wikipedia.org/wiki/Mozzarella",
+    "cit": "Mozzarella je měkký sýr z italské Kampánie.",
+    "plati": null
+  },
+  {
+    "id": "jid-3-04",
+    "kat": "jidlo",
+    "obt": 3,
+    "q": "Od kterého roku je Parmigiano-Reggiano v EU chráněnou značkou původu?",
+    "spravne": "1996",
+    "spatne": [
+      "1992",
+      "2000",
+      "2004"
+    ],
+    "fakt": "Parmigiano-Reggiano nese jméno provincií Parma a Reggio Emilia.",
+    "src": "https://cs.wikipedia.org/wiki/Parmezán",
+    "cit": "v EU je od 12. června 1996 chráněnou značkou původu",
+    "plati": null
+  },
+  {
+    "id": "jid-3-11",
+    "kat": "jidlo",
+    "obt": 3,
+    "q": "Z jakého ovoce se vyrábí normandská pálenka calvados?",
+    "spravne": "Z jablek",
+    "spatne": [
+      "Z třešní",
+      "Ze švestek",
+      "Z meruněk"
+    ],
+    "fakt": "Název prý vznikl podle španělské válečné lodi El Calvador, která ztroskotala roku 1588 u normandského pobřeží.",
+    "src": "https://cs.wikipedia.org/wiki/Calvados",
+    "cit": "je pálenka z jablek z francouzského regionu Normandie",
+    "plati": null
+  },
+  {
+    "id": "jid-3-06",
+    "kat": "jidlo",
+    "obt": 3,
+    "q": "Která část květu krokusu setého se sklízí jako koření šafrán?",
+    "spravne": "Čnělky",
+    "spatne": [
+      "Okvětní lístky",
+      "Tyčinky",
+      "Semeníky"
+    ],
+    "fakt": "Strojový sběr nejde, přes 100 000 čnělek váží jen asi kilogram, proto je šafrán drahý.",
+    "src": "https://cs.wikipedia.org/wiki/Šafrán_setý",
+    "cit": "pěstovaná pro čnělky svých květů, které jsou vysoce ceněným kořením šafránem",
+    "plati": null
+  },
+  {
+    "id": "jid-3-07",
+    "kat": "jidlo",
+    "obt": 3,
+    "q": "Které městečko je tradičním místem výroby olomouckých tvarůžků?",
+    "spravne": "Loštice",
+    "spatne": [
+      "Olomouc",
+      "Litovel",
+      "Šternberk"
+    ],
+    "fakt": "Olomoucké tvarůžky jsou moravský sýr zrající pod mazem z netučného tvarohu.",
+    "src": "https://cs.wikipedia.org/wiki/Olomoucké_tvarůžky",
+    "cit": "Tradičním místem jsou Loštice",
+    "plati": null
+  },
+  {
+    "id": "jid-3-08",
+    "kat": "jidlo",
+    "obt": 3,
+    "q": "Z které země původně pochází koření vanilka?",
+    "spravne": "Z Mexika",
+    "spatne": [
+      "Z Madagaskaru",
+      "Z Indie",
+      "Z Indonésie"
+    ],
+    "fakt": "Vanilka je fermentovaná tobolka některých orchidejí rodu vanilovník.",
+    "src": "https://cs.wikipedia.org/wiki/Vanilka",
+    "cit": "Vanilka je aromatické koření původem z Mexika",
+    "plati": null
+  },
+  {
+    "id": "jid-3-09",
+    "kat": "jidlo",
+    "obt": 3,
+    "q": "Jak se označuje pravé japonské sake z rýže?",
+    "spravne": "Nihonšu",
+    "spatne": [
+      "Šóčú",
+      "Umešu",
+      "Awamori"
+    ],
+    "fakt": "V Japonsku slovo sake znamená jakýkoli alkoholický nápoj.",
+    "src": "https://cs.wikipedia.org/wiki/Sake",
+    "cit": "Pravé japonské Sake nese název Nihonšu",
+    "plati": null
+  },
+  {
+    "id": "jid-3-12",
+    "kat": "jidlo",
+    "obt": 3,
+    "q": "Které oříšky se tradičně dávají do pesta alla genovese?",
+    "spravne": "Piniové oříšky",
+    "spatne": [
+      "Pistácie",
+      "Kešu",
+      "Arašídy"
+    ],
+    "fakt": "Hlavní složkou pesta je bazalka, přídomek genovese odkazuje na město Janov.",
+    "src": "https://cs.wikipedia.org/wiki/Pesto",
+    "cit": "parmezán a/nebo jiný drobně strouhaný ovčí sýr a piniové oříšky",
+    "plati": null
+  }
+]

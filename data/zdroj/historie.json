@@ -1,0 +1,482 @@
+[
+  {
+    "id": "his-1-01",
+    "kat": "historie",
+    "obt": 1,
+    "q": "Ve kterém roce vznikl samostatný československý stát?",
+    "spravne": "1918",
+    "spatne": [
+      "1919",
+      "1920",
+      "1917"
+    ],
+    "fakt": "Československo vzniklo 28. října 1918 po rozpadu Rakouska-Uherska.",
+    "src": "https://cs.wikipedia.org/wiki/Československo",
+    "cit": "Československý stát vznikl 28. října 1918",
+    "plati": null
+  },
+  {
+    "id": "his-1-02",
+    "kat": "historie",
+    "obt": 1,
+    "q": "Kdo byl prvním prezidentem Československé republiky?",
+    "spravne": "T. G. Masaryk",
+    "spatne": [
+      "Edvard Beneš",
+      "Emil Hácha",
+      "Klement Gottwald"
+    ],
+    "fakt": "Masaryk byl také státník, filozof, sociolog a pedagog.",
+    "src": "https://cs.wikipedia.org/wiki/Tomáš_Garrigue_Masaryk",
+    "cit": "první prezident Československé republiky",
+    "plati": null
+  },
+  {
+    "id": "his-1-03",
+    "kat": "historie",
+    "obt": 1,
+    "q": "Ve kterém roce padla Berlínská zeď?",
+    "spravne": "1989",
+    "spatne": [
+      "1990",
+      "1988",
+      "1991"
+    ],
+    "fakt": "Východoněmecká vláda 9. listopadu 1989 oznámila, že občané NDR mohou navštěvovat SRN a Západní Berlín.",
+    "src": "https://cs.wikipedia.org/wiki/Berlínská_zeď",
+    "cit": "Pád Berlínské zdi 9. listopadu 1989",
+    "plati": null
+  },
+  {
+    "id": "his-1-04",
+    "kat": "historie",
+    "obt": 1,
+    "q": "Který mořeplavec doplul v roce 1492 k břehům Ameriky?",
+    "spravne": "Kryštof Kolumbus",
+    "spatne": [
+      "Vasco da Gama",
+      "Ferdinand Magalhães",
+      "James Cook"
+    ],
+    "fakt": "Kolumbus chtěl dosáhnout Japonska, ale přistál na Bahamských ostrovech.",
+    "src": "https://cs.wikipedia.org/wiki/Kryštof_Kolumbus",
+    "cit": "dosáhl Kolumbus místo plánovaného Japonska břehů Bahamských ostrovů",
+    "plati": null
+  },
+  {
+    "id": "his-1-05",
+    "kat": "historie",
+    "obt": 1,
+    "q": "Kdo objevil roku 1922 hrobku faraona Tutanchamona?",
+    "spravne": "Howard Carter",
+    "spatne": [
+      "Heinrich Schliemann",
+      "Arthur Evans",
+      "Jean-François Champollion"
+    ],
+    "fakt": "Hrobka byla objevena 4. 11. 1922, sarkofág se podařilo otevřít až roku 1925.",
+    "src": "https://cs.wikipedia.org/wiki/Tutanchamon",
+    "cit": "objevil po téměř 3300 letech v roce 1922 britský archeolog Howard Carter",
+    "plati": null
+  },
+  {
+    "id": "his-1-06",
+    "kat": "historie",
+    "obt": 1,
+    "q": "U kterého belgického města byl 18. června 1815 poražen Napoleon?",
+    "spravne": "Waterloo",
+    "spatne": [
+      "Lutych",
+      "Gent",
+      "Antverpy"
+    ],
+    "fakt": "Bitva se odehrála asi 20 km jižně od Bruselu.",
+    "src": "https://cs.wikipedia.org/wiki/Bitva_u_Waterloo",
+    "cit": "Francouzská armáda císaře Napoleona I. zde utrpěla drtivou porážku",
+    "plati": null
+  },
+  {
+    "id": "his-1-07",
+    "kat": "historie",
+    "obt": 1,
+    "q": "Který český král a císař založil hrad Karlštejn?",
+    "spravne": "Karel IV.",
+    "spatne": [
+      "Václav IV.",
+      "Jiří z Poděbrad",
+      "Rudolf II."
+    ],
+    "fakt": "Hrad sloužil jako soukromé reprezentační sídlo českého a římského krále.",
+    "src": "https://cs.wikipedia.org/wiki/Karlštejn",
+    "cit": "Karlštejn byl založen českým a římským králem, pozdějším císařem Karlem IV.",
+    "plati": null
+  },
+  {
+    "id": "his-1-08",
+    "kat": "historie",
+    "obt": 1,
+    "q": "Ve kterém roce začala první světová válka?",
+    "spravne": "1914",
+    "spatne": [
+      "1912",
+      "1916",
+      "1917"
+    ],
+    "fakt": "Rakousko-Uhersko vyhlásilo Srbsku válku 28. července 1914, měsíc po atentátu v Sarajevu.",
+    "src": "https://cs.wikipedia.org/wiki/První_světová_válka",
+    "cit": "probíhající od 28. července 1914 do 11. listopadu 1918",
+    "plati": null
+  },
+  {
+    "id": "his-1-09",
+    "kat": "historie",
+    "obt": 1,
+    "q": "Který den roku 1989 odstartoval sametovou revoluci?",
+    "spravne": "17. listopadu",
+    "spatne": [
+      "28. října",
+      "9. listopadu",
+      "10. prosince"
+    ],
+    "fakt": "Revoluce trvala do 29. prosince 1989 a vedla k pádu komunistického režimu.",
+    "src": "https://cs.wikipedia.org/wiki/Sametová_revoluce",
+    "cit": "politických změn v Československu mezi 17. listopadem a 29. prosincem 1989",
+    "plati": null
+  },
+  {
+    "id": "his-1-10",
+    "kat": "historie",
+    "obt": 1,
+    "q": "Kdo jako první člověk vstoupil na povrch Měsíce?",
+    "spravne": "Neil Armstrong",
+    "spatne": [
+      "Buzz Aldrin",
+      "Jurij Gagarin",
+      "Alan Shepard"
+    ],
+    "fakt": "Armstrong vystoupil na Měsíc 21. července 1969 podle času UTC.",
+    "src": "https://cs.wikipedia.org/wiki/Neil_Armstrong",
+    "cit": "stanul Armstrong jako první člověk na povrchu Měsíce",
+    "plati": null
+  },
+  {
+    "id": "his-2-01",
+    "kat": "historie",
+    "obt": 2,
+    "q": "Který francouzský král měl přízvisko Král Slunce?",
+    "spravne": "Ludvík XIV.",
+    "spatne": [
+      "Ludvík XVI.",
+      "Jindřich IV.",
+      "Karel Veliký"
+    ],
+    "fakt": "Přízvisko získal podle role Apollóna, kterou tančil ve slunečním kostýmu.",
+    "src": "https://cs.wikipedia.org/wiki/Ludvík_XIV.",
+    "cit": "řečený Král Slunce (le Roi Soleil)",
+    "plati": null
+  },
+  {
+    "id": "his-2-02",
+    "kat": "historie",
+    "obt": 2,
+    "q": "Kde se roku 1805 odehrála bitva tří císařů?",
+    "spravne": "Slavkov",
+    "spatne": [
+      "Wagram",
+      "Jena",
+      "Lipsko"
+    ],
+    "fakt": "Bitva se odehrála 2. prosince 1805 na Moravě jihovýchodně od Brna.",
+    "src": "https://cs.wikipedia.org/wiki/Bitva_u_Slavkova",
+    "cit": "Bitva u Slavkova, zvaná též bitvou tří císařů",
+    "plati": null
+  },
+  {
+    "id": "his-2-03",
+    "kat": "historie",
+    "obt": 2,
+    "q": "Ve kterém roce byla původně vydána anglická Velká listina svobod?",
+    "spravne": "1215",
+    "spatne": [
+      "1189",
+      "1265",
+      "1307"
+    ],
+    "fakt": "Magna charta omezovala pravomoci panovníka a vyžadovala dodržování zákonných procedur.",
+    "src": "https://cs.wikipedia.org/wiki/Magna_charta",
+    "cit": "anglický právní dokument původně vydaný roku 1215",
+    "plati": null
+  },
+  {
+    "id": "his-2-04",
+    "kat": "historie",
+    "obt": 2,
+    "q": "Kdo vedl normanské vojsko v bitvě u Hastingsu roku 1066?",
+    "spravne": "Vilém Dobyvatel",
+    "spatne": [
+      "Harold Godwinson",
+      "Harald Hardrada",
+      "Eduard Vyznavač"
+    ],
+    "fakt": "Bitva se konala 14. října 1066, anglický král Harold Godwinson v ní padl.",
+    "src": "https://cs.wikipedia.org/wiki/Bitva_u_Hastingsu",
+    "cit": "Normanů vedené Vilémem, vévodou z Normandie",
+    "plati": null
+  },
+  {
+    "id": "his-2-05",
+    "kat": "historie",
+    "obt": 2,
+    "q": "Jak se jmenovala pařížská pevnost s věznicí, symbol Velké francouzské revoluce?",
+    "spravne": "Bastila",
+    "spatne": [
+      "Louvre",
+      "Tuileries",
+      "Notre-Dame"
+    ],
+    "fakt": "V době dobytí 14. července 1789 bylo v Bastile jen sedm vězňů.",
+    "src": "https://cs.wikipedia.org/wiki/Dobytí_Bastily",
+    "cit": "Bastila byla pevnost sloužící jako věznice",
+    "plati": null
+  },
+  {
+    "id": "his-2-06",
+    "kat": "historie",
+    "obt": 2,
+    "q": "Ve kterém roce byla podepsána Mnichovská dohoda?",
+    "spravne": "1938",
+    "spatne": [
+      "1936",
+      "1939",
+      "1937"
+    ],
+    "fakt": "Dohoda byla přijata 29. září 1938, podepsána byla až po půlnoci.",
+    "src": "https://cs.wikipedia.org/wiki/Mnichovská_dohoda",
+    "cit": "29. září 1938 v Mnichově",
+    "plati": null
+  },
+  {
+    "id": "his-2-07",
+    "kat": "historie",
+    "obt": 2,
+    "q": "Kterého roku se Marie Terezie stala panovnicí habsburských zemí?",
+    "spravne": "1740",
+    "spatne": [
+      "1748",
+      "1756",
+      "1765"
+    ],
+    "fakt": "Trůn získala po smrti svého otce 20. října 1740.",
+    "src": "https://cs.wikipedia.org/wiki/Marie_Terezie",
+    "cit": "Po smrti svého otce dne 20. října 1740 se Marie Terezie stala panovnicí nad habsburskými zeměmi",
+    "plati": null
+  },
+  {
+    "id": "his-2-08",
+    "kat": "historie",
+    "obt": 2,
+    "q": "Kterého roku vydal Josef II. patent o zrušení nevolnictví?",
+    "spravne": "1781",
+    "spatne": [
+      "1775",
+      "1785",
+      "1790"
+    ],
+    "fakt": "Nevolnictví nahradilo mírnější poddanství, robota se zachovala až do roku 1848.",
+    "src": "https://cs.wikipedia.org/wiki/Josef_II.",
+    "cit": "Dne 1. listopadu 1781 byl vydán tzv. Patent o zrušení nevolnictví",
+    "plati": null
+  },
+  {
+    "id": "his-2-09",
+    "kat": "historie",
+    "obt": 2,
+    "q": "Kdo byl prvním římským císařem?",
+    "spravne": "Augustus",
+    "spatne": [
+      "Julius Caesar",
+      "Nero",
+      "Traján"
+    ],
+    "fakt": "Augustus vládl od roku 27 př. n. l. až do své smrti v roce 14.",
+    "src": "https://cs.wikipedia.org/wiki/Augustus",
+    "cit": "byl prvním císařem římské říše",
+    "plati": null
+  },
+  {
+    "id": "his-2-10",
+    "kat": "historie",
+    "obt": 2,
+    "q": "Kterého roku založil Karel IV. pražskou univerzitu?",
+    "spravne": "1348",
+    "spatne": [
+      "1346",
+      "1355",
+      "1378"
+    ],
+    "fakt": "Nadační listina je z 7. dubna 1348, tento den se slaví jako den založení univerzity.",
+    "src": "https://cs.wikipedia.org/wiki/Univerzita_Karlova",
+    "cit": "Založil ji roku 1348 český král Karel IV.",
+    "plati": null
+  },
+  {
+    "id": "his-3-01",
+    "kat": "historie",
+    "obt": 3,
+    "q": "Který přemyslovský panovník získal roku 1212 Zlatou bulu sicilskou?",
+    "spravne": "Přemysl Otakar I.",
+    "spatne": [
+      "Přemysl Otakar II.",
+      "Václav I.",
+      "Vladislav II."
+    ],
+    "fakt": "Listinu vydal 26. září 1212 v Basileji budoucí římský král Fridrich II.",
+    "src": "https://cs.wikipedia.org/wiki/Zlatá_bula_sicilská",
+    "cit": "vydal 26. září 1212 v Basileji budoucí římský král Fridrich II. českému Přemyslu Otakarovi I.",
+    "plati": null
+  },
+  {
+    "id": "his-3-02",
+    "kat": "historie",
+    "obt": 3,
+    "q": "Který mír z roku 1648 ukončil třicetiletou válku?",
+    "spravne": "Vestfálský mír",
+    "spatne": [
+      "Augsburský mír",
+      "Utrechtský mír",
+      "Pařížský mír"
+    ],
+    "fakt": "Byl uzavřen 24. října 1648 a tvořily ho Münsterská a Osnabrücká smlouva.",
+    "src": "https://cs.wikipedia.org/wiki/Vestfálský_mír",
+    "cit": "ukončující třicetiletou a osmdesátiletou válku",
+    "plati": null
+  },
+  {
+    "id": "his-3-03",
+    "kat": "historie",
+    "obt": 3,
+    "q": "Kterého roku dorazili Cyril a Metoděj na Velkou Moravu?",
+    "spravne": "863",
+    "spatne": [
+      "833",
+      "895",
+      "907"
+    ],
+    "fakt": "Bratři dorazili na Velkou Moravu na jaře roku 863.",
+    "src": "https://cs.wikipedia.org/wiki/Cyril_a_Metoděj",
+    "cit": "Na Velkou Moravu dorazili bratři na jaře 863",
+    "plati": null
+  },
+  {
+    "id": "his-3-04",
+    "kat": "historie",
+    "obt": 3,
+    "q": "Který rok se tradičně uvádí jako zánik Západořímské říše?",
+    "spravne": "476",
+    "spatne": [
+      "410",
+      "455",
+      "395"
+    ],
+    "fakt": "Císař Romulus Augustulus byl donucen k abdikaci germánským velitelem Odoakerem.",
+    "src": "https://cs.wikipedia.org/wiki/Západořímská_říše",
+    "cit": "Západořímská říše zanikla již v roce 476",
+    "plati": null
+  },
+  {
+    "id": "his-3-05",
+    "kat": "historie",
+    "obt": 3,
+    "q": "U kterého města se roku 1813 svedla Bitva národů?",
+    "spravne": "Lipsko",
+    "spatne": [
+      "Hamburk",
+      "Norimberk",
+      "Mnichov"
+    ],
+    "fakt": "Bitva probíhala od 16. do 19. října 1813 a byla největší bitvou napoleonských válek.",
+    "src": "https://cs.wikipedia.org/wiki/Bitva_u_Lipska",
+    "cit": "Odehrála se ve dnech 16. října až 19. října 1813 u německého Lipska",
+    "plati": null
+  },
+  {
+    "id": "his-3-06",
+    "kat": "historie",
+    "obt": 3,
+    "q": "Které dvě mocnosti si smlouvou z Tordesillas roku 1494 rozdělily svět?",
+    "spravne": "Španělsko a Portugalsko",
+    "spatne": [
+      "Anglie a Francie",
+      "Portugalsko a Anglie",
+      "Španělsko a Francie"
+    ],
+    "fakt": "Smlouva byla podepsána 7. června 1494 na nátlak papeže Alexandra VI.",
+    "src": "https://cs.wikipedia.org/wiki/Tordesillaská_smlouva",
+    "cit": "smlouvou o rozdělení světa mezi Španělsko a Portugalsko",
+    "plati": null
+  },
+  {
+    "id": "his-3-07",
+    "kat": "historie",
+    "obt": 3,
+    "q": "Která bitva roku 1278 stála život českého krále Přemysla Otakara II.?",
+    "spravne": "Na Moravském poli",
+    "spatne": [
+      "U Kresčaku",
+      "U Moháče",
+      "Na Bílé hoře"
+    ],
+    "fakt": "Bitva se odehrála 26. srpna 1278 mezi vesnicemi Suché Kruty a Jedenspeigen.",
+    "src": "https://cs.wikipedia.org/wiki/Bitva_na_Moravském_poli",
+    "cit": "Přemysl Otakar II. prohrál a přišel v bitvě o život",
+    "plati": null
+  },
+  {
+    "id": "his-3-08",
+    "kat": "historie",
+    "obt": 3,
+    "q": "Který Habsburk byl roku 1526 zvolen českým králem?",
+    "spravne": "Ferdinand I.",
+    "spatne": [
+      "Maxmilián II.",
+      "Rudolf II.",
+      "Matyáš"
+    ],
+    "fakt": "Zvolen byl po smrti Ludvíka Jagellonského, který zahynul u Moháče.",
+    "src": "https://cs.wikipedia.org/wiki/Ferdinand_I._Habsburský",
+    "cit": "Dne 23. října 1526 byl Ferdinand zvolen českým králem",
+    "plati": null
+  },
+  {
+    "id": "his-3-09",
+    "kat": "historie",
+    "obt": 3,
+    "q": "Který ministr zahraničí předsedal Vídeňskému kongresu místo císaře?",
+    "spravne": "Klemens Metternich",
+    "spatne": [
+      "Charles Talleyrand",
+      "Václav Kounic",
+      "Karl Schwarzenberg"
+    ],
+    "fakt": "Kongres probíhal ve Vídni pod předsednictvím rakouského císaře Františka I.",
+    "src": "https://cs.wikipedia.org/wiki/Vídeňský_kongres",
+    "cit": "ve funkci předsedajícího pravidelně zastupován ministrem zahraničí Klemensem Metternichem",
+    "plati": null
+  },
+  {
+    "id": "his-3-10",
+    "kat": "historie",
+    "obt": 3,
+    "q": "Kterého roku dobyli Osmanští Turci Konstantinopol?",
+    "spravne": "1453",
+    "spatne": [
+      "1448",
+      "1461",
+      "1492"
+    ],
+    "fakt": "Obležení trvalo od 2. dubna do 29. května 1453 a znamenalo zánik Byzantské říše.",
+    "src": "https://cs.wikipedia.org/wiki/Pád_Konstantinopole",
+    "cit": "Pád Konstantinopole do rukou Osmanských Turků, v nějž vyústilo obležení z roku 1453",
+    "plati": null
+  }
+]

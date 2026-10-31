@@ -1,0 +1,482 @@
+[
+  {
+    "id": "spo-1-01",
+    "kat": "sport",
+    "obt": 1,
+    "q": "Kolik hráčů jednoho týmu nastupuje ve fotbale na hřiště, včetně brankáře?",
+    "spravne": "11",
+    "spatne": [
+      "9",
+      "10",
+      "12"
+    ],
+    "fakt": "Jeden z jedenácti hráčů je brankář, který smí v okolí vlastní branky hrát míč rukama.",
+    "src": "https://cs.wikipedia.org/wiki/Fotbal",
+    "cit": "Ve fotbale hrají dvě družstva po jedenácti hráčích",
+    "plati": null
+  },
+  {
+    "id": "spo-1-02",
+    "kat": "sport",
+    "obt": 1,
+    "q": "Kolik propojených kruhů je na olympijské vlajce?",
+    "spravne": "5",
+    "spatne": [
+      "4",
+      "6",
+      "7"
+    ],
+    "fakt": "Vlajku s kruhy modré, žluté, černé, zelené a červené barvy navrhl roku 1914 baron Pierre de Coubertin.",
+    "src": "https://cs.wikipedia.org/wiki/Olympijské_kruhy",
+    "cit": "pět navzájem se protínajících kruhů modré, žluté, černé, zelené a červené barvy",
+    "plati": null
+  },
+  {
+    "id": "spo-1-03",
+    "kat": "sport",
+    "obt": 1,
+    "q": "Ve kterém městě se konaly první novodobé olympijské hry v roce 1896?",
+    "spravne": "Athény",
+    "spatne": [
+      "Paříž",
+      "Řím",
+      "Londýn"
+    ],
+    "fakt": "Her se zúčastnilo 245 sportovců ze 14 zemí, Češi v Athénách nestartovali.",
+    "src": "https://cs.wikipedia.org/wiki/Letní_olympijské_hry_1896",
+    "cit": "byla sportovní soutěž, jež se konala v Athénách, v Řecku od 6. do 15. dubna 1896",
+    "plati": null
+  },
+  {
+    "id": "spo-1-04",
+    "kat": "sport",
+    "obt": 1,
+    "q": "V jaké výšce nad zemí je obroučka basketbalového koše?",
+    "spravne": "3,05 m",
+    "spatne": [
+      "2,75 m",
+      "3,25 m",
+      "3,50 m"
+    ],
+    "fakt": "Hru vytvořil roku 1891 James Naismith; první koše byly koše na sběr broskví, přibité ve výšce 10 stop.",
+    "src": "https://cs.wikipedia.org/wiki/Basketbal",
+    "cit": "Obroučka basketbalového koše o průměru 45 cm je ve výšce 3,05 metru nad zemí.",
+    "plati": null
+  },
+  {
+    "id": "spo-1-05",
+    "kat": "sport",
+    "obt": 1,
+    "q": "Kdo byl v roce 1976 mistrem Evropy ve fotbale po penaltovém finále s NSR?",
+    "spravne": "Československo",
+    "spatne": [
+      "Jugoslávie",
+      "Nizozemsko",
+      "Itálie"
+    ],
+    "fakt": "Rozhodující penaltu proměnil Antonín Panenka slavným dloubáčkem.",
+    "src": "https://cs.wikipedia.org/wiki/Mistrovství_Evropy_ve_fotbale_1976",
+    "cit": "Mistrem Evropy se stal tým Československa, který ve finále porazil reprezentaci NSR v penaltovém rozstřelu",
+    "plati": null
+  },
+  {
+    "id": "spo-1-06",
+    "kat": "sport",
+    "obt": 1,
+    "q": "Kolik minut čistého času trvá zápas ledního hokeje?",
+    "spravne": "60 minut",
+    "spatne": [
+      "45 minut",
+      "50 minut",
+      "90 minut"
+    ],
+    "fakt": "Hraje se na tři třetiny po dvaceti minutách, mezi nimi jsou dvě přestávky po 15 minutách.",
+    "src": "https://cs.wikipedia.org/wiki/Lední_hokej",
+    "cit": "Lední hokej se hraje na 3 třetiny po 20 minutách, celkem tedy 60 minut čistého času",
+    "plati": null
+  },
+  {
+    "id": "spo-1-07",
+    "kat": "sport",
+    "obt": 1,
+    "q": "Na jakém povrchu se hraje tenisový turnaj ve Wimbledonu?",
+    "spravne": "Tráva",
+    "spatne": [
+      "Antuka",
+      "Tvrdý povrch",
+      "Koberec"
+    ],
+    "fakt": "Hráči ve Wimbledonu tradičně nastupují v bílém oblečení a areál neobsahuje reklamní plochy.",
+    "src": "https://cs.wikipedia.org/wiki/Wimbledon_(turnaj)",
+    "cit": "na travnatých dvorcích All England Clubu",
+    "plati": null
+  },
+  {
+    "id": "spo-1-08",
+    "kat": "sport",
+    "obt": 1,
+    "q": "Z kolika hráčů se skládá volejbalové družstvo na hřišti?",
+    "spravne": "6",
+    "spatne": [
+      "5",
+      "7",
+      "8"
+    ],
+    "fakt": "Hráči stojí v rozestavení tři vpředu a tři vzadu; set vyhrává tým s 25 body a náskokem dvou bodů.",
+    "src": "https://cs.wikipedia.org/wiki/Volejbal",
+    "cit": "se skládá z šesti hráčů, v rozestavení tři vpředu a tři vzadu",
+    "plati": null
+  },
+  {
+    "id": "spo-1-09",
+    "kat": "sport",
+    "obt": 1,
+    "q": "Kdo vyhrál na olympiádě v Helsinkách 1952 běh na 5 km, 10 km i maraton?",
+    "spravne": "Emil Zátopek",
+    "spatne": [
+      "Paavo Nurmi",
+      "Abebe Bikila",
+      "Lasse Virén"
+    ],
+    "fakt": "Maraton běžel Zátopek poprvé v životě, Finové mu přezdívali Pohádkový Péťa.",
+    "src": "https://cs.wikipedia.org/wiki/Letní_olympijské_hry_1952",
+    "cit": "Emil z „pětky“, „desítky“ a maratonu, ve kterém startoval poprvé v životě",
+    "plati": null
+  },
+  {
+    "id": "spo-1-10",
+    "kat": "sport",
+    "obt": 1,
+    "q": "Kolik jamek se hraje v jednom kole na standardním golfovém hřišti?",
+    "spravne": "18",
+    "spatne": [
+      "9",
+      "12",
+      "24"
+    ],
+    "fakt": "Na devítijamkových hřištích se proto chodí dvakrát po devíti jamkách.",
+    "src": "https://cs.wikipedia.org/wiki/Golf",
+    "cit": "V jednom kole se hraje 18 jamek",
+    "plati": null
+  },
+  {
+    "id": "spo-2-01",
+    "kat": "sport",
+    "obt": 2,
+    "q": "Ve kterém městě vyhráli čeští hokejisté olympijské zlato v roce 1998?",
+    "spravne": "Nagano",
+    "spatne": [
+      "Lillehammer",
+      "Salt Lake City",
+      "Calgary"
+    ],
+    "fakt": "V Naganu poprvé na olympiádě hráli hokejisté z NHL a snowboarding a curling měly olympijskou premiéru.",
+    "src": "https://cs.wikipedia.org/wiki/Zimní_olympijské_hry_1998",
+    "cit": "Vítězství českého týmu v tomto turnaji je považováno za jeden z největších úspěchů české hokejové",
+    "plati": null
+  },
+  {
+    "id": "spo-2-02",
+    "kat": "sport",
+    "obt": 2,
+    "q": "Kolik zlatých olympijských medailí získal oštěpař Jan Železný?",
+    "spravne": "3",
+    "spatne": [
+      "2",
+      "4",
+      "5"
+    ],
+    "fakt": "Zlato získal v letech 1992, 1996 a 2000, v Soulu 1988 přidal stříbro.",
+    "src": "https://cs.wikipedia.org/wiki/Jan_Železný",
+    "cit": "Je držitelem tří zlatých medailí (1992, 1996, 2000) a jedné stříbrné medaile z Olympijských her (1988)",
+    "plati": null
+  },
+  {
+    "id": "spo-2-03",
+    "kat": "sport",
+    "obt": 2,
+    "q": "Kdo vyhrál první ročník cyklistického závodu Tour de France v roce 1903?",
+    "spravne": "Maurice Garin",
+    "spatne": [
+      "Octave Lapize",
+      "François Faber",
+      "Louison Bobet"
+    ],
+    "fakt": "Garin vyhrál první a poslední dvě etapy s průměrnou rychlostí 25,68 km/h.",
+    "src": "https://cs.wikipedia.org/wiki/Tour_de_France",
+    "cit": "Vítězem prvního ročníku 1903 se stal Maurice Garin.",
+    "plati": null
+  },
+  {
+    "id": "spo-2-04",
+    "kat": "sport",
+    "obt": 2,
+    "q": "Proč je trikot lídra Tour de France žlutý?",
+    "spravne": "Kvůli papíru deníku L'Auto",
+    "spatne": [
+      "Kvůli dresu prvního vítěze",
+      "Kvůli logu prvního sponzora",
+      "Kvůli pařížskému stadionu"
+    ],
+    "fakt": "Deník L'Auto, který závod pořádal, byl tištěn na žlutě zbarveném papíře.",
+    "src": "https://cs.wikipedia.org/wiki/Žlutý_trikot",
+    "cit": "Žlutou barvu zvolil podle toho, že časopis L'Auto (předchůdce L'Équipe), který závod pořádal, byl tištěn na žlutě zbarveném papíře.",
+    "plati": null
+  },
+  {
+    "id": "spo-2-05",
+    "kat": "sport",
+    "obt": 2,
+    "q": "Která země hostila první fotbalové mistrovství světa v roce 1930?",
+    "spravne": "Uruguay",
+    "spatne": [
+      "Brazílie",
+      "Itálie",
+      "Argentina"
+    ],
+    "fakt": "Celý turnaj se hrál v jediném městě, v Montevideu, a domácí Uruguay se stala prvním mistrem světa.",
+    "src": "https://cs.wikipedia.org/wiki/Mistrovství_světa_ve_fotbale_1930",
+    "cit": "se konalo od 13. do 30. července 1930 v Uruguayi",
+    "plati": null
+  },
+  {
+    "id": "spo-2-06",
+    "kat": "sport",
+    "obt": 2,
+    "q": "Kdo vyhrál fotbalové MS 1986 v Mexiku, když ve finále porazil NSR 3:2?",
+    "spravne": "Argentina",
+    "spatne": [
+      "Brazílie",
+      "Itálie",
+      "Francie"
+    ],
+    "fakt": "Finále se hrálo na Aztéckém stadionu v Ciudad de México a nejlepším hráčem turnaje byl Diego Maradona.",
+    "src": "https://cs.wikipedia.org/wiki/Mistrovství_světa_ve_fotbale_1986",
+    "cit": "Vítězným týmem se stalo mužstvo Argentiny, které ve finálovém utkání na Aztéckém stadionu",
+    "plati": null
+  },
+  {
+    "id": "spo-2-07",
+    "kat": "sport",
+    "obt": 2,
+    "q": "Z kolika směn se skládá baseballový zápas?",
+    "spravne": "9",
+    "spatne": [
+      "6",
+      "7",
+      "10"
+    ],
+    "fakt": "Směna končí, jakmile obrana získá tři auty.",
+    "src": "https://cs.wikipedia.org/wiki/Baseball",
+    "cit": "hra se skládá z devíti směn",
+    "plati": null
+  },
+  {
+    "id": "spo-2-08",
+    "kat": "sport",
+    "obt": 2,
+    "q": "Který československý tenista zvítězil ve dvouhře Wimbledonu v roce 1973?",
+    "spravne": "Jan Kodeš",
+    "spatne": [
+      "Ivan Lendl",
+      "Tomáš Šmíd",
+      "Petr Korda"
+    ],
+    "fakt": "Kodeš byl jedním z nejlepších československých tenistů historie a vyhrál také French Open.",
+    "src": "https://cs.wikipedia.org/wiki/Jan_Kodeš",
+    "cit": "V roce 1973 zvítězil ve dvouhře na turnaji ve Wimbledonu",
+    "plati": null
+  },
+  {
+    "id": "spo-2-09",
+    "kat": "sport",
+    "obt": 2,
+    "q": "Kolik olympijských zlatých medailí získala gymnastka Věra Čáslavská?",
+    "spravne": "7",
+    "spatne": [
+      "5",
+      "6",
+      "9"
+    ],
+    "fakt": "Zlato ve víceboji vyhrála na dvou po sobě jdoucích hrách, v Tokiu 1964 a v Mexiku 1968.",
+    "src": "https://cs.wikipedia.org/wiki/Věra_Čáslavská",
+    "cit": "sedminásobná olympijská vítězka",
+    "plati": null
+  },
+  {
+    "id": "spo-2-10",
+    "kat": "sport",
+    "obt": 2,
+    "q": "V jaké vzdálenosti od brankové čáry je ve fotbale pokutová značka?",
+    "spravne": "11 m",
+    "spatne": [
+      "9 m",
+      "10 m",
+      "12 m"
+    ],
+    "fakt": "Z této značky se provádí pokutový kop, lidově zvaný penalta nebo jedenáctka.",
+    "src": "https://cs.wikipedia.org/wiki/Penalta",
+    "cit": "Míč se umístí na pokutovou značku (vzdálenou 11 m od brankové čáry)",
+    "plati": null
+  },
+  {
+    "id": "spo-3-01",
+    "kat": "sport",
+    "obt": 3,
+    "q": "Jaký průměr má golfová jamka?",
+    "spravne": "10,8 cm",
+    "spatne": [
+      "8,5 cm",
+      "12,7 cm",
+      "15,2 cm"
+    ],
+    "fakt": "Jamka by měla být hluboká 10,16 cm.",
+    "src": "https://cs.wikipedia.org/wiki/Golf",
+    "cit": "Samotná jamka má průměr 10,8 cm",
+    "plati": null
+  },
+  {
+    "id": "spo-3-02",
+    "kat": "sport",
+    "obt": 3,
+    "q": "Jaký průměr mají dnes míčky na stolní tenis v mistrovských soutěžích ITTF?",
+    "spravne": "40 mm",
+    "spatne": [
+      "36 mm",
+      "38 mm",
+      "44 mm"
+    ],
+    "fakt": "Dříve měl míček průměr 38 mm; zvětšení na 40 mm mírně snížilo jeho rychlost i rotaci.",
+    "src": "https://cs.wikipedia.org/wiki/Stolní_tenis",
+    "cit": "míček byl zvětšen z průměru 38mm na 40mm",
+    "plati": "2026-10"
+  },
+  {
+    "id": "spo-3-03",
+    "kat": "sport",
+    "obt": 3,
+    "q": "Kdo byl nejlepším střelcem fotbalového MS 1934 v Itálii?",
+    "spravne": "Oldřich Nejedlý",
+    "spatne": [
+      "Josef Bican",
+      "Matthias Sindelar",
+      "Giuseppe Meazza"
+    ],
+    "fakt": "Nejedlý dal pět gólů a jako jediný na turnaji vstřelil hattrick, který FIFA uznala až po 72 letech.",
+    "src": "https://cs.wikipedia.org/wiki/Mistrovství_světa_ve_fotbale_1934",
+    "cit": "Nejlepším střelcem mistrovství se stal s pěti brankami československý reprezentant Oldřich Nejedlý",
+    "plati": null
+  },
+  {
+    "id": "spo-3-04",
+    "kat": "sport",
+    "obt": 3,
+    "q": "Jaké rozměry (šířka × výška) má vnitřek fotbalové branky?",
+    "spravne": "7,32 × 2,44 m",
+    "spatne": [
+      "7,20 × 2,44 m",
+      "7,32 × 2,34 m",
+      "7,62 × 2,44 m"
+    ],
+    "fakt": "V původních mírách jde o osm yardů krát osm stop.",
+    "src": "https://cs.wikipedia.org/wiki/Fotbal",
+    "cit": "Vnitřní rozměry branky činí 7,32×2,44 m (8 yardů×8 stop).",
+    "plati": null
+  },
+  {
+    "id": "spo-3-05",
+    "kat": "sport",
+    "obt": 3,
+    "q": "Kdo vyhrál na LOH 1968 skok do výšky novým stylem, zády napřed přes laťku?",
+    "spravne": "Dick Fosbury",
+    "spatne": [
+      "Bob Beamon",
+      "Jim Hines",
+      "Al Oerter"
+    ],
+    "fakt": "Jeho styl se časem nazval Fosbury flop a dnes je nejpoužívanějším způsobem překonávání laťky.",
+    "src": "https://cs.wikipedia.org/wiki/Dick_Fosbury",
+    "cit": "Na Letních olympijských hrách 1968 v Ciudad de México získal zlatou medaili, když na první pokus překonal laťku ve výšce 224 cm",
+    "plati": null
+  },
+  {
+    "id": "spo-3-06",
+    "kat": "sport",
+    "obt": 3,
+    "q": "Jakou hmotnost nesmí překročit curlingový kámen včetně držadla?",
+    "spravne": "19,96 kg",
+    "spatne": [
+      "18,96 kg",
+      "20,96 kg",
+      "21,96 kg"
+    ],
+    "fakt": "Zároveň nesmí vážit méně než 17,24 kg.",
+    "src": "https://cs.wikipedia.org/wiki/Curling",
+    "cit": "Hmotnost kamene (včetně držadla) nesmí překročit 19,96 kg a zároveň nesmí být nižší než 17,24 kg.",
+    "plati": null
+  },
+  {
+    "id": "spo-3-07",
+    "kat": "sport",
+    "obt": 3,
+    "q": "Ve kterém městě se konaly první zimní olympijské hry v roce 1924?",
+    "spravne": "Chamonix",
+    "spatne": [
+      "St. Moritz",
+      "Lake Placid",
+      "Oslo"
+    ],
+    "fakt": "Chamonixský Týden zimních sportů uznal olympijský kongres v Praze 1925 zpětně za první zimní olympiádu.",
+    "src": "https://cs.wikipedia.org/wiki/Zimní_olympijské_hry_1924",
+    "cit": "ve francouzském městě Chamonix",
+    "plati": null
+  },
+  {
+    "id": "spo-3-08",
+    "kat": "sport",
+    "obt": 3,
+    "q": "V jakém roce založil Pierre de Coubertin Mezinárodní olympijský výbor?",
+    "spravne": "1894",
+    "spatne": [
+      "1888",
+      "1896",
+      "1900"
+    ],
+    "fakt": "Coubertin byl předsedou MOV v letech 1896 až 1925 a sídlo výboru zřídil v Lausanne.",
+    "src": "https://cs.wikipedia.org/wiki/Pierre_de_Coubertin",
+    "cit": "V roce 1894 obnovil moderní olympijské hry a založil Mezinárodní olympijský výbor",
+    "plati": null
+  },
+  {
+    "id": "spo-3-09",
+    "kat": "sport",
+    "obt": 3,
+    "q": "Na které zimní olympiádě vyhrála Kateřina Neumannová 30 km volně?",
+    "spravne": "Turín 2006",
+    "spatne": [
+      "Nagano 1998",
+      "Salt Lake City 2002",
+      "Vancouver 2010"
+    ],
+    "fakt": "Bylo jí 33 let; ve skiatlonu na stejných hrách přidala stříbro.",
+    "src": "https://cs.wikipedia.org/wiki/Kateřina_Neumannová",
+    "cit": "Neumannová se ve svých 33 letech na olympiádě v Turíně 2006 stala olympijskou vítězkou na 30 km volně",
+    "plati": null
+  },
+  {
+    "id": "spo-3-10",
+    "kat": "sport",
+    "obt": 3,
+    "q": "Od kterého roku se hraje finále americké NFL, zvané Super Bowl?",
+    "spravne": "1967",
+    "spatne": [
+      "1957",
+      "1962",
+      "1972"
+    ],
+    "fakt": "První Super Bowl se hrál 15. ledna 1967; od sloučení lig v roce 1970 jde o finále NFL.",
+    "src": "https://cs.wikipedia.org/wiki/Super_Bowl",
+    "cit": "Hraje se každoročně od roku 1967.",
+    "plati": null
+  }
+]
