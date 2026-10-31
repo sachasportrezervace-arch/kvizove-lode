@@ -45,6 +45,34 @@ let tickT = null, netMsg = "";
 let bot = null, soloName = "";    // sólo trénink: běžící bot a jméno z úvodní obrazovky
 const isSolo = () => local.on;
 
+// ---------------------------------------------------------------- Herna (protokol 1, viz ../HERNA-PROTOKOL.md)
+// V iframe Herny: adresa #herna=1&m=…&r=…&seat=0|1&names=A,B&zaklada=0|1 přeskočí výzvu i setup, výsledky jdou rodiči přes postMessage.
+let H = null;                    // {m, r, seat, names, zaklada} v režimu Herny, jinak null (hra se chová jako dřív)
+let hernaStav = "", hernaVysledky = new Set();
+function parseHerna() {
+  const kv = {};
+  for (const part of (location.hash || "").replace(/^#/, "").split("&")) { const i = part.indexOf("="); if (i > 0) kv[part.slice(0, i)] = part.slice(i + 1); }
+  if (kv.herna !== "1" || !/^[0-9a-z]{12,16}$/.test(kv.r || "") || !/^[01]$/.test(kv.seat || "")) return null;
+  // jména jsou každé zvlášť přes encodeURIComponent a oddělená čárkou, proto se dělí ručně (ne přes URLSearchParams)
+  const raw = attempt(() => (kv.names || "").split(",").map(n => decodeURIComponent(n).trim().slice(0, 16)), []);
+  return { m: kv.m || "", r: kv.r, seat: +kv.seat, names: [raw[0] || "Hráč 1", raw[1] || "Hráč 2"], zaklada: kv.zaklada === "1" };
+}
+const doHerny = z => { if (H && window.parent !== window) attempt(() => window.parent.postMessage({ herna: 1, ...z }, "*")); };
+// rod pro hlášky „Vyhrál/Vyhrála“ a titul: čeština, jméno na -a je ženské (až na pár známých výjimek)
+const MUZSKE_NA_A = /^(honza|kuba|jirka|standa|olda|vláďa|láďa|péťa|pepa|saša|jura|toma|tonda|hynek|nikola)$/i;
+const rodJmena = n => /a$/i.test(n) && !MUZSKE_NA_A.test(n) ? "f" : "m";
+// stav a výsledek rodiči: stav jen při změně, výsledek jednou za partii (r:n); vítěz je sedadlo v Herně, ne x/o hry
+function hernaSync() {
+  if (!H) return;
+  const F = room && room.so ? safeFlow() : null;
+  const stav = F ? (F.kind === "end" ? "konec" : "hraje") : "ceka";
+  if (stav !== hernaStav) { hernaStav = stav; doHerny({ typ: "stav", faze: stav }); }
+  if (F && F.kind === "end" && me && (room.g.h === 0 || room.g.h === 1)) {
+    const partie = room.id + ":" + room.g.n;
+    if (!hernaVysledky.has(partie)) { hernaVysledky.add(partie); doHerny({ typ: "vysledek", partie, vitez: F.winner === "x" ? room.g.h : F.winner === "o" ? 1 - room.g.h : null }); }
+  }
+}
+
 const getQ = id => QBY.get(id);
 const qid = x => x && x.q;
 const nameOf = seat => room ? room.g[seat] : "";
@@ -75,8 +103,8 @@ function setView(v) {
   view = v;
   ["setup", "share", "intro", "info", "game"].forEach(id => $(id).hidden = id !== v);
   document.body.dataset.view = v;
-  $("newGameBtn").hidden = v === "setup" || v === "info";
-  $("copyTopBtn").hidden = !(room && !isSolo() && (v === "game" || v === "share"));
+  $("newGameBtn").hidden = !!H || v === "setup" || v === "info";
+  $("copyTopBtn").hidden = !!H || !(room && !isSolo() && (v === "game" || v === "share"));
   $("soloTag").hidden = !(isSolo() && v === "game");
   document.body.toggleAttribute("data-solo", isSolo() && v === "game");
   window.scrollTo(0, 0);
@@ -127,12 +155,15 @@ async function boot() {
   clearTimeout(pollT); stopTick(); leaveSolo();
   room = null; me = null; writer = null; fleetRec = null; busy = false; gameKey = ""; poolInit = {}; pools = {}; docs.x = docs.o = null; fails = 0;
   $("pools").innerHTML = "";
+  H = parseHerna(); hernaStav = "";
+  document.body.toggleAttribute("data-herna", !!H);
+  if (H) { $("logo").removeAttribute("href"); doHerny({ typ: "pripraveno" }); }
   if (!QS.length) {
     try { QS = await (await fetch("data/otazky.json", { cache: "no-cache" })).json(); QBY = new Map(QS.map(q => [q.id, q])); }
     catch { info("Otázky se nepodařilo načíst.", "Zkontroluj připojení a zkus to znovu.", true); return; }
   }
   const h = (location.hash || "").replace(/^#/, ""), m = /^r\.([0-9a-z]{6,24})$/.exec(h);
-  if (m) await openRoom(m[1], seq); else if (h === "solo") await startSolo(seq); else showSetup();
+  if (H) await startHerna(seq); else if (m) await openRoom(m[1], seq); else if (h === "solo") await startSolo(seq); else showSetup();
 }
 let bootSeq = 0;
 // sólo trénink: zastaví bota a vrátí síť (dokumenty se jinak drží jen v paměti, viz net.js `local`)
@@ -151,6 +182,42 @@ async function startSolo(seq) {
   room = { id: "solo", v: 1, g: gg, sx: device, so: "bot" }; me = "x"; store.set("kl-r-solo", "x");
   await enterGame();
   if (seq === bootSeq && local.on) bot = startBot({ id: "solo", g: gg, QS, getQ });
+}
+// Herna: zakladatel (zaklada=1) založí dokument hry rovnou se jmény, druhý hráč čeká, až dokument vznikne, a sám se posadí na volné místo
+async function startHerna(seq) {
+  const pause = ms => new Promise(r => setTimeout(r, ms));
+  hernaSync();
+  info(H.zaklada ? "Otevírám hru…" : "Čeká se, až hra naskočí", "", false);
+  let d, fails = 0;
+  for (;;) {
+    try { d = await load(roomUrl(H.r)); fails = 0; } catch { d = undefined; fails++; }
+    if (seq !== bootSeq) return;
+    if (fails >= 6) { info("Hru se nepodařilo načíst.", "Zkontroluj připojení a zkus to znovu.", true); return; }
+    if (d && d.g && d.g.x && d.g.o) break;
+    if (d === null && H.zaklada) {
+      const n0 = H.names[H.seat], n1 = H.names[1 - H.seat];
+      const gg = { x: n0, o: n1, s: Math.random() < .5 ? "x" : "o", w: [0, 0], k: "6", kc: "", c: "", n: 1, used: [], seed: randId(10), gx: rodJmena(n0), go: rodJmena(n1), h: H.seat };
+      d = { app: "kl", g: gg, v: 1, sx: device, so: "" };
+      try { await save(roomUrl(H.r), d); } catch { d = undefined; fails++; await pause(900); continue; }
+      if (seq !== bootSeq) return;
+      break;
+    }
+    await pause(900);
+  }
+  room = { id: H.r, v: d.v || 0, g: d.g, sx: d.sx || "", so: d.so || "" };
+  const saved = store.get("kl-r-" + H.r);
+  me = saved === "x" || saved === "o" ? saved : room.sx === device ? "x" : room.so === device ? "o" : null;
+  if (!me && freeSeat()) {
+    try {
+      const r = await commitRoom(room.id, dd => dd && !dd.so ? { ...dd, so: device } : null);
+      if (seq !== bootSeq) return;
+      const nd = r.d || d;
+      room = { id: room.id, v: nd.v || 0, g: nd.g, sx: nd.sx || "", so: nd.so || "" };
+      me = room.sx === device ? "x" : room.so === device ? "o" : null;
+    } catch { info("Hru se nepodařilo načíst.", "Zkontroluj připojení a zkus to znovu.", true); return; }
+  }
+  if (me) store.set("kl-r-" + room.id, me);
+  await enterGame();
 }
 async function openRoom(id, seq) {
   info("Otevírám hru…", "", false);
@@ -184,7 +251,7 @@ function showSetup() {
 }
 function recentRooms() { return attempt(() => JSON.parse(store.get("kl-rooms") || "[]"), []).filter(r => r && /^[0-9a-z]{6,24}$/.test(r.id)); }
 function remember() {
-  if (!room || isSolo()) return;
+  if (!room || isSolo() || H) return;
   const list = recentRooms().filter(r => r.id !== room.id);
   list.unshift({ id: room.id, x: room.g.x, o: room.g.o, me });
   store.set("kl-rooms", JSON.stringify(list.slice(0, 5)));
@@ -582,7 +649,7 @@ function statusText(ph) {
     case "spec": return F.kind === "pick" ? `${nameOf(F.who)} volí obtížnost.` : F.kind === "answer" ? `${nameOf(F.who)} odpovídá.` : `${nameOf(F.who)} střílí.`;
     case "place": return "Rozmísti hračky do svého bazénu.";
     case "cat0": return "Vyber soupeři kategorii první otázky.";
-    case "wait-setup": return room.so && room.sx ? `Čekám, až ${opp} rozmístí hračky.` : `Čekám, až výzvu přijme ${opp}.`;
+    case "wait-setup": return room.so && room.sx ? `Čekám, až ${opp} rozmístí hračky.` : H ? `Čekám, až si ${opp} sedne ke hře.` : `Čekám, až výzvu přijme ${opp}.`;
     case "pick-me": return `Jsi na tahu. Kategorii ti vybral${female(other(me)) ? "a" : ""} ${opp}: ${CAT[F.cat] ? CAT[F.cat].name : ""}. Zvol obtížnost.`;
     case "pick-opp": return `${nameOf(F.who)} volí obtížnost (${CAT[F.cat] ? CAT[F.cat].name : ""}).`;
     case "answer-me": return "Odpověz na otázku.";
@@ -622,7 +689,7 @@ function panelHTML(ph) {
     case "cat0":
       return `<h2 class="pt">Co dostane ${esc(opp)}?</h2><p class="pd">Vyber kategorii první otázky ze tří nabídnutých.</p>${chipsHTML(Lo.offeredCats(g().seed || "", 0, ""))}`;
     case "wait-setup":
-      return `<h2 class="pt">Hotovo, čekáme</h2><p class="pd">${room.so ? `${esc(opp)} ještě rozmisťuje hračky.` : `Pošli soupeři odkaz na hru, ať výzvu přijme.`}</p>${room.so ? "" : `<div class="btnrow"><button type="button" class="btn" data-act="copylink">${icon("link", 20)}Zkopírovat odkaz</button></div>`}`;
+      return `<h2 class="pt">Hotovo, čekáme</h2><p class="pd">${room.so ? `${esc(opp)} ještě rozmisťuje hračky.` : H ? `${esc(opp)} se ještě nepřipojil${female(other(me)) ? "a" : ""}.` : `Pošli soupeři odkaz na hru, ať výzvu přijme.`}</p>${room.so || H ? "" : `<div class="btnrow"><button type="button" class="btn" data-act="copylink">${icon("link", 20)}Zkopírovat odkaz</button></div>`}`;
     case "pick-me":
       return `<div class="catline" style="--cc:${CAT[F.cat].color}">${catIcon(F.cat, 22)}<b>${CAT[F.cat].name}</b><span>od: ${esc(opp)}</span></div>
         <h2 class="pt">Zvol obtížnost</h2>
@@ -687,7 +754,7 @@ function endHTML(ph) {
     ${promoHTML(F)}
     <p class="stake" id="endStake">${esc(stakeResult(g(), W, L))}</p>
     <p class="seal" id="sealBox" data-v="${verdict ? (verdict.ok ? "ok" : "bad") : "wait"}">${verdict ? (verdict.ok ? `${icon("seal", 20)}Poctivě ověřeno` : `Ověření nesedí: ${esc(verdict.why)}`) : "Ověřuji poctivost…"}</p>
-    ${me ? `<div class="btnrow"><button type="button" class="btn" id="rematchBtn" data-act="rematch">${ph.win ? "Odveta" : "Chci odvetu"}</button><button type="button" class="btn ghost" data-act="copylink">${icon("link", 20)}Odkaz</button></div><p class="pd small">${esc(L)} začíná odvetu.</p>` : `<p class="pd small">Přihlížíš, odvetu založí hráči.</p>`}</div>`;
+    ${me ? `<div class="btnrow"><button type="button" class="btn" id="rematchBtn" data-act="rematch">${ph.win ? "Odveta" : "Chci odvetu"}</button>${H ? `<button type="button" class="btn ghost" id="jinaHraBtn" data-act="jina-hra">Jiná hra</button>` : `<button type="button" class="btn ghost" data-act="copylink">${icon("link", 20)}Odkaz</button>`}</div><p class="pd small">${esc(L)} začíná odvetu.</p>` : `<p class="pd small">Přihlížíš, odvetu založí hráči.</p>`}</div>`;
 }
 function renderPanelState() {
   const d = $("doneBtn"); if (d && me && pools[me] && pools[me].placing) {
@@ -765,6 +832,7 @@ function stopTick() { clearInterval(tickT); tickT = null; }
 // ---------------------------------------------------------------- celé vykreslení
 function renderAll(force) {
   if (!room || view !== "game") return;
+  hernaSync();
   const ph = phase(), F = ph.F, board = $("board");
   renderPeople();
   // zaostření: velký bazén = tam, kde se právě něco děje
@@ -823,6 +891,7 @@ $("panel").addEventListener("click", e => {
     case "radar": radarArmed = !radarArmed; renderAll(true); break;
     case "copylink": copy(linkFor(), "Odkaz je zkopírovaný"); break;
     case "rematch": rematch(); break;
+    case "jina-hra": doHerny({ typ: "jina-hra" }); break;
     case "solo-again": boot(); break;
     case "solo-challenge": $("newGameBtn").click(); break;
   }
@@ -844,7 +913,7 @@ $("newGameBtn").addEventListener("click", () => {
   history.pushState(null, "", location.pathname + location.search);
   document.title = TITLE; showSetup();
 });
-$("logo").addEventListener("click", e => { e.preventDefault(); $("newGameBtn").click(); });
+$("logo").addEventListener("click", e => { e.preventDefault(); if (!H) $("newGameBtn").click(); });
 window.addEventListener("hashchange", boot);
 
 // ---------------------------------------------------------------- celá obrazovka a instalace
