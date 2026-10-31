@@ -25,6 +25,7 @@
 <body data-view="info">
 <header class="top">
   <a class="brand" id="logo" href="./" aria-label="Nafukovací flotila, nová hra"><svg class="brandmark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="#FFD23F" stroke="#1C2A39" stroke-width="2.4"/><circle cx="20" cy="20" r="8.6" fill="#2DB3C7" stroke="#1C2A39" stroke-width="2.4"/><path d="M20 2v9M20 29v9M2 20h9M29 20h9" stroke="#1C2A39" stroke-width="0"/></svg><span class="brandname">Nafukovací flotila</span></a>
+  <span class="solo-tag" id="soloTag" hidden>Trénink</span>
   <div class="top-actions">
     <button class="iconbtn" id="copyTopBtn" type="button" aria-label="Zkopírovat odkaz na hru" title="Zkopírovat odkaz" hidden><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></button>
     <button class="iconbtn" id="fsBtn" type="button" aria-label="Celá obrazovka" title="Celá obrazovka" hidden><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path id="fsIcon" d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
@@ -67,7 +68,7 @@
       </label>
       <label class="f" id="customWrap" hidden>Vlastní sázka<input type="text" id="stakeCustom" maxlength="40" placeholder="Kdo prohraje, …"></label>
       <label class="f"><span>Vzkaz k výzvě <span class="optl">(nepovinné)</span></span><input type="text" id="setupNote" maxlength="60" placeholder="Tentokrát tě nenechám vyhrát."></label>
-      <div class="submitbar"><button class="btn wide" id="setupSubmit" type="submit">Založit hru</button></div>
+      <div class="submitbar btnrow"><button class="btn" id="setupSubmit" type="submit">Založit hru</button><button class="btn ghost" id="soloBtn" type="button" title="Trénink proti robotovi, nic se neukládá ani neposílá">Zkusit sám</button></div>
     </form>
     <div id="recent" class="recent" hidden>
       <h2 class="h2">Rozehrané na tomhle telefonu</h2>

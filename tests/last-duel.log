@@ -1,33 +1,56 @@
 PASS  setup: fonty Dynapuff a Onest jsou načtené (čeština)
-PASS  výzva: odkaz #r.<id>, vzkaz se jménem, sázkou a poznámkou  (http://localhost:8811/#r.yidd0bqiwuj0)
+PASS  výzva: odkaz #r.<id>, vzkaz se jménem, sázkou a poznámkou  (http://localhost:8811/#r.qhhx9eclby0c)
 PASS  Mark po založení rovnou rozmisťuje (title)
 PASS  výzva u soupeře: jméno, sázka, vzkaz
-PASS  rozmístění: klepnutí otočí hračku  (Kachna, 2 políčka, B8, vodorovně → Kachna, 2 políčka, B7, svisle)
-PASS  rozmístění: kolize se zvýrazní a Hotovo je vypnuté  (kolizí: 2)
+PASS  rozmístění: klepnutí otočí hračku  (Kachna, 2 políčka, F1, vodorovně → Kachna, 2 políčka, F1, svisle)
+PASS  rozmístění: kolize se zvýrazní a Hotovo je vypnuté  (kolizí: 3)
 PASS  rozmístění: Náhodně vrátí platnou flotilu a povolí Hotovo
 PASS  rozmístění: z klávesnice jde otáčet (mezerník)
 PASS  Mark (začíná) po Hotovo čeká na Radku
 PASS  Radka (nezačíná) po Hotovo vybírá první kategorii Markovi  (v2: nabídka 3 kategorií)
-PASS  Mark je na tahu, title „Jsi na tahu“, kategorie od Radky z nabídky  (Sport)
+PASS  Mark je na tahu, title „Jsi na tahu“, kategorie od Radky z nabídky  (Zeměpis)
 PASS  rozcvička: v prvním tahu je těžká otázka vypnutá
 PASS  Radka vidí, že Mark volí obtížnost (kategorii zná)
-PASS  Radka při Markově otázce vidí kategorii, obtížnost a časovač, ale ne text otázky  (Který československý tenista zvítězil ve)
+PASS  Radka při Markově otázce vidí kategorii, obtížnost a časovač, ale ne text otázky  (Které dva oceány spojuje Panamský průpla)
 PASS  karta otázky: pruh kategorie, časovač, 4 možnosti
-PASS  synchronizovaný stav (hra, x, o) neobsahuje čitelnou správnou odpověď  (Jan Kodeš)
+PASS  synchronizovaný stav (hra, x, o) neobsahuje čitelnou správnou odpověď  (Atlantský a Tichý)
 PASS  synchronizovaný stav neobsahuje flotilu žádného hráče ani odhalení (rev) za hry
 PASS  synchronizovaný stav obsahuje jen závazek flotily (hash)
-PASS  po odpovědi se ukáže správná možnost a fakt  (Kodeš byl jedním z nejlepších československých ten)
+PASS  po odpovědi se ukáže správná možnost a fakt  (Průplav vede skrz Panamskou šíji.)
 PASS  po správné odpovědi do 7 s: 3 rány a radar
 PASS  v2: hra má semínko a v obou bazénech jsou 3 viditelné bójky
-PASS  radar ukáže číslo (počet políček hraček v oblasti 3 × 3)  (střed 0, očekáváno 0, ukázáno radar,0, flotila 310700020660)
+PASS  radar ukáže číslo (počet políček hraček v oblasti 3 × 3)  (střed 7, očekáváno 0, ukázáno radar,0, flotila 051101501530)
 PASS  zásah: PSSST! je vidět u střelce i u obránce
 PASS  potopení: obě pole kachny jsou 's', okolí jistá voda 'w'
 PASS  potopení: u střelce je viditelná splasklá hračka
 PASS  potopení: u obránce je jeho kachna splasklá
 PASS  po salvě: výběr kategorie soupeři ze tří nabídnutých
-PASS  Radka je na tahu, kategorie od Marka z nabídky  (Věda)
+PASS  Radka je na tahu, kategorie od Marka z nabídky  (Sport)
 PASS  třetí návštěvník rovnou přihlíží (obě místa jsou obsazená, žádná výzva)
 PASS  přihlížející vidí obě moře jen z odpovědí: žádné živé hračky ani flotila, jen potopená kachna  ({"live":0,"sunk":1,"ls":0,"cells":0,"pools":2,"hits":0})
 PASS  přihlížející nemůže střílet (všechna pole neaktivní) a vidí, kdo je na tahu
 PASS  přihlížející vidí radar a vedle na Markově straně (jen výsledky)
 PASS  v průběhu hry pořád žádné odhalení flotily (rev)
+PASS  partie 1 dohraná za 135 s (Mark 10 ran, Radka 9)
+PASS  partie 1: viděné fáze Marka zahrnují obtížnost, odpověď i střelbu  (pick-opp,answer-opp,shoot-opp,pick-me,answer-me,shoot-me,end)
+PASS  výhra: Mark vidí „Vyhráváš“, Radka, že vyhrál Mark
+PASS  výhra: skóre série 1 : 0
+PASS  sázka: Radka platí kafe
+PASS  ověření poctivosti: obě strany „Poctivě ověřeno“
+PASS  prohra: Radka má tlačítko „Chci odvetu“, vítěz „Odveta“
+PASS  na konci jsou flotily odhalené (rev) a odpovídají závazku
+PASS  po konci vidí přihlížející vítěze a ověření
+PASS  přihlížející vidí „Poctivě ověřeno“ a nemá tlačítko odvety
+PASS  odveta: nová deska u obou, skóre série 1 : 0, začíná Radka
+PASS  odveta: nezačínající (Mark) vybírá první kategorii ze tří
+PASS  odveta: Radka je na tahu a použité otázky se neopakují
+PASS  partie 2: vyhrála Radka, skóre série 1 : 1
+PASS  partie 2: ověření poctivosti OK
+PASS  odveta zapsala do místnosti n = 2, w = [1,0] a použité otázky z 1. partie  (used 7)
+PASS  odveta: žádná otázka z 1. partie se v 2. partii neopakuje  (7 otázek ve 2. partii)
+PASS  v žádném dokumentu není čitelná správná odpověď použité otázky
+PASS  po obnovení stránky se Mark vrátí na konec partie a skóre sedí
+PASS  žádné chyby JavaScriptu ani konzole
+PASS  rozvržení: nic nepřesahuje, žádné posouvání, text ≥ 14 px
+
+54 prošlo, 0 selhalo · http://localhost:8811/#r.qhhx9eclby0c

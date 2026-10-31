@@ -26,7 +26,8 @@ async function diagnose(p, other) {
     const cells = [...document.querySelectorAll("#pwEnemy .cell")].map(c => c.dataset.st).join("");
     return { url: location.href, phase: document.getElementById("board")?.dataset.phase, panel: t("#panel"), status: t("#status"), aim: !!document.querySelector("#pwEnemy.aim"), enemy: cells };
   }).then(r => `${name}: ${JSON.stringify(r)}`);
-  const out = [await page(p, "tato stránka"), await page(other, "druhá stránka")];
+  const out = [await page(p, "tato stránka")];
+  if (other) out.push(await page(other, "druhá stránka"));       // v sólu žádná druhá stránka není
   const m = /#r\.([A-Za-z0-9_-]+)/.exec(p.url());
   if (m) for (const d of ["x", "o"]) {
     try {

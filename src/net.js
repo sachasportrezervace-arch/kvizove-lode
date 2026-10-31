@@ -10,26 +10,34 @@ const APP = "kvizove-lode";
 export const roomUrl = id => `${API}${APP}-${id}/hra`;
 export const seatUrl = (id, seat) => `${API}${APP}-${id}/${seat}`;
 
+// Sólo režim (trénink s botem): dokumenty x/o a místnost žijí jen v paměti stránky, na síť nejde nic.
+// Adresy solo místnosti (`kvizove-lode-solo/…`) se nikdy nepošlou ven, ani kdyby zápis doběhl až po opuštění sóla.
+export const local = { on: false, mem: new Map(), kv: new Map() };
+const isLocal = url => local.on || String(url).includes(`${APP}-solo/`);
+
 async function req(url, opt = {}) {
   const ac = new AbortController(), timer = setTimeout(() => ac.abort(), 8000);
   try { return await fetch(url, { ...opt, cache: "no-store", signal: ac.signal }); } finally { clearTimeout(timer); }
 }
 export async function load(url) {
+  if (isLocal(url)) { const t = local.mem.get(url); return t === undefined ? null : JSON.parse(t); }
   const r = await req(url);
   if (r.status === 404) return null;
   if (!r.ok) throw new Error("load " + r.status);
   return r.json();
 }
 export async function save(url, d) {
+  if (isLocal(url)) { local.mem.set(url, JSON.stringify({ ...d, u: Date.now() })); return; }
   const r = await req(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...d, u: Date.now() }) });
   if (!r.ok) throw new Error("save " + r.status);
 }
 
 const attempt = (fn, fb) => { try { return fn(); } catch { return fb; } };
+// v sólu se čte z paměti a pak z disku (jméno, zařízení), zapisuje se jen do paměti: série ani rozehrané hry se nezakládají
 export const store = {
-  get: k => attempt(() => localStorage.getItem(k), null),
-  set: (k, v) => attempt(() => localStorage.setItem(k, v)),
-  del: k => attempt(() => localStorage.removeItem(k)),
+  get: k => local.on && local.kv.has(k) ? local.kv.get(k) : attempt(() => localStorage.getItem(k), null),
+  set: (k, v) => local.on ? void local.kv.set(k, String(v)) : attempt(() => localStorage.setItem(k, v)),
+  del: k => local.on ? void local.kv.delete(k) : attempt(() => localStorage.removeItem(k)),
 };
 export const randId = n => [...crypto.getRandomValues(new Uint8Array(n))].map(b => (b % 36).toString(36)).join("");
 export const device = store.get("kl-dev") || randId(16);

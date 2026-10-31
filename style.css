@@ -34,6 +34,9 @@ button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .brandmark { width: 30px; height: 30px; flex: none; }
 .brandname { font: 400 20px/1 var(--disp); letter-spacing: .01em; white-space: nowrap; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .top-actions { display: flex; gap: 6px; flex: none; }
+.solo-tag { flex: none; padding: 4px 11px; border-radius: 999px; border: 2px solid var(--soft); color: var(--soft); font: 700 14px/1.1 var(--body); letter-spacing: .02em; }
+.submitbar .btn:first-child { flex: 1.5; }
+@media (max-width: 520px) { body[data-solo] .brandname { display: none; } }
 @media (max-width: 520px) { body[data-view="game"] .brandname { font-size: 16px; } }
 .iconbtn { width: 44px; height: 44px; border-radius: 14px; border: 2.5px solid var(--ink); background: var(--coping); display: inline-grid; place-items: center; box-shadow: 0 3px 0 var(--ink); padding: 0; }
 .iconbtn:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--ink); }
@@ -284,3 +287,16 @@ body.sheet-open::before { content: ""; position: fixed; inset: 0; background: rg
 @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-2.4px); } }
 @media (prefers-reduced-motion: reduce) { .buoy { animation: none; } }
 body[data-buoy] .pools { animation: none; }
+
+/* ---- v2: oprava rozvržení na malých oknech ---- */
+@media (orientation: landscape) and (max-height: 599px) {
+  /* karta otázky dostane celý pravý sloupec: bez řádku s lidmi a bez malého bazénu */
+  body.sheet-open .people, body.sheet-open .board #pwMine { display: none; }
+  body.sheet-open .board .sheet { grid-area: auto; grid-column: 2 / -1; grid-row: 1 / -1; align-self: start; }
+}
+@media (max-height: 720px) and (max-width: 899px) and (orientation: portrait) {
+  .buoy-legend { display: none; }
+  .people .nm { padding: 0; }
+}
+@media (max-height: 700px) and (max-width: 899px) and (orientation: portrait) { .diff { min-height: 50px; } }
+@media (max-height: 700px) and (max-width: 899px) and (orientation: portrait) { .board { --people: 88px; } }

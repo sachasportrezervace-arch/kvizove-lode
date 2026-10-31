@@ -29,5 +29,7 @@ Zdroje jsou v `data/zdroj/`. `node tools/build-otazky.mjs` z nich udělá `data/
 - `node tests/balance.cjs`: simulace délky partie a vyvážení
 - `node tests/duel.cjs http://localhost:8806/`: celá partie, odveta a přihlížející v Chromiu (desktop) a WebKitu (iPhone 13)
 - `node tests/tri-partie.cjs http://localhost:8806/`: 3 partie za sebou, kontroluje, že se liší
+- `node tests/solo.cjs http://localhost:8806/`: sólo trénink proti botovi (Chromium desktop + WebKit iPhone 13), celá partie bez jediného požadavku na mantledb
+- Sólo trénink: tlačítko „Zkusit sám“ na úvodní obrazovce, nebo adresa `…/#solo`. Bot „Robo-plavčík“ hraje lokálně v paměti stránky (`src/solo.js`), nic se neukládá ani nepočítá do série.
 
 Specifikace je v `docs/SPEC.md`, deník v `WORKLOG.md`.

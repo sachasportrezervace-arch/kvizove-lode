@@ -75,6 +75,14 @@ Každá partie má náhodné semínko `g.seed` (v dokumentu `hra`, nové při ka
 - **Otázky se v sérii neopakují** (`used` v `hra` + všechny `T[].q`); když dojdou, až pak opakování.
 - Test: `tests/tri-partie.cjs` – 3 partie za sebou ve 2 prohlížečích (odveta), kontrola, že se liší bójky, nabídnuté kategorie, první hráč, otázky (žádná se neopakuje) a že titul/vzhled po výhrách postoupí; screenshot každé partie.
 
+### Implementace v2 (jak je to opravdu zapsané a ověřované)
+- `hra.g` navíc: `seed` (nové při každé odvetě), `gx`/`go` (`"m"|"f"`, tvar titulu založitele a soupeře; soupeř ho volí při přijetí výzvy). Dokument hráče: `T[i]` navíc `r2` (radar zdarma ze sonarové bójky), `rs` (1 = záchranný kruh), `sw` (1 = otázka už vyměněna za lehčí); `K` = index potopených hraček.
+- Engine: `buoys(seed, seat)`, `offeredCats(seed, k, last)`, `isWheel(k)`/`wheelCat`, `titleLevel/titleName`, `phaseOfTurn` (`warm`/`normal`/`finale`), `baseShots(t, ok, {phase, pen})`, `flow(P, s, {seed})` (vrací i `treasure`, `sonar`, `prevCat`), `defend/verify(..., {seed, seat})`.
+- Obránce bójky nevyhodnocuje „na slovo“: poklad přidá ránu v tahu, sonar odemkne `r2`, mina uberá ránu v dalším tahu střelce; rozcvička a finále snižují salvu na 1 ránu, když střelec zvolil nepovolenou obtížnost. Vše se při konci přehraje v `verify` (odznak „Poctivě ověřeno“).
+- Záchranný kruh (`rs`) je jediná věc, kterou obránce ověřit neumí (potřebuje stav střelce v tu chvíli): bere se na slovo, zneužití by dalo maximálně +1 ránu za tah.
+- Kolo štěstí: každý 5. tah (`k = 4, 9, …`) střelec tlačítkem „Zatočit“ zapíše `nc = wheelCat(seed, k+1, minulá)`. Nabídka 3 kategorií se počítá z `seed` a čísla tahu u obou hráčů stejně.
+- Simulace `tests/balance.cjs` pravidla v2 (bójky, rozcvička, finále) nemodeluje; platí pro základní pravidla.
+
 ## Testy
-`node tests/engine.test.cjs` · `node tests/balance.cjs` (simulace délky partie a vyvážení) · `node tests/duel.cjs <URL>` (Chromium desktop × WebKit iPhone 13 na výšku, celá partie, odveta, přihlížející) · design-eye verdikt „profi indie hra“ max 3 kola.
+`node tests/engine.test.cjs` · `node tests/balance.cjs` (simulace délky partie a vyvážení) · `node tests/duel.cjs <URL>` (Chromium desktop × WebKit iPhone 13 na výšku, celá partie, odveta, přihlížející) · `node tests/tri-partie.cjs <URL>` (3 partie za sebou, pestrost) · design-eye verdikt „profi indie hra“ max 3 kola.
 Lokální port 8806 (`node tools/serve.cjs`).

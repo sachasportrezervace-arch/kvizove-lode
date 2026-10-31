@@ -1,11 +1,11 @@
 PASS  partie 1: ověření poctivosti OK (bójky, rozcvička a finále se replayují)
-  partie 1: 60 s, začínal x, vyhrál Mark, titul Marka Plavčík -> Vodník, kol štěstí 1, tahů s nabídkou 5
+  partie 1: 70 s, začínal x, vyhrál Mark, titul Marka Plavčík -> Vodník, kol štěstí 1, tahů s nabídkou 5
 PASS  partie 2: ověření poctivosti OK (bójky, rozcvička a finále se replayují)
-  partie 2: 74 s, začínal o, vyhrál Mark, titul Marka Vodník -> Vodník, kol štěstí 1, tahů s nabídkou 6
+  partie 2: 100 s, začínal o, vyhrál Mark, titul Marka Vodník -> Vodník, kol štěstí 1, tahů s nabídkou 6
 PASS  partie 3: ověření poctivosti OK (bójky, rozcvička a finále se replayují)
-  partie 3: 77 s, začínal o, vyhrál Mark, titul Marka Vodník -> Kapitán nafukovačky, kol štěstí 1, tahů s nabídkou 6
+  partie 3: 106 s, začínal o, vyhrál Mark, titul Marka Vodník -> Kapitán nafukovačky, kol štěstí 1, tahů s nabídkou 6
 PASS  všechny tři partie dohrány a vyhrál je Mark
-PASS  každá partie má jiné semínko  (qvxpgom3j1,9j13ph7l89,98743skk4f)
+PASS  každá partie má jiné semínko  (r2va4we189,e12r0hi21q,kaa77ryper)
 PASS  bójky se v partiích liší (jiná pole pro x i o)
 PASS  v každém bazénu jsou 3 viditelné bójky (různé druhy)
 PASS  první hráč se v sérii mění (poražený začíná)  (x,o,o)

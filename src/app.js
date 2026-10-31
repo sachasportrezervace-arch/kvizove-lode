@@ -1,8 +1,9 @@
 // Nafukovací flotila – aplikace: pohledy, synchronizace, tahy, obránce, odveta.
 // Protokol dokumentů viz docs/SPEC.md (hra = místnost, x / o = dokumenty hráčů, každý má jednoho zapisovatele).
-import { load, save, store, device, randId, commitRoom, seatWriter, roomUrl, seatUrl } from "./net.js";
+import { load, save, store, device, randId, commitRoom, seatWriter, roomUrl, seatUrl, local } from "./net.js";
 import { COL, CAT, catIcon, icon, swimmerSVG, balloonSVG, INK, toyG, missMark, hitMark, buoyIcon } from "./art.js";
 import { Pool, FX, sleep, coord } from "./pool.js";
+import { startBot, BOT_NAME } from "./solo.js";
 
 const Lo = window.Lode;
 const $ = id => document.getElementById(id);
@@ -41,6 +42,8 @@ let pollT = null, pollSeq = 0, lastRoomPoll = 0, fails = 0, lastChange = Date.no
 let radarArmed = false, cardOpen = false, cardState = null, defending = false, defendAgain = false;
 let panelKey = "", seenAt = new Map(), verifyKey = "", verdict = null, moodFx = { x: null, o: null };
 let tickT = null, netMsg = "";
+let bot = null, soloName = "";    // sólo trénink: běžící bot a jméno z úvodní obrazovky
+const isSolo = () => local.on;
 
 const getQ = id => QBY.get(id);
 const qid = x => x && x.q;
@@ -61,6 +64,7 @@ const safeFlow = () => { try { return room ? Lo.flow(PP(), room.g.s, seedCtx()) 
 const viewOf = d => ({ R: d.R && d.R.length === 64 ? d.R : ".".repeat(64), S: d.S || [], K: d.K || [], D: d.D || {} });
 const usedSet = () => { const s = new Set(g().used || []); for (const p of ["x", "o"]) (docOf(p).T || []).forEach(t => t && t.q && s.add(t.q)); return s; };
 const seriesScore = () => {
+  if (isSolo()) return [0, 0];                                   // trénink se do série nepočítá
   const w = [...g().w], F = safeFlow();
   if (F && F.kind === "end") w[F.winner === "x" ? 0 : 1]++;
   return w;
@@ -72,7 +76,9 @@ function setView(v) {
   ["setup", "share", "intro", "info", "game"].forEach(id => $(id).hidden = id !== v);
   document.body.dataset.view = v;
   $("newGameBtn").hidden = v === "setup" || v === "info";
-  $("copyTopBtn").hidden = !(room && (v === "game" || v === "share"));
+  $("copyTopBtn").hidden = !(room && !isSolo() && (v === "game" || v === "share"));
+  $("soloTag").hidden = !(isSolo() && v === "game");
+  document.body.toggleAttribute("data-solo", isSolo() && v === "game");
   window.scrollTo(0, 0);
   updateTitle();
 }
@@ -118,7 +124,7 @@ function phase() {
 // ---------------------------------------------------------------- start
 async function boot() {
   const seq = ++bootSeq;
-  clearTimeout(pollT); stopTick();
+  clearTimeout(pollT); stopTick(); leaveSolo();
   room = null; me = null; writer = null; fleetRec = null; busy = false; gameKey = ""; poolInit = {}; pools = {}; docs.x = docs.o = null; fails = 0;
   $("pools").innerHTML = "";
   if (!QS.length) {
@@ -126,9 +132,26 @@ async function boot() {
     catch { info("Otázky se nepodařilo načíst.", "Zkontroluj připojení a zkus to znovu.", true); return; }
   }
   const h = (location.hash || "").replace(/^#/, ""), m = /^r\.([0-9a-z]{6,24})$/.exec(h);
-  if (m) await openRoom(m[1], seq); else showSetup();
+  if (m) await openRoom(m[1], seq); else if (h === "solo") await startSolo(seq); else showSetup();
 }
 let bootSeq = 0;
+// sólo trénink: zastaví bota a vrátí síť (dokumenty se jinak drží jen v paměti, viz net.js `local`)
+function leaveSolo() {
+  if (bot) { bot.stop(); bot = null; }
+  if (local.on && writer) writer.stop();
+  local.on = false; local.mem.clear(); local.kv.clear();
+}
+async function startSolo(seq) {
+  local.mem.clear(); local.kv.clear(); local.on = true;
+  const nm = (soloName || store.get("kl-name") || "").trim().slice(0, 16) || "Hráč";
+  // semínko (bójky, nabídky kategorií, kolo štěstí) se losuje stejně jako v ostré hře; začíná hráč nebo bot podle losu
+  const gg = { x: nm, o: BOT_NAME, s: Math.random() < .5 ? "x" : "o", w: [0, 0], k: "6", kc: "", c: "", n: 1, used: [], seed: randId(10), gx: "m", go: "m", solo: 1 };
+  await save(roomUrl("solo"), { app: "kl", g: gg, v: 1, sx: device, so: "bot" });
+  if (seq !== bootSeq) return;
+  room = { id: "solo", v: 1, g: gg, sx: device, so: "bot" }; me = "x"; store.set("kl-r-solo", "x");
+  await enterGame();
+  if (seq === bootSeq && local.on) bot = startBot({ id: "solo", g: gg, QS, getQ });
+}
 async function openRoom(id, seq) {
   info("Otevírám hru…", "", false);
   let d;
@@ -161,7 +184,7 @@ function showSetup() {
 }
 function recentRooms() { return attempt(() => JSON.parse(store.get("kl-rooms") || "[]"), []).filter(r => r && /^[0-9a-z]{6,24}$/.test(r.id)); }
 function remember() {
-  if (!room) return;
+  if (!room || isSolo()) return;
   const list = recentRooms().filter(r => r.id !== room.id);
   list.unshift({ id: room.id, x: room.g.x, o: room.g.o, me });
   store.set("kl-rooms", JSON.stringify(list.slice(0, 5)));
@@ -204,6 +227,8 @@ $("copyLinkBtn").addEventListener("click", () => copy(linkFor(), "Odkaz je zkop�
 $("copyTopBtn").addEventListener("click", () => copy(linkFor(), "Odkaz je zkopírovaný"));
 $("shareBtn").addEventListener("click", () => attempt(() => navigator.share({ title: TITLE, text: $("msg").value.replace(/ Odkaz:.*$/, ""), url: linkFor() })));
 $("backBtn").addEventListener("click", () => enterGame());
+// sólo trénink: adresa #solo spustí boot, ten založí partii s botem
+$("soloBtn").addEventListener("click", () => { soloName = $("nameX").value.trim(); location.hash = "solo"; });
 
 // ---------------------------------------------------------------- výzva u soupeře
 function renderIntro() {
@@ -537,15 +562,16 @@ function renderPeople() {
     if (box.dataset.mood !== mk) { box.innerHTML = swimmerSVG(seat, m, lvl); box.dataset.mood = mk; }
     const who = document.querySelector(`#people .who-${seat}`);
     let ttl = who.querySelector(".ttl"); if (!ttl) { ttl = document.createElement("span"); ttl.className = "ttl"; who.querySelector(".nmrow").after(ttl); }
-    ttl.textContent = Lo.titleName(wins, female(seat)); ttl.dataset.lvl = lvl;
+    ttl.textContent = Lo.titleName(wins, female(seat)); ttl.dataset.lvl = lvl; ttl.hidden = isSolo();
     let rc = who.querySelector(".rescue"); if (!rc) { rc = document.createElement("span"); rc.className = "rescue"; rc.innerHTML = icon("ring", 18); rc.title = "Záchranný kruh: +1 rána a lehčí otázka"; rc.setAttribute("role", "img"); rc.setAttribute("aria-label", "Záchranný kruh"); who.appendChild(rc); }
     rc.hidden = !(ph.F && ph.F.kind !== "setup" && ph.F.kind !== "end" && rescueFor(seat));
     document.querySelector(`#people .who-${seat} .nm`).textContent = nameOf(seat);
     document.querySelector(`#people .who-${seat} .you`).hidden = me !== seat;
     document.querySelector(`#people .who-${seat}`).classList.toggle("turn", !!ph.F && (ph.F.who === seat) && ph.F.kind !== "end");
   }
-  $("score").textContent = `${sc[0]} : ${sc[1]}`;
-  $("score").setAttribute("aria-label", `Série: ${nameOf("x")} ${sc[0]}, ${nameOf("o")} ${sc[1]}`);
+  $("score").textContent = isSolo() ? "×" : `${sc[0]} : ${sc[1]}`;
+  $("score").setAttribute("aria-label", isSolo() ? `${nameOf("x")} proti robotovi` : `Série: ${nameOf("x")} ${sc[0]}, ${nameOf("o")} ${sc[1]}`);
+  document.querySelector("#people .sk").hidden = isSolo();
 }
 
 // ---------------------------------------------------------------- vykreslení: stav, panel, karta otázky
@@ -652,6 +678,10 @@ function endHTML(ph) {
   const F = ph.F, W = nameOf(F.winner), L = nameOf(F.loser), sc = seriesScore();
   const title = ph.win ? "Vyhráváš!" : `${wonVerb(F.winner)} ${esc(W)}`;
   const sub = ph.win === null ? `${esc(L)} má všechny hračky splasklé.` : ph.win ? `${esc(L)} má všechny hračky splasklé.` : "Všechny tvoje hračky jsou splasklé.";
+  // trénink: bez série, sázky a pečeti poctivosti; nabídne novou partii nebo přechod na výzvu skutečnému soupeři
+  if (isSolo()) return `<div id="endBox" class="endbox"><h2 class="pt big" id="endTitle">${title}</h2><p class="pd" id="endSub">${sub}</p>
+    <div class="btnrow"><button type="button" class="btn" id="soloAgainBtn" data-act="solo-again">Znovu</button><button type="button" class="btn ghost" id="soloChallengeBtn" data-act="solo-challenge">Vyzvat soupeře</button></div>
+    <p class="pd small">Trénink se nikam nezapisuje.</p></div>`;
   return `<div id="endBox" class="endbox"><h2 class="pt big" id="endTitle">${title}</h2><p class="pd" id="endSub">${sub}</p>
     <div class="endscore" id="endScore" aria-label="Skóre série"><span>${esc(nameOf("x"))}</span><b>${sc[0]} : ${sc[1]}</b><span>${esc(nameOf("o"))}</span></div>
     ${promoHTML(F)}
@@ -768,13 +798,16 @@ async function startVerify(ph) {
   if (!X.rev || !O.rev) return;
   const key = gameKey + "|" + JSON.stringify([X.rev, O.rev, X.R, O.R]);
   if (key === verifyKey) return; verifyKey = key;
+  const rm = room;
   let a, b;
   try { [a, b] = await Promise.all([Lo.verify(X.rev, X.fh, O.T || [], X, getQ, seedCtx("x")), Lo.verify(O.rev, O.fh, X.T || [], O, getQ, seedCtx("o"))]); }
   catch (e) { console.warn("verify", e); a = { ok: false, why: "ověření selhalo: " + (e && e.message) }; b = { ok: true }; }
+  if (rm !== room) return;                                       // mezitím se začala jiná partie (sólo „Znovu“, nová hra)
   verdict = a.ok && b.ok ? { ok: true } : { ok: false, why: (!a.ok ? `${nameOf("x")}: ${a.why}` : `${nameOf("o")}: ${b.why}`) };
   // odhalit zbylé hračky soupeře
-  if (me) { const f = Lo.fleetFrom(docOf(other(me)).rev.f); if (f) pools[other(me)].setGhost(f); }
-  else { for (const s of ["x", "o"]) { const f = Lo.fleetFrom(docOf(s).rev.f); if (f) pools[s].setGhost(f); } }
+  const revF = seat => { const r = docOf(seat).rev; return r && Lo.fleetFrom(r.f); };
+  if (me) { const f = revF(other(me)); if (f) pools[other(me)].setGhost(f); }
+  else { for (const s of ["x", "o"]) { const f = revF(s); if (f) pools[s].setGhost(f); } }
   panelKey = ""; renderAll();
 }
 
@@ -790,6 +823,8 @@ $("panel").addEventListener("click", e => {
     case "radar": radarArmed = !radarArmed; renderAll(true); break;
     case "copylink": copy(linkFor(), "Odkaz je zkopírovaný"); break;
     case "rematch": rematch(); break;
+    case "solo-again": boot(); break;
+    case "solo-challenge": $("newGameBtn").click(); break;
   }
 });
 $("sheet").addEventListener("click", e => {
@@ -804,7 +839,7 @@ $("sheet").addEventListener("keydown", e => {
 });
 $("infoRetry").addEventListener("click", boot);
 $("newGameBtn").addEventListener("click", () => {
-  clearTimeout(pollT); bootSeq++;
+  clearTimeout(pollT); bootSeq++; leaveSolo();
   room = null; me = null; writer = null;
   history.pushState(null, "", location.pathname + location.search);
   document.title = TITLE; showSetup();
