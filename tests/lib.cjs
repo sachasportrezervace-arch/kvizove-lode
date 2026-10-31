@@ -19,6 +19,26 @@ const fleetOf = p => p.evaluate(() => { const o = {}; for (let i = 0; i < localS
   .then(o => { const ks = Object.keys(o).sort(); const last = ks[ks.length - 1]; return last ? L.fleetFrom(o[last].f) : null; });
 const cellStates = (p, pool) => p.evaluate(sel => [...document.querySelectorAll(sel + " .cell")].map(c => c.dataset.st), pool);
 
+// diagnostika zaseknuté partie: stav obou stránek a poslední tahy z dokumentů x/o na mantledb
+async function diagnose(p, other) {
+  const page = async (q, name) => q.evaluate(() => {
+    const t = s => { const e = document.querySelector(s); return e ? e.innerText.replace(/\s+/g, " ").trim() : null; };
+    const cells = [...document.querySelectorAll("#pwEnemy .cell")].map(c => c.dataset.st).join("");
+    return { url: location.href, phase: document.getElementById("board")?.dataset.phase, panel: t("#panel"), status: t("#status"), aim: !!document.querySelector("#pwEnemy.aim"), enemy: cells };
+  }).then(r => `${name}: ${JSON.stringify(r)}`);
+  const out = [await page(p, "tato stránka"), await page(other, "druhá stránka")];
+  const m = /#r\.([A-Za-z0-9_-]+)/.exec(p.url());
+  if (m) for (const d of ["x", "o"]) {
+    try {
+      const r = await fetch(`https://mantledb.sh/v2/kvizove-lode-${m[1]}/${d}`), j = await r.json();
+      const doc = typeof j === "string" ? JSON.parse(j) : (j.data !== undefined ? (typeof j.data === "string" ? JSON.parse(j.data) : j.data) : j);
+      const tail = a => Array.isArray(a) ? JSON.stringify(a.slice(-6)) : JSON.stringify(a);
+      out.push(`dok ${d}: T=${tail(doc.T)} R=${tail(doc.R)} S=${tail(doc.S)} D=${tail(doc.D)} klíče=${Object.keys(doc)}`);
+    } catch (e) { out.push(`dok ${d}: nelze načíst (${e.message})`); }
+  }
+  return out.join("\n");
+}
+
 // ovladač jednoho hráče: hraje, dokud neskončí partie; cfg řídí chování
 //  diff: pole obtížností (cyklicky), right: funkce (nth) → má odpovědět správně?, aim: "perfect" (zná flotilu soupeře z jeho localStorage) | "random",
 //  radar: kolikrát použít radar za partii, log: pole zpráv, on: háčky {question(page), shot(page, kind)}
@@ -27,7 +47,7 @@ async function drive(p, other, cfg) {
   const enemyFleet = async () => cfg.aim === "perfect" ? await fleetOf(other) : null;
   const t0 = Date.now();
   for (;;) {
-    if (Date.now() - t0 > (cfg.timeout || 240000)) throw new Error(`timeout partie (${cfg.name}), fáze ${await phaseOf(p)}`);
+    if (Date.now() - t0 > (cfg.timeout || 240000)) throw new Error(`timeout partie (${cfg.name}), fáze ${await phaseOf(p)}\n` + await diagnose(p, other).catch(e => "diagnostika selhala: " + e.message));
     const ph = await phaseOf(p);
     if (ph) st.seen.add(ph);
     if (ph === "end") return st;

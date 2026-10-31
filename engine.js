@@ -205,13 +205,16 @@
     const S = (m.S || []).map(c => [...c]), K = [...(m.K || [])], D = { ...(m.D || {}) };
     let changed = false, pen = false;
     const before = new Set();                                        // pole, na která se střílelo v dřívějších tazích
+    // počet mých potopených lodí na začátku tahu se počítá z čistého přehrání tahů, ne z m.S:
+    // při opakovaném průchodu už m.S obsahuje lodě potopené v téže salvě a tah by se jinak zpětně změnil na finále
+    const R0 = [...".".repeat(CELLS)]; let sunk0 = 0;
     for (let idx = 0; idx < (T || []).length; idx++) {
       const t = T[idx];
       if (!t || t.a === null || t.a === undefined) break;            // dokud není zodpovězená otázka, nic dalšího neplatí
       if (S.length >= SIZES.length) break;                           // moje flotila už je potopená
       const q = getQ(t.q);
       if (!q) break;
-      const phase = phaseOfTurn(idx, S.length);
+      const phase = phaseOfTurn(idx, sunk0);
       const ok = await isCorrect(q, t.o, t.a), al = allowance(t, ok, { phase, pen });
       let budget = al.shots, used = 0, sonar = false, mine = false;
       const own = new Set();
@@ -220,6 +223,7 @@
         used++;
         if (!cellOk(i) || own.has(i) || before.has(i)) continue;
         own.add(i);
+        if (R0[i] === "." && sunk0 < SIZES.length) { const r0 = resolve(fleet, R0.join(""), i); if (r0.r === "s") { r0.cells.forEach(j => R0[j] = "s"); sunk0++; } else R0[i] = r0.r; }
         // pole už vyřešené dřívějším průchodem (obránce odpovídá po každé ráně) musí bójku vyhodnotit stejně jako při prvním průchodu,
         // jinak se ztratí bonus pokladu (rána navíc zůstane bez odpovědi navždy), sonar i mina
         if (R[i] === ".") {

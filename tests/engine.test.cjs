@@ -353,6 +353,21 @@ test("v2: defend po částech – poklad, sonar i mina platí i když obránce o
   r = await L.defend(GOOD, [turn({ d: 2, n: 3, sh: [cell("poklad"), cell("poklad"), free[0], free[1], free[2], free[3]] })], {}, getQ, ctx);
   assert.ok(hitsOf(r) <= 4, "poklad se nesčítá opakovanou ranou");
 });
+test("v2: defend po částech – fáze tahu se bere ze stavu na jeho začátku, ne z lodí potopených v něm (regrese: finále uprostřed salvy)", async () => {
+  await prepFake();
+  const hitsOf = r => [...r.R].filter(c => c !== ".").length;
+  // dvě rozcvičkové salvy potopí lodě 3 a 3; třetí tah (normální, střední, 3 rány) potopí dvojku druhou ranou, třetí rána má ještě projít
+  const t0 = turn({ d: 2, n: 3, sh: [16, 17, 18] }), t1 = turn({ d: 2, n: 3, sh: [32, 33, 34] }), full = [48, 49, 40];
+  const all = await L.defend(GOOD, [t0, t1, turn({ d: 2, n: 3, sh: full })], {}, getQ);
+  assert.strictEqual(all.S.length, 3);
+  assert.strictEqual(hitsOf(all), 9, "najednou: 3 + 3 + 3");
+  let r = {}; for (let k = 1; k <= full.length; k++) r = await L.defend(GOOD, [t0, t1, turn({ d: 2, n: 3, sh: full.slice(0, k) })], r, getQ);
+  assert.strictEqual(hitsOf(r), 9, "postupně po jedné ráně: i po potopení třetí lodi uprostřed salvy projde zbytek (jinak střelec čeká navždy)");
+  assert.strictEqual(r.R, all.R, "postupně = najednou (verify to musí vidět stejně)");
+  // další tah už je opravdu finále: těžká otázka platí 4 rány, jiná jen 1
+  const fin = await L.defend(GOOD, [t0, t1, turn({ d: 2, n: 3, sh: full }), turn({ d: 2, n: 3, sh: [5, 6, 7] })], all, getQ);
+  assert.strictEqual(hitsOf(fin), 9 + 1, "ve finále lehčí otázka = 1 rána");
+});
 test("v2: flow – poklad zvýší počet ran v salvě, sonar zpřístupní druhý radar; verify s bójkami projde", async () => {
   await prepFake();
   const seed = "flow-seed", bu = L.buoys(seed, "o"), cp = +Object.keys(bu).find(i => bu[i] === "poklad"), cr = +Object.keys(bu).find(i => bu[i] === "radar");
