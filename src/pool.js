@@ -5,6 +5,8 @@ const NS = "http://www.w3.org/2000/svg";
 const LET = "ABCDEFGH";
 export const coord = i => LET[i % 8] + (Math.floor(i / 8) + 1);
 export const center = i => [(i % 8) * CELL + CELL / 2, Math.floor(i / 8) * CELL + CELL / 2];
+// štítek „radar“ v rohu oblasti, na straně vzdálené od čísla
+const radarTag = (cx, cy, x, y, w, h) => { const pw = 50, ph = 19, px = cx > x + w / 2 ? x + 5 : x + w - pw - 5, py = cy > y + h / 2 ? y + 5 : y + h - ph - 5; return `<rect x="${px}" y="${py}" width="${pw}" height="${ph}" rx="9.5" fill="${INK}"/><text x="${px + pw / 2}" y="${py + 14}" text-anchor="middle" font-family="Onest, sans-serif" font-weight="700" font-size="13" fill="#fff">radar</text>`; };
 
 // zrychlení a omezení pohybu: ?rychle=1 zkrátí animace, prefers-reduced-motion je vypne (zůstává jen výsledek)
 export const FX = { scale: 1, reduced: false };
@@ -106,6 +108,7 @@ export class Pool {
     Object.keys(D).forEach(k => {
       const i = +k, [cx, cy] = center(i), r0 = Math.floor(i / 8), c0 = i % 8, x0 = Math.max(0, c0 - 1), x1 = Math.min(7, c0 + 1), y0 = Math.max(0, r0 - 1), y1 = Math.min(7, r0 + 1);
       rd += `<g class="rd" data-radar="${i}"><rect x="${x0 * CELL + 2}" y="${y0 * CELL + 2}" width="${(x1 - x0 + 1) * CELL - 4}" height="${(y1 - y0 + 1) * CELL - 4}" rx="9" fill="#fff" fill-opacity=".1" stroke="#fff" stroke-width="2.4" stroke-dasharray="6 5"/>
+        ${radarTag(cx, cy, x0 * CELL + 2, y0 * CELL + 2, (x1 - x0 + 1) * CELL - 4, (y1 - y0 + 1) * CELL - 4)}
         <circle cx="${cx}" cy="${cy}" r="14" fill="#fff" stroke="${INK}" stroke-width="2.4"/><text x="${cx}" y="${cy + 6.4}" text-anchor="middle" font-family="DynaPuff, sans-serif" font-size="19" fill="${INK}">${D[k]}</text></g>`;
     });
     this.L.radar.innerHTML = rd;

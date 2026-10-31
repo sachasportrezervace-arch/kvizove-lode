@@ -140,7 +140,7 @@ console.log("\nKolik dá lepší kvízař (A: 93/78/55 vs. B průměr 85/62/38; 
 const better = scenario("lepší kvízař × průměr", { acc: PRO, strat: "chytre" }, { acc: AVG, strat: "chytre" });
 const worse = scenario("průměr × slabší kvízař (75/48/25)", { acc: AVG, strat: "chytre" }, { acc: WEAK, strat: "chytre" });
 const big = scenario("velký rozdíl: 93/78/55 × 75/48/25", { acc: PRO, strat: "chytre" }, { acc: WEAK, strat: "chytre" });
-console.log("\nKolik dá kvíz samotný: vševěd (odpovídá 100 % správně, vždy bere nejlepší obtížnost) × průměrný hráč");
+console.log("\nKolik dá kvíz samotný: znalec a nadlidský vševěd (100 % správně, vždy nejlepší obtížnost) × průměrný hráč (pravidla v1; bójky, rozcvička a finále v2 se v simulaci nemodelují)");
 const znalec = scenario("znalec (96/85/65) × průměr", { acc: { 1: .96, 2: .85, 3: .65 }, strat: "chytre" }, { acc: AVG, strat: "chytre" });
 const extreme = scenario("vševěd (100 %, jen pro představu)", { acc: { 1: 1, 2: 1, 3: 1 }, strat: "chytre" }, { acc: AVG, strat: "chytre" });
 

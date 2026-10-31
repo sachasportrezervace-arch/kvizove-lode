@@ -83,8 +83,8 @@ const errs = [];
   for (const g of games) for (const q of g.questions) { if (seen.has(q)) dup.push(q); }
   for (const g of games) g.questions.forEach(q => seen.add(q));
   check("žádná otázka se v sérii neopakuje", dup.length === 0 && seen.size > 20, `${seen.size} různých otázek, opakování: ${dup.join(",") || "žádné"}`);
-  check("titul Marka postoupí: Plavčík → Vodník po 1. výhře", games[0].titleStartMark === "Plavčík" && games[0].titleEndMark === "Vodník" && /povýšil na Vodníka/.test(games[0].promo), `${games[0].titleStartMark} → ${games[0].titleEndMark}; ${games[0].promo}`);
-  check("po 3. výhře Kapitán nafukovačky a hláška o povýšení", games[2].titleEndMark === "Kapitán nafukovačky" && /povýšil na Kapitána nafukovačky/.test(games[2].promo), `${games[2].titleEndMark}; ${games[2].promo}`);
+  check("titul Marka postoupí: Plavčík → Vodník po 1. výhře", games[0].titleStartMark === "Plavčík" && games[0].titleEndMark === "Vodník" && /postoupil na Vodníka/.test(games[0].promo), `${games[0].titleStartMark} → ${games[0].titleEndMark}; ${games[0].promo}`);
+  check("po 3. výhře Kapitán nafukovačky a hláška o povýšení", games[2].titleEndMark === "Kapitán nafukovačky" && /postoupil na Kapitána nafukovačky/.test(games[2].promo), `${games[2].titleEndMark}; ${games[2].promo}`);
   check("vzhled plavce se mění s titulem (pruhy, kachna)", await A.evaluate(() => !!document.querySelector('#people .who-x .rank-2')) && await A.evaluate(() => !!document.querySelector('#people .who-x .rank-2 ellipse')));
   check("Radka (ženský tvar) se jmenuje Plavčice", games[0].titleStartRadka === "Plavčice", games[0].titleStartRadka);
   check("žádné chyby JavaScriptu ani konzole", errs.length === 0, errs.slice(0, 3).join(" | "));

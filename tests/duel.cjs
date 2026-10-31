@@ -154,7 +154,7 @@ const errs = [];
   await A.locator(`#pwEnemy .cell[data-i="${corner}"]`).click();
   await wRadarA;
   await A.waitForSelector(`#pwEnemy [data-radar="${corner}"] text`, { timeout: 8000 });
-  check("radar ukáže číslo (počet políček hraček v oblasti 3 × 3)", (await A.locator(`#pwEnemy [data-radar="${corner}"] text`).first().textContent()) === String(L.radarCount(fB, corner)), `střed ${corner}`);
+  check("radar ukáže číslo (počet políček hraček v oblasti 3 × 3)", (await A.locator(`#pwEnemy [data-radar="${corner}"] text`).last().textContent()) === String(L.radarCount(fB, corner)), `střed ${corner}, očekáváno ${L.radarCount(fB, corner)}, ukázáno ${await A.locator(`#pwEnemy [data-radar="${corner}"] text`).allTextContents()}, flotila ${L.fleetKey(fB)}`);
   await sleep(400);
   const missCell = free.find(i => !L.around(i).some(j => occB[j] >= 0) && i !== corner && L.radarArea(corner).indexOf(i) < 0);
   const wMissA = watch(A, "#pwEnemy .fx circle", "12-vedle-desktop");

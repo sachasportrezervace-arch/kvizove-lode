@@ -1,25 +1,25 @@
 PASS  setup: fonty Dynapuff a Onest jsou načtené (čeština)
-PASS  výzva: odkaz #r.<id>, vzkaz se jménem, sázkou a poznámkou  (http://localhost:8806/#r.vppawscjsgw6)
+PASS  výzva: odkaz #r.<id>, vzkaz se jménem, sázkou a poznámkou  (http://localhost:8811/#r.yidd0bqiwuj0)
 PASS  Mark po založení rovnou rozmisťuje (title)
 PASS  výzva u soupeře: jméno, sázka, vzkaz
-PASS  rozmístění: klepnutí otočí hračku  (Kachna, 2 políčka, G8, vodorovně → Kachna, 2 políčka, G7, svisle)
+PASS  rozmístění: klepnutí otočí hračku  (Kachna, 2 políčka, B8, vodorovně → Kachna, 2 políčka, B7, svisle)
 PASS  rozmístění: kolize se zvýrazní a Hotovo je vypnuté  (kolizí: 2)
 PASS  rozmístění: Náhodně vrátí platnou flotilu a povolí Hotovo
 PASS  rozmístění: z klávesnice jde otáčet (mezerník)
 PASS  Mark (začíná) po Hotovo čeká na Radku
 PASS  Radka (nezačíná) po Hotovo vybírá první kategorii Markovi  (v2: nabídka 3 kategorií)
-PASS  Mark je na tahu, title „Jsi na tahu“, kategorie od Radky z nabídky  (Film a hudba)
+PASS  Mark je na tahu, title „Jsi na tahu“, kategorie od Radky z nabídky  (Sport)
 PASS  rozcvička: v prvním tahu je těžká otázka vypnutá
 PASS  Radka vidí, že Mark volí obtížnost (kategorii zná)
-PASS  Radka při Markově otázce vidí kategorii, obtížnost a časovač, ale ne text otázky  (Které album Pink Floyd vyšlo v březnu 19)
+PASS  Radka při Markově otázce vidí kategorii, obtížnost a časovač, ale ne text otázky  (Který československý tenista zvítězil ve)
 PASS  karta otázky: pruh kategorie, časovač, 4 možnosti
-PASS  synchronizovaný stav (hra, x, o) neobsahuje čitelnou správnou odpověď  (The Dark Side of the Moon)
+PASS  synchronizovaný stav (hra, x, o) neobsahuje čitelnou správnou odpověď  (Jan Kodeš)
 PASS  synchronizovaný stav neobsahuje flotilu žádného hráče ani odhalení (rev) za hry
 PASS  synchronizovaný stav obsahuje jen závazek flotily (hash)
-PASS  po odpovědi se ukáže správná možnost a fakt  (Koncepci alba a všechny texty vytvořil baskytarist)
+PASS  po odpovědi se ukáže správná možnost a fakt  (Kodeš byl jedním z nejlepších československých ten)
 PASS  po správné odpovědi do 7 s: 3 rány a radar
 PASS  v2: hra má semínko a v obou bazénech jsou 3 viditelné bójky
-PASS  radar ukáže číslo (počet políček hraček v oblasti 3 × 3)  (střed 0)
+PASS  radar ukáže číslo (počet políček hraček v oblasti 3 × 3)  (střed 0, očekáváno 0, ukázáno radar,0, flotila 310700020660)
 PASS  zásah: PSSST! je vidět u střelce i u obránce
 PASS  potopení: obě pole kachny jsou 's', okolí jistá voda 'w'
 PASS  potopení: u střelce je viditelná splasklá hračka
@@ -31,22 +31,3 @@ PASS  přihlížející vidí obě moře jen z odpovědí: žádné živé hrač
 PASS  přihlížející nemůže střílet (všechna pole neaktivní) a vidí, kdo je na tahu
 PASS  přihlížející vidí radar a vedle na Markově straně (jen výsledky)
 PASS  v průběhu hry pořád žádné odhalení flotily (rev)
-Error: timeout partie (Radka), fáze shoot-opp
-    at drive (C:\Users\le artist\Desktop\react-apps\kvizove-lode\tests\lib.cjs:30:58)
-    at runNextTicks (node:internal/process/task_queues:65:5)
-    at process.processImmediate (node:internal/timers:472:9)
-    at async Promise.all (index 1)
-    at async C:\Users\le artist\Desktop\react-apps\kvizove-lode\tests\duel.cjs:223:20
-Chyby stránek:
-Mark konzole: Failed to load resource: the server responded with a status of 404 ()
-Mark konzole: Failed to load resource: the server responded with a status of 404 ()
-Mark konzole: Failed to load resource: the server responded with a status of 404 ()
-Mark konzole: Failed to load resource: the server responded with a status of 404 ()
-Radka konzole: Failed to load resource: the server responded with a status of 404 ()
-Radka konzole: Failed to load resource: the server responded with a status of 404 ()
-Mark konzole: Failed to load resource: the server responded with a status of 404 ()
-Radka konzole: Failed to load resource: the server responded with a status of 404 ()
-Mark konzole: Failed to load resource: the server responded with a status of 404 ()
-Radka konzole: Failed to load resource: the server responded with a status of 404 ()
-Mark konzole: Failed to load resource: the server responded with a status of 404 ()
-exit 2

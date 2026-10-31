@@ -641,12 +641,12 @@ function spectatorHTML(ph) {
   const what = { pick: `${w} volí obtížnost`, answer: `${w} odpovídá`, shoot: F.T && F.T.ok !== null ? `${w} střílí: ${F.T.n} ran` : `${w} střílí` }[F.kind] || "";
   return `${cat}<h2 class="pt">${esc(what)}</h2><p class="pd">Přihlížíš, hrají jen dva.</p>`;
 }
-// povýšení vítěze na nový titul po této výhře
+// postup vítěze na nový titul po této výhře
 function promoHTML(F) {
   const i = F.winner === "x" ? 0 : 1, before = g().w[i], after = before + 1;
   if (Lo.titleLevel(after) <= Lo.titleLevel(before)) return "";
   const f = female(F.winner);
-  return `<p class="promo" id="promo"><b>${esc(nameOf(F.winner))}</b> ${f ? "povýšila" : "povýšil"} na ${esc(Lo.titleName(after, f, true))}.</p>`;
+  return `<p class="promo" id="promo"><b>${esc(nameOf(F.winner))}</b> ${f ? "postoupila" : "postoupil"} na ${esc(Lo.titleName(after, f, true))}.</p>`;
 }
 function endHTML(ph) {
   const F = ph.F, W = nameOf(F.winner), L = nameOf(F.loser), sc = seriesScore();

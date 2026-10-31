@@ -1,0 +1,20 @@
+PASS  partie 1: ověření poctivosti OK (bójky, rozcvička a finále se replayují)
+  partie 1: 60 s, začínal x, vyhrál Mark, titul Marka Plavčík -> Vodník, kol štěstí 1, tahů s nabídkou 5
+PASS  partie 2: ověření poctivosti OK (bójky, rozcvička a finále se replayují)
+  partie 2: 74 s, začínal o, vyhrál Mark, titul Marka Vodník -> Vodník, kol štěstí 1, tahů s nabídkou 6
+PASS  partie 3: ověření poctivosti OK (bójky, rozcvička a finále se replayují)
+  partie 3: 77 s, začínal o, vyhrál Mark, titul Marka Vodník -> Kapitán nafukovačky, kol štěstí 1, tahů s nabídkou 6
+PASS  všechny tři partie dohrány a vyhrál je Mark
+PASS  každá partie má jiné semínko  (qvxpgom3j1,9j13ph7l89,98743skk4f)
+PASS  bójky se v partiích liší (jiná pole pro x i o)
+PASS  v každém bazénu jsou 3 viditelné bójky (různé druhy)
+PASS  první hráč se v sérii mění (poražený začíná)  (x,o,o)
+PASS  nabídky kategorií (první i další tahy) se v partiích liší
+PASS  žádná otázka se v sérii neopakuje  (23 různých otázek, opakování: žádné)
+PASS  titul Marka postoupí: Plavčík → Vodník po 1. výhře  (Plavčík → Vodník; Mark postoupil na Vodníka.)
+PASS  po 3. výhře Kapitán nafukovačky a hláška o povýšení  (Kapitán nafukovačky; Mark postoupil na Kapitána nafukovačky.)
+PASS  vzhled plavce se mění s titulem (pruhy, kachna)
+PASS  Radka (ženský tvar) se jmenuje Plavčice  (Plavčice)
+PASS  žádné chyby JavaScriptu ani konzole
+
+15 PASS, 0 FAIL
