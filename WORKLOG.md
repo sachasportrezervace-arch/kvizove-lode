@@ -10,6 +10,8 @@ PŘEVZATO 31. 10. – dodělává session na účtu P, jiná session sem nepíš
   **Neopakování** – `kl-seen` (otázky posledních 3 partií v zařízení) + `hq` v dokumentu hráče, platí i přes novou výzvu, Hernu a sólo. Nové otázky nepřidány (simulace: 0 opakování, 90,7–99,1 % přesná kategorie+obtížnost).
 - Ověřeno (localhost:8806): `engine.test.cjs` 26/0; `duel.cjs` 54/0; `solo.cjs` 41/0 (nová kontrola: hra 2 bez otázek z hry 1); `tri-partie.cjs` 15/0; `herna.cjs` 43/0; `layout.cjs` 36 kontrol PASS. Simulace otázek `scratchpad/sim-otazky.cjs` (10 partií × 300).
 - Design-eye kolo 1: „skoro“ 8/10; opraveno: useknutý název v hlavičce, rozmístění na desktopu, slabé rozsvícení okolí. Nechány: trhání proužků lehátka při splasknutí (LOW), „pfff“ u potopení (text přes plochu – vkus Marka proti).
+- Nasazeno `8d2edc9` (Pages built); živě `duel.cjs` 54/0, `solo.cjs` 41/0, `herna.cjs` 43/0.
+- Dál (nápady): trhání proužků lehátka při splasknutí (design-eye LOW); případně doplnit ověřené otázky do kategorií, kde soupeř škádlí pořád stejnou kategorií (9 % sousední obtížnost).
 - NEOVĚŘENO: zvuk na skutečném iPhonu (tichý režim ho ztlumí), skutečná Herna (jen vlastní rodič v testu), telefon na šířku s animací, reduced-motion.
 
 ## 2026-10-31
