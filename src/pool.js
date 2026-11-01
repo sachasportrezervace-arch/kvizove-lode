@@ -1,5 +1,6 @@
 // Bazén: SVG deska 8×8 s hračkami, značkami, efekty (let balonku, šplouch, PSSST, splasknutí, radar) a rozmisťováním tažením.
 import { CELL, INK, COL, toyG, toyTransform, missMark, hitMark, TOY_NAMES_CAP, buoyG } from "./art.js";
+import { sfx } from "./sfx.js";
 const Lo = window.Lode;
 const NS = "http://www.w3.org/2000/svg";
 const LET = "ABCDEFGH";
@@ -80,6 +81,9 @@ export class Pool {
     const { R, S, K, D } = this.shown, v = Lo.seaView(R, S);
     // jistá voda: jemně světlejší dlaždice (nové se rozsvítí)
     let t = "";
+    // tažená hračka: světlá stopa polí, kam dopadne
+    const drag = this.placing && this.placing.drag && this.placing.drag.moved && this.fleet ? Lo.shipCells(this.fleet[this.placing.drag.k], Lo.SIZES[this.placing.drag.k]) : [];
+    drag.forEach(i => { if (i < 0) return; const [cx, cy] = center(i); t += `<rect class="foot" x="${cx - CELL / 2 + 2}" y="${cy - CELL / 2 + 2}" width="${CELL - 4}" height="${CELL - 4}" rx="8" fill="#fff" fill-opacity=".3" stroke="#fff" stroke-width="2.4" stroke-dasharray="6 4"/>`; });
     v.forEach((c, i) => { if (c === "w") { const [cx, cy] = center(i); const fresh = !this.seenTiles.has(i); if (fresh) this.seenTiles.add(i); t += `<rect class="safe${fresh ? " fresh" : ""}" x="${cx - CELL / 2 + .8}" y="${cy - CELL / 2 + .8}" width="${CELL - 1.6}" height="${CELL - 1.6}" rx="5" fill="#fff" opacity=".13"/>`; } });
     this.L.tiles.innerHTML = t;
     // bójky plavou, dokud do pole nikdo nestřelil
@@ -91,7 +95,10 @@ export class Pool {
       const bad = this.placing ? new Set(Lo.conflicts(this.fleet)) : new Set();
       this.fleet.forEach((s, k) => {
         const cells = Lo.shipCells(s, Lo.SIZES[k]).filter(i => i >= 0), sunk = S.some(e => e.includes(cells[0]) && cells.length === e.length);
-        toys += `<g class="toy${sunk ? " sunk" : ""}${bad.has(k) ? " bad" : ""}${this.placing && this.placing.drag && this.placing.drag.k === k ? " lift" : ""}" data-ship="${k}" ${this.placing ? `tabindex="0" role="button" aria-label="${TOY_NAMES_CAP[k]}, ${Lo.SIZES[k]} políčka, ${coord(cells[0] >= 0 ? cells[0] : 0)}, ${s.v ? "svisle" : "vodorovně"}. Šipky posouvají, mezerník otáčí."` : ""} transform="${toyTransform(s)}">${toyG(k, sunk)}</g>`;
+        // zvednutá hračka (tažení) je o kousek větší, ať ji prst úplně nezakryje
+        const lift = this.placing && this.placing.drag && this.placing.drag.k === k, mx = Lo.SIZES[k] * CELL / 2;
+        const body = lift ? `<g transform="translate(${mx} ${CELL / 2}) scale(1.1) translate(${-mx} ${-CELL / 2})">${toyG(k, sunk)}</g>` : toyG(k, sunk);
+        toys += `<g class="toy${sunk ? " sunk" : ""}${bad.has(k) ? " bad" : ""}${lift ? " lift" : ""}" data-ship="${k}" ${this.placing ? `tabindex="0" role="button" aria-label="${TOY_NAMES_CAP[k]}, ${Lo.SIZES[k]} políčka, ${coord(cells[0] >= 0 ? cells[0] : 0)}, ${s.v ? "svisle" : "vodorovně"}. Šipky posouvají, mezerník otáčí."` : ""} transform="${toyTransform(s)}">${body}</g>`;
         if (bad.has(k)) cells.forEach(i => { const [cx, cy] = center(i); toys += `<rect class="clash" x="${cx - CELL / 2 + 1}" y="${cy - CELL / 2 + 1}" width="${CELL - 2}" height="${CELL - 2}" rx="7" fill="#FF2D2D" opacity=".38" stroke="#fff" stroke-width="2"/>`; });
       });
     } else {
@@ -101,7 +108,7 @@ export class Pool {
     this.L.toys.innerHTML = toys;
     // značky: vedle = tenký prstenec, zásah = záplata (potopené hračky mají splasklou siluetu, bez záplat)
     let m = "";
-    v.forEach((c, i) => { const [cx, cy] = center(i); if (c === "m") m += `<g class="mk miss">${missMark(cx, cy)}</g>`; else if (c === "h") m += `<g class="mk hit">${hitMark(cx, cy)}</g>`; });
+    v.forEach((c, i) => { const [cx, cy] = center(i); if (c === "m") m += `<g class="mk miss" data-i="${i}">${missMark(cx, cy)}</g>`; else if (c === "h") m += `<g class="mk hit" data-i="${i}">${hitMark(cx, cy)}</g>`; });
     this.L.marks.innerHTML = m;
     // radar: obrys oblasti 3×3 a číslo v jejím středu
     let rd = "";
@@ -190,10 +197,14 @@ export class Pool {
   moveShip(k, r, c, keepDrag) {
     const n = this.clampShip({ ...this.fleet[k], r, c }, k);
     if (n.r === this.fleet[k].r && n.c === this.fleet[k].c) return;
-    this.fleet[k] = n; this.paint(); this.placing && this.placing.onChange && this.placing.onChange(this.fleet);
+    this.fleet[k] = n; if (keepDrag) buzz(6);
+    this.paint(); this.placing && this.placing.onChange && this.placing.onChange(this.fleet);
   }
+  // otočení kolem prostředního políčka: hračka zůstane pod prstem, jen se natočí
   rotateShip(k) {
-    const s = this.fleet[k]; this.fleet[k] = this.clampShip({ ...s, v: !s.v }, k);
+    const s = this.fleet[k], m = Math.floor((Lo.SIZES[k] - 1) / 2);
+    const n = s.v ? { ...s, v: false, r: s.r + m, c: s.c - m } : { ...s, v: true, r: s.r - m, c: s.c + m };
+    this.fleet[k] = this.clampShip(n, k); buzz(10);
     this.paint(); this.placing && this.placing.onChange && this.placing.onChange(this.fleet);
   }
 
@@ -230,6 +241,7 @@ export class Pool {
   fx(node) { this.L.fx.appendChild(node); return node; }
   // vodní balonek letí obloukem z místa střelce na políčko
   fly(i, from, color, ms = 620) {
+    sfx("throw");
     if (FX.reduced || FX.scale < .02) return Promise.resolve();
     const [tx, ty] = center(i);
     const [fx0, fy0] = from ? this.local(from.x, from.y) : [tx, 420];
@@ -262,6 +274,8 @@ export class Pool {
   }
   async splash(i) {
     const [cx, cy] = center(i), g = this.fx(el("g")), reduce = FX.reduced;
+    sfx("splash");
+    this.pop(i, .5);
     if (reduce) { await sleep(60); g.remove(); return; }
     const rings = [0, 1, 2].map(n => g.appendChild(el("circle", { cx, cy, r: 4, fill: "none", stroke: "#fff", "stroke-width": 3, opacity: 0 })));
     const drops = [...Array(9)].map((_, n) => g.appendChild(el("circle", { cx, cy, r: 3.2 + (n % 3), fill: "#fff", opacity: 0 })));
@@ -274,8 +288,15 @@ export class Pool {
   async psst(i) {
     const [cx, cy] = center(i), g = this.fx(el("g"));
     const tx = Math.max(52, Math.min(284, cx)), ty = Math.max(34, cy - 38);
-    buzz(45);
-    this.wrap.animate && !FX.reduced && this.wrap.animate([{ transform: "translate(0,0)" }, { transform: "translate(-4px,2px) rotate(-.5deg)" }, { transform: "translate(4px,-2px) rotate(.5deg)" }, { transform: "translate(-3px,1px)" }, { transform: "translate(0,0)" }], { duration: 300 * FX.scale });
+    buzz(45); sfx("hit");
+    this.wrap.animate && !FX.reduced && this.wrap.animate([{ transform: "translate(0,0)" }, { transform: "translate(-6px,3px) rotate(-.8deg)" }, { transform: "translate(6px,-3px) rotate(.8deg)" }, { transform: "translate(-4px,2px)" }, { transform: "translate(2px,-1px)" }, { transform: "translate(0,0)" }], { duration: 360 * FX.scale });
+    this.pop(i, 1);
+    // záblesk dopadu: bílý kotouč, který se rozprskne
+    if (!FX.reduced) {
+      const fl = this.fx(el("circle", { cx, cy, r: 8, fill: "#fff", opacity: .95 }));
+      const ring = this.fx(el("circle", { cx, cy, r: 10, fill: "none", stroke: COL.x, "stroke-width": 5, opacity: .9 }));
+      tween(300, t => { fl.setAttribute("r", 8 + 26 * t); fl.setAttribute("opacity", .95 * (1 - t)); ring.setAttribute("r", 10 + 34 * t); ring.setAttribute("stroke-width", 5 * (1 - t) + .5); ring.setAttribute("opacity", .9 * (1 - t)); }, ease.out).then(() => { fl.remove(); ring.remove(); });
+    }
     if (FX.reduced) { g.appendChild(el("text", { x: tx, y: ty, "text-anchor": "middle", "font-family": "DynaPuff, sans-serif", "font-size": 30, fill: "#fff", stroke: INK, "stroke-width": 7, "paint-order": "stroke", "stroke-linejoin": "round" }, "PSSST!")); await sleep(500); g.remove(); return; }
     const lines = [...Array(8)].map((_, n) => g.appendChild(el("path", { stroke: "#fff", "stroke-width": 5, "stroke-linecap": "round", opacity: 0 })));
     const txt = g.appendChild(el("text", { x: 0, y: 0, "text-anchor": "middle", "font-family": "DynaPuff, sans-serif", "font-size": 30, fill: "#fff", stroke: INK, "stroke-width": 7, "paint-order": "stroke", "stroke-linejoin": "round", opacity: 0 }, "PSSST!"));
@@ -286,21 +307,48 @@ export class Pool {
     });
     g.remove();
   }
-  // splasknutí: hračka se zmenší do splasklé siluety, vyletí bublinky, okolí se rozsvítí (v paint jako .fresh)
+  // značka na poli vyskočí (zásah víc, vedle méně)
+  pop(i, s) {
+    const m = this.L.marks.querySelector(`.mk[data-i="${i}"]`);
+    if (!m || !m.animate || FX.reduced) return;
+    m.animate([{ transform: "scale(.2)", opacity: 0 }, { transform: `scale(${1 + .3 * s})`, opacity: 1, offset: .55 }, { transform: "scale(.94)" }, { transform: "scale(1)" }], { duration: (260 + 160 * s) * FX.scale, easing: "ease-out" });
+  }
+  // splasknutí: plná hračka se vynoří, kroutí se a syčí ze všech děr, splaskne do siluety; vlna rozsvítí okolí (v paint jako .fresh)
   async sink(ev) {
     const cells = [...ev.cells].sort((a, b) => a - b), k = Number.isInteger(ev.ship) ? ev.ship : (cells.length === 4 ? 0 : cells.length === 2 ? 3 : 1);
     const r = Math.floor(cells[0] / 8), c = cells[0] % 8, v = cells.length > 1 && cells[1] - cells[0] === 8, L = cells.length;
-    const flat = this.fx(el("g", { transform: toyTransform({ r, c, v }), opacity: 0 }, toyG(k, true)));
+    const mx = L * CELL / 2, my = CELL / 2;
+    // ve vlastním bazénu leží pod efektem nafouknutá hračka: po dobu efektu ji schovat
+    const own = this.L.toys.querySelector(`.toy[data-ship="${k}"]`); if (own) own.setAttribute("opacity", 0);
+    this.L.marks.querySelectorAll(".mk.hit").forEach(m => { if (cells.includes(+m.dataset.i)) m.setAttribute("opacity", 0); });
+    const outer = this.fx(el("g", { class: "sinking", transform: toyTransform({ r, c, v }) }));
+    const body = outer.appendChild(el("g", {}, toyG(k, false)));
+    const flat = outer.appendChild(el("g", { opacity: 0 }, toyG(k, true)));
     const mid = cells.map(center).reduce((a, p) => [a[0] + p[0] / L, a[1] + p[1] / L], [0, 0]);
-    const bub = [...Array(6)].map(() => this.fx(el("circle", { r: 3 + Math.random() * 3, fill: "#fff", opacity: 0 })));
-    const seeds = bub.map((_, n) => ({ dx: (n - 2.5) * 11, ph: n * .13 }));
-    this.wrap.animate && !FX.reduced && this.wrap.animate([{ transform: "translate(0,0)" }, { transform: "translate(0,3px)" }, { transform: "translate(0,0)" }], { duration: 380 * FX.scale });
-    buzz([30, 40, 70]);
-    await tween(1100, t => {
-      flat.setAttribute("opacity", Math.min(1, t * 2.4));
-      bub.forEach((b, n) => { const u = Math.max(0, Math.min(1, (t - seeds[n].ph) / .6)); b.setAttribute("cx", mid[0] + seeds[n].dx * (1 + u)); b.setAttribute("cy", mid[1] - u * 46); b.setAttribute("opacity", u > 0 && u < 1 ? .9 * (1 - u) : 0); });
-    }, ease.out);
-    flat.remove(); bub.forEach(b => b.remove());
+    const jets = cells.map((j, n) => { const [cx, cy] = center(j); return { cx, cy, a: n * 2.1 + .6, p: this.fx(el("path", { stroke: "#fff", "stroke-width": 4.4, "stroke-linecap": "round", fill: "none", opacity: 0 })) }; });
+    const bub = [...Array(8)].map(() => this.fx(el("circle", { r: 3 + Math.random() * 3.4, fill: "#fff", opacity: 0 })));
+    const seeds = bub.map((_, n) => ({ dx: (n - 3.5) * 10, ph: .25 + n * .07 }));
+    this.wrap.animate && !FX.reduced && this.wrap.animate([{ transform: "translate(0,0)" }, { transform: "translate(-7px,4px) rotate(-1deg)" }, { transform: "translate(6px,-3px) rotate(1deg)" }, { transform: "translate(-4px,5px)" }, { transform: "translate(3px,-2px)" }, { transform: "translate(0,0)" }], { duration: 520 * FX.scale });
+    buzz([40, 50, 90]); sfx("sink");
+    await tween(1150, (e, t) => {
+      // vynoření (0–.15), kroucení a vypouštění (.15–.8), splasknutí do siluety (.7–1)
+      const rise = Math.min(1, t / .15), de = Math.max(0, Math.min(1, (t - .15) / .65));
+      const wob = Math.sin(t * 34) * (1 - t) * 8 * de, lift = -Math.sin(Math.PI * de) * 7;
+      const sx = (.9 + .1 * ease.back(rise)) * (1 - .14 * de), sy = (.9 + .1 * ease.back(rise)) * (1 - .55 * de);
+      body.setAttribute("transform", `translate(${mx} ${my + lift}) rotate(${wob}) scale(${sx} ${sy}) translate(${-mx} ${-my})`);
+      body.setAttribute("opacity", t < .78 ? 1 : Math.max(0, 1 - (t - .78) * 4.5));
+      const fs = t < .7 ? 0 : Math.min(1, (t - .7) / .3), sq = 1 + .12 * Math.sin(Math.PI * fs);
+      flat.setAttribute("opacity", fs);
+      flat.setAttribute("transform", `translate(${mx} ${my}) scale(${sq} ${1 / sq}) translate(${-mx} ${-my})`);
+      jets.forEach((j, n) => { const a = j.a + t * 5, r1 = 12, r2 = 20 + 12 * Math.abs(Math.sin(t * 40 + n)); j.p.setAttribute("d", `M${j.cx + Math.cos(a) * r1} ${j.cy + Math.sin(a) * r1}L${j.cx + Math.cos(a) * r2} ${j.cy + Math.sin(a) * r2}`); j.p.setAttribute("opacity", de > 0 && t < .8 ? .95 : 0); });
+      bub.forEach((b, n) => { const u = Math.max(0, Math.min(1, (t - seeds[n].ph) / .55)); b.setAttribute("cx", mid[0] + seeds[n].dx * (1 + u)); b.setAttribute("cy", mid[1] - u * 52); b.setAttribute("opacity", u > 0 && u < 1 ? .9 * (1 - u) : 0); });
+    });
+    outer.remove(); jets.forEach(j => j.p.remove()); bub.forEach(b => b.remove());
+    // vlna po hladině kolem splasklé hračky
+    if (!FX.reduced) {
+      const wave = this.fx(el("circle", { cx: mid[0], cy: mid[1], r: 20, fill: "none", stroke: "#fff", "stroke-width": 5, opacity: .85 }));
+      tween(650, t => { wave.setAttribute("r", 20 + (L * CELL * .55 + 40) * t); wave.setAttribute("stroke-width", 5 * (1 - t) + .5); wave.setAttribute("opacity", .85 * (1 - t)); }, ease.out).then(() => wave.remove());
+    }
     // zapsat potopení do zobrazeného stavu
     const R = [...this.shown.R]; cells.forEach(j => R[j] = "s");
     this.shown = { R: R.join(""), S: [...this.shown.S, cells], K: [...this.shown.K, k], D: this.shown.D };

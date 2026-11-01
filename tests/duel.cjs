@@ -168,7 +168,7 @@ const errs = [];
   check("zásah: PSSST! je vidět u střelce i u obránce", true);
   await A.waitForFunction(k => document.querySelector(`#pwEnemy .cell[data-i="${k}"]`).dataset.st === "h", duckCells[0], { timeout: 8000 });
   await A.waitForSelector("#pwEnemy.aim", { timeout: 8000 }); await sleep(900);
-  const wSinkA = watch(A, "#pwEnemy .fx > g[transform][opacity]", "14-potopeni-desktop"), wSinkB = watch(B, "#pwMine .fx > g[transform][opacity]", "14-potopeni-mobil");
+  const wSinkA = watch(A, "#pwEnemy .fx > g.sinking", "14-potopeni-desktop"), wSinkB = watch(B, "#pwMine .fx > g.sinking", "14-potopeni-mobil");
   await A.locator(`#pwEnemy .cell[data-i="${duckCells[1]}"]`).click();
   await Promise.all([wSinkA, wSinkB]);
   await Promise.all([A.waitForFunction(() => document.querySelectorAll("#pwEnemy .toy.sunk").length === 1, null, { timeout: 8000 }), B.waitForFunction(() => document.querySelectorAll("#pwMine .toy.sunk").length === 1, null, { timeout: 8000 })]);

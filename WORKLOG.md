@@ -1,6 +1,16 @@
+PŘEVZATO 1. 11. – kolo vylepšení, session kvizove-lode-kolo; jiná session sem nepíše.
 PŘEVZATO 31. 10. – dodělává session na účtu P, jiná session sem nepíše.
 
 # Deník – Kvízové lodě (Nafukovací flotila)
+
+## 2026-11-01 · kolo vylepšení (zadání `../HRY-KOLO-2026-11-01.md`, Mark: tempo, rozmístění na mobilu, zásah/potopení, neopakování otázek)
+- Hotovo: **tempo** – rány bez čekání na odpověď soupeřova zařízení (dřív každá rána ~1,5–2,5 s čekání na síť), kategorie pro soupeře hned po poslední ráně (tah skončí sám po dopadu), karta výsledku 1,5 s / 2,4 s (dřív 2,6–5,1 s) a zavře se klepnutím nebo ranou do bazénu.
+  **Rozmístění** – tažená hračka větší + stopa polí, otáčení kolem středu, bez lupy/výběru na iOS; na desktopu se rozmisťuje ve velkém vlastním bazénu (dřív v malém náhledu, nález design-eye).
+  **Šťáva** – zásah: záblesk, prstenec, vyskočí záplata, silnější otřes; potopení: plná hračka se vynoří, kroutí, syčí ze všech děr, splaskne, vlna, výraznější rozsvícení okolí. **Nové: zvuky** (`src/sfx.js`, WebAudio bez souborů) + vypínač v hlavičce; na úzkém telefonu se 4 ikonami jen kolečko loga.
+  **Neopakování** – `kl-seen` (otázky posledních 3 partií v zařízení) + `hq` v dokumentu hráče, platí i přes novou výzvu, Hernu a sólo. Nové otázky nepřidány (simulace: 0 opakování, 90,7–99,1 % přesná kategorie+obtížnost).
+- Ověřeno (localhost:8806): `engine.test.cjs` 26/0; `duel.cjs` 54/0; `solo.cjs` 41/0 (nová kontrola: hra 2 bez otázek z hry 1); `tri-partie.cjs` 15/0; `herna.cjs` 43/0; `layout.cjs` 36 kontrol PASS. Simulace otázek `scratchpad/sim-otazky.cjs` (10 partií × 300).
+- Design-eye kolo 1: „skoro“ 8/10; opraveno: useknutý název v hlavičce, rozmístění na desktopu, slabé rozsvícení okolí. Nechány: trhání proužků lehátka při splasknutí (LOW), „pfff“ u potopení (text přes plochu – vkus Marka proti).
+- NEOVĚŘENO: zvuk na skutečném iPhonu (tichý režim ho ztlumí), skutečná Herna (jen vlastní rodič v testu), telefon na šířku s animací, reduced-motion.
 
 ## 2026-10-31
 - 17:43 přerušeno (limit účtu Teams), stará session `ac5eb979`. Poslední běh `tests/duel.cjs`: 33 PASS, pak timeout partie (Radka, fáze shoot-me).

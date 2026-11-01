@@ -27,7 +27,7 @@ async function playGame(p, label, tag, layout) {
     await sleep(100);
   }
   const cfg = { name: label, diff: [2, 3, 1], right: i => i % 3 !== 2, aim: "random", radar: 1, cats: ["sport", "veda", "zemepis"], timeout: 420000 };
-  const st = await drive(p, null, { ...cfg, on: { shot: async (q, kind, s) => { if (s.shots === 4) { await q.screenshot({ path: path.join(SHOTS, `solo-${tag}-${label}-hra.png`) }); const bad = await fits(q, `${tag} ${label} střelba`); if (bad.length) bad.push("diagnostika: " + await q.evaluate(() => JSON.stringify([document.querySelector(".buoy-legend") && getComputedStyle(document.querySelector(".buoy-legend")).display, innerWidth, innerHeight, document.documentElement.scrollHeight, document.body.className]))); layout.push(...bad); } } } });
+  const st = await drive(p, null, { ...cfg, on: { question: async (q, s) => { (s.qids = s.qids || []).push(await q.locator("#qcard").getAttribute("data-qid")); }, shot: async (q, kind, s) => { if (s.shots === 4) { await q.screenshot({ path: path.join(SHOTS, `solo-${tag}-${label}-hra.png`) }); const bad = await fits(q, `${tag} ${label} střelba`); if (bad.length) bad.push("diagnostika: " + await q.evaluate(() => JSON.stringify([document.querySelector(".buoy-legend") && getComputedStyle(document.querySelector(".buoy-legend")).display, innerWidth, innerHeight, document.documentElement.scrollHeight, document.body.className]))); layout.push(...bad); } } } });
   await p.waitForSelector("#endBox", { timeout: T });
   await sleep(800);
   return st;
@@ -82,6 +82,8 @@ async function run(tag, launcher, ctxOpts) {
   check(`${tag}: tlačítko nastaví adresu #solo a použije jméno z formuláře`, p.url().endsWith("#solo") && (await txt("#people .who-x .nm")).trim() === "Tester");
   const s2 = await playGame(p, "hra2", tag, layout);
   check(`${tag}: hra 2 (přes tlačítko) dohraná (${s2.shots} ran)`, s2.seen.has("end") && s2.shots > 0);
+  const rep = (s2.qids || []).filter(q => (s1.qids || []).includes(q));
+  check(`${tag}: otázky hry 2 se neopakují z hry 1 (jiná partie, ${(s1.qids || []).length} + ${(s2.qids || []).length} otázek)`, rep.length === 0 && (s2.qids || []).length > 0, rep.join(","));
   await p.click("#soloChallengeBtn");
   await p.waitForSelector("#setup:not([hidden])", { timeout: T });
   check(`${tag}: „Vyzvat soupeře“ vede na normální výzvu, štítek zmizí`, await p.locator("#game").isHidden() && await p.locator("#soloTag").isHidden() && !p.url().includes("#solo") && await p.locator("#setupSubmit").isVisible());

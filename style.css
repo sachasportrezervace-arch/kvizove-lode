@@ -103,7 +103,10 @@ button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .people::after { content: ""; display: none; }
 .pw { position: relative; min-width: 0; }
 .pw .pool { width: 100%; height: auto; display: block; overflow: visible; aspect-ratio: 1; touch-action: manipulation; }
-.pw.placing .pool { touch-action: none; }
+.pw.placing .pool { touch-action: none; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+.pool .mk { transform-box: fill-box; transform-origin: center; }
+/* úzký telefon se 4 ikonami v hlavičce: místo useknutého názvu jen kolečko loga */
+@media (max-width: 430px) { .top:has(#copyTopBtn:not([hidden])) .brandname { display: none; } }
 .pcap { font: 600 14px/1.2 var(--body); text-align: center; padding-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .board[data-focus="enemy"] #pwEnemy, .board[data-focus="mine"] #pwMine { grid-area: big; justify-self: center; width: var(--ps); z-index: 1; }
 .board[data-focus="enemy"] #pwMine, .board[data-focus="mine"] #pwEnemy { grid-area: mini; align-self: start; width: var(--mini); }
@@ -120,8 +123,8 @@ button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .toy { transition: none; } .toy.lift { filter: drop-shadow(0 6px 3px rgba(14, 95, 112, .5)); }
 .toy:focus-visible { outline: none; } .toy:focus-visible > g { filter: drop-shadow(0 0 4px #fff); }
 .pw.placing .toy { cursor: grab; } .pw.placing .toy.lift { cursor: grabbing; }
-.safe.fresh { animation: tilein .8s ease-out both; }
-@keyframes tilein { from { opacity: 0; } to { opacity: .13; } }
+.safe.fresh { animation: tilein 1.6s ease-out both; }
+@keyframes tilein { 0% { opacity: 0; } 18% { opacity: .6; } 60% { opacity: .45; } 100% { opacity: .13; } }
 
 /* ---------- panel pod bazénem ---------- */
 .panel { display: grid; gap: 6px; align-content: start; min-height: 0; }
@@ -206,6 +209,9 @@ body.sheet-open::before { content: ""; position: fixed; inset: 0; background: rg
   .board[data-focus] #pwEnemy, .board[data-wide][data-focus] #pwEnemy { grid-area: enemy; width: var(--pe); justify-self: start; align-self: start; display: block; }
   .board[data-focus] #pwMine, .board[data-wide][data-focus] #pwMine { grid-area: mine; width: var(--pm); justify-self: start; align-self: end; display: block; margin-top: 0; }
   body.sheet-open .board[data-focus] #pwMine, body.sheet-open .board[data-wide][data-focus] #pwMine { display: none; }
+  /* rozmisťování: velký je vlastní bazén, soupeřův se schová */
+  .board[data-phase="place"][data-focus] #pwMine { grid-area: enemy; width: var(--pe); align-self: start; }
+  .board[data-phase="place"][data-focus] #pwEnemy { display: none; }
   .board[data-focus="both"] #pwX { grid-area: enemy; width: var(--pb); justify-self: start; align-self: start; }
   .board[data-focus="both"] #pwO { grid-area: mine; width: var(--pb); justify-self: start; align-self: start; margin-top: 0; }
   .board[data-wide] .dock { grid-column: 2; } .board[data-focus="both"] .dock { grid-column: 3; }

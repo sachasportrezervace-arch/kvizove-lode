@@ -83,6 +83,12 @@ Každá partie má náhodné semínko `g.seed` (v dokumentu `hra`, nové při ka
 - Kolo štěstí: každý 5. tah (`k = 4, 9, …`) střelec tlačítkem „Zatočit“ zapíše `nc = wheelCat(seed, k+1, minulá)`. Nabídka 3 kategorií se počítá z `seed` a čísla tahu u obou hráčů stejně.
 - Simulace `tests/balance.cjs` pravidla v2 (bójky, rozcvička, finále) nemodeluje; platí pro základní pravidla.
 
+## Kolo 1. 11. – tempo, rozmístění na mobilu, šťáva, neopakování (zadání Marka)
+- **Tempo**: rány se pouštějí bez čekání na odpověď soupeřova zařízení (výsledky dopadají postupně v pořadí střelby); kategorie pro soupeře se vybírá hned po poslední ráně, tah skončí sám, až balonky dopadnou (poklad dá ránu navíc i potom). Karta výsledku: správně 1,5 s, špatně 2,4 s (+ max 1,2 s podle délky faktu), zavře se klepnutím kamkoli nebo ranou do bazénu.
+- **Rozmístění na mobilu**: tažená hračka se zvětší a pod ní je světlá stopa polí, kam dopadne; klepnutí otáčí kolem prostředního políčka (hračka zůstane pod prstem); na iOS vypnutý výběr textu a lupa; krátká vibrace při posunu (Android).
+- **Zásah a potopení**: zásah = bílý záblesk + korálový prstenec, záplata vyskočí, silnější otřes; potopení = plná hračka se vynoří, kroutí se a syčí ze všech děr, splaskne do siluety, vlna po hladině. Zvuky z WebAudio bez souborů (`src/sfx.js`: hod, šplouch, zásah, splasknutí, správně/špatně, tah, bójka), vypínač v hlavičce (`kl-zvuk`).
+- **Otázky se neopakují ani přes 3 partie po sobě** (i nová výzva, Herna, sólo): zařízení si v `kl-seen` pamatuje otázky posledních partií, při rozmístění je zapíše do svého dokumentu jako `hq` a výběr otázky vyloučí `used`, otázky partie, vlastní `kl-seen` i soupeřovo `hq`. Simulace (10 partií po sobě, 300×): 0 opakování; když soupeř dává pořád stejnou kategorii, v 9 % padne sousední obtížnost téže kategorie.
+
 ## Testy
 `node tests/engine.test.cjs` · `node tests/balance.cjs` (simulace délky partie a vyvážení) · `node tests/duel.cjs <URL>` (Chromium desktop × WebKit iPhone 13 na výšku, celá partie, odveta, přihlížející) · `node tests/tri-partie.cjs <URL>` (3 partie za sebou, pestrost) · design-eye verdikt „profi indie hra“ max 3 kola.
 Lokální port 8806 (`node tools/serve.cjs`).

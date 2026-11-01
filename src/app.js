@@ -4,6 +4,7 @@ import { load, save, store, device, randId, commitRoom, seatWriter, roomUrl, sea
 import { COL, CAT, catIcon, icon, swimmerSVG, balloonSVG, INK, toyG, missMark, hitMark, buoyIcon } from "./art.js";
 import { Pool, FX, sleep, coord } from "./pool.js";
 import { startBot, BOT_NAME } from "./solo.js";
+import { sfx, sound } from "./sfx.js";
 
 const Lo = window.Lode;
 const $ = id => document.getElementById(id);
@@ -91,6 +92,21 @@ const seedCtx = seat => ({ seed: room && room.g.seed || "", seat });
 const safeFlow = () => { try { return room ? Lo.flow(PP(), room.g.s, seedCtx()) : null; } catch { return null; } };
 const viewOf = d => ({ R: d.R && d.R.length === 64 ? d.R : ".".repeat(64), S: d.S || [], K: d.K || [], D: d.D || {} });
 const usedSet = () => { const s = new Set(g().used || []); for (const p of ["x", "o"]) (docOf(p).T || []).forEach(t => t && t.q && s.add(t.q)); return s; };
+// otázky se neopakují ani přes 3 partie po sobě, i když jde o novou výzvu, Hernu nebo sólo:
+// zařízení si pamatuje otázky posledních partií (localStorage kl-seen) a soupeř je dostane v mém dokumentu jako `hq`
+const SEEN_GAMES = 3;
+const seenLog = () => attempt(() => JSON.parse(store.get("kl-seen") || "[]"), []).filter(e => e && typeof e.k === "string" && Array.isArray(e.q));
+const priorSeen = () => seenLog().filter(e => e.k !== gameKey).slice(-SEEN_GAMES).flatMap(e => e.q).filter(q => typeof q === "string").slice(-120);
+let seenSig = "", lastPh = "";
+function rememberQs(F) {
+  if (!me || !room || !F || F.kind === "setup") return;
+  const ids = [...new Set(["x", "o"].flatMap(p => (docOf(p).T || []).map(t => t && t.q).filter(Boolean)))], sig = gameKey + "|" + ids.join(",");
+  if (!ids.length || sig === seenSig) return;
+  seenSig = sig;
+  const log = seenLog().filter(e => e.k !== gameKey); log.push({ k: gameKey, q: ids });
+  store.set("kl-seen", JSON.stringify(log.slice(-(SEEN_GAMES + 1))));
+}
+const avoidSet = () => { const s = usedSet(); priorSeen().forEach(q => s.add(q)); for (const p of ["x", "o"]) (docOf(p).hq || []).forEach(q => s.add(q)); return s; };
 const seriesScore = () => {
   if (isSolo()) return [0, 0];                                   // trénink se do série nepočítá
   const w = [...g().w], F = safeFlow();
@@ -401,6 +417,7 @@ function onPoolEvent(ev) {
   const owner = ev.owner, shooter = other(owner);
   if (ev.kind === "buoy") {
     const t = BUOY_TEXT[ev.type]; if (!t) return;
+    sfx("buoy");
     toast(me === shooter ? t[0] : `${nameOf(shooter)}: ${t[1].replace(/^Trefil /, female(shooter) ? "Trefila " : "Trefil ")}`);
     document.body.dataset.buoy = ev.type; setTimeout(() => { delete document.body.dataset.buoy; }, 900);
     return;
@@ -478,7 +495,7 @@ document.addEventListener("visibilitychange", () => { if (!document.hidden) sche
 async function submitReady(c0) {
   if (!fleetRec) return;
   const fh = await Lo.sha(fleetRec.key + fleetRec.salt);
-  writer.set({ ...fresh(room.g.n), n: room.g.n, fh, ready: true, c0 }, true);
+  writer.set({ ...fresh(room.g.n), n: room.g.n, fh, ready: true, c0, hq: priorSeen() }, true);
   placeStage = "place"; renderAll(); schedulePoll(0);
 }
 async function donePlacing() {
@@ -520,7 +537,7 @@ function pickDifficulty(d) {
   const ph = turnPhase(me, F.k >> 1);
   d = Math.min(Lo.maxDifficulty(ph), Math.max(Lo.minDifficulty(ph), d));
   const cat = Lo.CATS.includes(F.cat) ? F.cat : Lo.CATS[rnd(7)];
-  const q = Lo.pickQuestion(QS, cat, d, usedSet()), t = { d, q: q.id, o: Lo.shuffle4(), t0: Date.now(), a: null, ms: 0, ok: null, n: 0, sh: [], r: null, r2: null, nc: null };
+  const q = Lo.pickQuestion(QS, cat, d, avoidSet()), t = { d, q: q.id, o: Lo.shuffle4(), t0: Date.now(), a: null, ms: 0, ok: null, n: 0, sh: [], r: null, r2: null, nc: null };
   if (rescueFor(me) && ph !== "finale") t.rs = 1;
   const T = [...(writer.doc().T || [])]; T[F.k >> 1] = t;
   cardState = { phase: "ask" };
@@ -537,17 +554,19 @@ async function submitAnswer(a) {
     const cj = await Lo.correctIndex(q, t.o);
     const fact = cj >= 0 ? await Lo.decryptFact(q.id, q.opts[+t.o[cj]], q.f).catch(() => "") : "";
     const T = [...writer.doc().T]; T[F.k >> 1] = { ...t, a, ms, ok, n };
-    cardState = { phase: "result", a, ok, cj, fact, n, fast: ok && ms <= Lo.FAST_MS, k: F.k, rs: !!(ok && t.rs), pen: minePenalty(me, idx) };
+    cardState = { phase: "result", a, ok, cj, fact, n, fast: ok && ms <= Lo.FAST_MS, k: F.k, rs: !!(ok && t.rs), pen: minePenalty(me, idx), at: Date.now() };
     cardOpen = true;
+    sfx(ok ? "ok" : "bad");
     writer.set({ T }, true);
     renderAll(); schedulePoll(0);
-    const hold = ok ? 2600 : 3600;
-    setTimeout(closeCard, FX.scale < 1 ? 700 : hold + Math.min(1500, (fact.length || 0) * 12));
+    // tempo: výsledek krátce, klepnutím (nebo ranou do bazénu) se zavře hned
+    const hold = ok ? 1500 : 2400, k0 = F.k;
+    setTimeout(() => { if (cardState && cardState.k === k0) closeCard(); }, FX.scale < 1 ? 700 : hold + Math.min(1200, (fact.length || 0) * 10));
   } finally { answering = false; }
 }
 function swapEasier() {
   const F = safeFlow(); if (!F || F.kind !== "answer" || F.who !== me || !F.T.rs || F.T.sw || F.T.d <= 1 || turnPhase(me, F.k >> 1) === "finale") return;
-  const cat = Lo.CATS.includes(F.cat) ? F.cat : Lo.CATS[rnd(7)], d = F.T.d - 1, q = Lo.pickQuestion(QS, cat, d, usedSet());
+  const cat = Lo.CATS.includes(F.cat) ? F.cat : Lo.CATS[rnd(7)], d = F.T.d - 1, q = Lo.pickQuestion(QS, cat, d, avoidSet());
   const T = [...writer.doc().T]; T[F.k >> 1] = { ...F.T, d, q: q.id, o: Lo.shuffle4(), t0: Date.now(), sw: 1 };
   writer.set({ T }, true); sheetKey = ""; renderAll(); schedulePoll(0);
 }
@@ -557,7 +576,8 @@ function closeCard() { if (!cardOpen) return; cardOpen = false; renderAll(); }
 function shootAt(i) {
   const F = safeFlow(); if (!F || F.kind !== "shoot" || F.who !== me) return;
   const opp = other(me), pool = pools[opp];
-  if (pool.busy() || F.pending.length || F.pendingRadar) return;
+  // tempo: další rána se smí pustit hned, výsledky předchozích dopadají postupně
+  if (cardOpen) closeCard();
   const t = F.T, v = Lo.seaView(viewOf(docOf(opp)).R, viewOf(docOf(opp)).S);
   const slot = radarSlot(F);
   if (radarArmed && slot) {
@@ -573,7 +593,7 @@ function shootAt(i) {
   renderAll(); schedulePoll(0);
 }
 function wheelSpin() {
-  const F = safeFlow(); if (!F || F.kind !== "shoot" || F.who !== me || !Lo.isWheel(F.k + 1) || wheelBusy) return;
+  const F = safeFlow(); if (!F || F.kind !== "shoot" || F.who !== me || !Lo.isWheel(F.k + 1) || wheelBusy || F.left > 0 || F.T.nc) return;
   wheelBusy = true;
   const target = Lo.wheelCat(g().seed || "", F.k + 1, F.prevCat || ""), box = $("wheelBox"), t0 = Date.now(); let n = 0;
   const tick = () => {
@@ -585,8 +605,9 @@ function wheelSpin() {
   tick();
 }
 let wheelBusy = false;
+// kategorii pro soupeře jde vybrat hned po poslední ráně, i když balonky ještě letí; tah skončí, až dopadnou
 function pickNextCategory(cat) {
-  const F = safeFlow(); if (!F || F.kind !== "shoot" || F.who !== me || F.left > 0 || F.pending.length || F.pendingRadar) return;
+  const F = safeFlow(); if (!F || F.kind !== "shoot" || F.who !== me || F.left > 0 || F.T.nc) return;
   const T = [...writer.doc().T]; T[F.k >> 1] = { ...F.T, nc: cat };
   radarArmed = false;
   writer.set({ T }, true); renderAll(); schedulePoll(0);
@@ -655,7 +676,7 @@ function statusText(ph) {
     case "answer-me": return "Odpověz na otázku.";
     case "answer-opp": return `${nameOf(F.who)} odpovídá (${CAT[F.cat] ? CAT[F.cat].name : ""}, ${DIFF[F.T.d]}).`;
     case "shoot-me": {
-      if (F.pending.length || F.pendingRadar) return "Čekám na odpověď soupeře…";
+      if (F.left <= 0 && F.T.nc) return "Balonky dopadají, pak je na tahu soupeř.";
       if (F.left > 0) return radarArmed ? "Klepni do bazénu, kde má radar skenovat." : `Klepni do soupeřova bazénu. Zbývá ${F.left} z ${F.T.n + (F.treasure || 0)}.`;
       return Lo.isWheel(F.k + 1) ? "Salva je venku. Příště rozhodne kolo štěstí." : "Salva je venku. Vyber soupeři kategorii z nabídky.";
     }
@@ -702,18 +723,19 @@ function panelHTML(ph) {
         <h2 class="pt">${esc(nameOf(F.who))} odpovídá</h2>
         <div class="otimer"><div class="bar"><i id="obar"></i></div><span id="osec">20 s</span></div><p class="pd small">Otázku vidí jen ${female(F.who) ? "ona" : "on"}. Za chvíli uvidíš výsledek.</p>`;
     case "shoot-me": {
-      const done = F.left <= 0 && !F.pending.length && !F.pendingRadar, T = F.T;
+      const done = F.left <= 0, T = F.T;
       let h = balloonsHTML(F);
       const slot = radarSlot(F);
       if (slot) h += `<button type="button" class="btn radar${radarArmed ? " on" : ""}" id="radarBtn" data-act="radar" aria-pressed="${radarArmed}">${icon("radar", 20)}${slot === "r2" ? "Radar zdarma" : "Radar 3 × 3"}</button>`;
       else if ((T.r !== null && T.r !== undefined) || (T.r2 !== null && T.r2 !== undefined)) h += `<span class="radar-used">${icon("radar", 18)}Radar použit</span>`;
       h = `<div class="shootrow">${h}</div>`;
-      if (done) {
+      if (done && T.nc && CAT[T.nc]) h += `<h2 class="pt">${esc(opp)} dostane</h2><div class="catline" style="--cc:${CAT[T.nc].color}">${catIcon(T.nc, 22)}<b>${CAT[T.nc].name}</b><span>dopadají poslední balonky</span></div>`;
+      else if (done) {
         const offer = categoryOffer(F);
         h += offer ? `<h2 class="pt">Co dostane ${esc(opp)}?</h2>${chipsHTML(offer)}`
           : `<h2 class="pt">Kolo štěstí</h2><p class="pd">${esc(opp)} dostane kategorii z kola.</p><div class="wheelbox" id="wheelBox"><span class="wc">${icon("wheel", 26)}<b>Zatoč kolem</b></span></div><div class="btnrow"><button type="button" class="btn" id="wheelBtn" data-act="wheel">${icon("wheel", 20)}Zatočit</button></div>`;
       }
-      else h += `<p class="pd">${F.pending.length || F.pendingRadar ? "Čekám na odpověď soupeře…" : radarArmed ? "Klepni do bazénu, střed radaru." : `Klepni do soupeřova bazénu.`}</p>${buoyLegendHTML()}`;
+      else h += `<p class="pd">${radarArmed ? "Klepni do bazénu, střed radaru." : `Klepni do soupeřova bazénu.`}</p>${buoyLegendHTML()}`;
       return h;
     }
     case "shoot-opp": {
@@ -834,14 +856,17 @@ function renderAll(force) {
   if (!room || view !== "game") return;
   hernaSync();
   const ph = phase(), F = ph.F, board = $("board");
+  if (ph.name === "pick-me" && lastPh !== "pick-me" && lastPh) sfx("turn");
+  lastPh = ph.name;
+  rememberQs(F);
   renderPeople();
   // zaostření: velký bazén = tam, kde se právě něco děje
   const focus = !me ? "both" : ["place", "cat0", "wait-setup", "pick-opp", "answer-opp", "shoot-opp"].includes(ph.name) ? "mine" : ph.name === "end" ? "enemy" : "enemy";
   board.dataset.focus = focus; board.dataset.phase = ph.name; board.dataset.me = me || "";
-  board.dataset.wide = ["pick-me", "cat0", "place", "end", "answer-opp", "pick-opp", "wait-setup", "spec-setup"].includes(ph.name) || (ph.name === "shoot-me" && F.left <= 0 && !F.pending.length && !F.pendingRadar) ? "1" : "0";
+  board.dataset.wide = ["pick-me", "cat0", "place", "end", "answer-opp", "pick-opp", "wait-setup", "spec-setup"].includes(ph.name) || (ph.name === "shoot-me" && F.left <= 0) ? "1" : "0";
   // interaktivita nepřátelského bazénu
   if (me) {
-    const opp = pools[other(me)], canShoot = ph.name === "shoot-me" && !cardOpen && F.left + (radarSlot(F) ? 1 : 0) > 0 && !F.pending.length && !F.pendingRadar;
+    const opp = pools[other(me)], canShoot = ph.name === "shoot-me" && F.left + (radarSlot(F) ? 1 : 0) > 0 && !F.T.nc;
     opp.setInteractive(canShoot, shootAt);
     pools[me].wrap.classList.toggle("incoming", ph.name === "shoot-opp" || ph.name === "answer-opp" || ph.name === "pick-opp");
   }
@@ -896,6 +921,10 @@ $("panel").addEventListener("click", e => {
     case "solo-challenge": $("newGameBtn").click(); break;
   }
 });
+// odpověděná karta se zavře klepnutím kamkoli (i na ztmavené pozadí)
+document.addEventListener("click", e => {
+  if (cardOpen && cardState && cardState.phase === "result" && Date.now() - (cardState.at || 0) > 350 && !e.target.closest(".pw")) closeCard();
+});
 $("sheet").addEventListener("click", e => {
   const sw = e.target.closest("[data-act=swap]"); if (sw) return swapEasier();
   const b = e.target.closest(".opt"); if (!b || b.disabled) return;
@@ -942,6 +971,14 @@ $("fsBtn").addEventListener("click", async () => {
   try { await (fsOn() ? fsExit.call(document) : fsRequest.call(fsRoot, { navigationUI: "hide" })); } catch { showHint(); }
 });
 $("fsHintClose").addEventListener("click", hideHint);
+// zvuk: zapnutý od začátku, volba se pamatuje
+function syncSound() {
+  const b = $("soundBtn"), on = sound.on;
+  b.setAttribute("aria-pressed", String(on)); b.title = on ? "Vypnout zvuk" : "Zapnout zvuk"; b.setAttribute("aria-label", b.title);
+  $("soundWave").setAttribute("d", on ? "M15.5 9a4.2 4.2 0 0 1 0 6M18 6.5a7.6 7.6 0 0 1 0 11" : "M16 9.5l5 5M21 9.5l-5 5");
+}
+$("soundBtn").addEventListener("click", () => { sound.set(!sound.on); syncSound(); if (sound.on) sfx("turn"); });
+syncSound();
 ["fullscreenchange", "webkitfullscreenchange"].forEach(ev => document.addEventListener(ev, syncFs));
 attempt(() => matchMedia("(display-mode: standalone)").addEventListener("change", syncFs));
 syncFs();
